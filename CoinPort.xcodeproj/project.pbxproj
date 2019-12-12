@@ -3,27 +3,41 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		C6A356BC23A1BA0900C064C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A356BB23A1BA0900C064C8 /* AppDelegate.swift */; };
 		C6A356BE23A1BA0900C064C8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A356BD23A1BA0900C064C8 /* SceneDelegate.swift */; };
-		C6A356C023A1BA0900C064C8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A356BF23A1BA0900C064C8 /* ViewController.swift */; };
 		C6A356C323A1BA0900C064C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6A356C123A1BA0900C064C8 /* Main.storyboard */; };
 		C6A356C523A1BA0A00C064C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6A356C423A1BA0A00C064C8 /* Assets.xcassets */; };
 		C6A356C823A1BA0A00C064C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6A356C623A1BA0A00C064C8 /* LaunchScreen.storyboard */; };
+		C6A356D223A1BA4200C064C8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A356CF23A1BA4200C064C8 /* User.swift */; };
+		C6A356D323A1BA4200C064C8 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A356D023A1BA4200C064C8 /* Review.swift */; };
+		C6A356D423A1BA4200C064C8 /* Offer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A356D123A1BA4200C064C8 /* Offer.swift */; };
+		C6DDCCAC23A1BBA800E25DA5 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DDCCAB23A1BBA800E25DA5 /* SignInViewController.swift */; };
+		C6DDCCAE23A1BE2C00E25DA5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C6DDCCAD23A1BE2C00E25DA5 /* GoogleService-Info.plist */; };
+		C6DDCCB023A1C98500E25DA5 /* ContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DDCCAF23A1C98500E25DA5 /* ContainerController.swift */; };
+		E4BFBE9032A5D376310DF5BA /* Pods_CoinPort.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BD6A49AF7727292DCBD1BEE /* Pods_CoinPort.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4BD6A49AF7727292DCBD1BEE /* Pods_CoinPort.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoinPort.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6B438E1AB70975859B9FE0B8 /* Pods-CoinPort.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoinPort.debug.xcconfig"; path = "Target Support Files/Pods-CoinPort/Pods-CoinPort.debug.xcconfig"; sourceTree = "<group>"; };
+		7A1D9FBF3766009305D5BA65 /* Pods-CoinPort.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoinPort.release.xcconfig"; path = "Target Support Files/Pods-CoinPort/Pods-CoinPort.release.xcconfig"; sourceTree = "<group>"; };
 		C6A356B823A1BA0900C064C8 /* CoinPort.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoinPort.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6A356BB23A1BA0900C064C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6A356BD23A1BA0900C064C8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C6A356BF23A1BA0900C064C8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C6A356C223A1BA0900C064C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C6A356C423A1BA0A00C064C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C6A356C723A1BA0A00C064C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C6A356C923A1BA0A00C064C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C6A356CF23A1BA4200C064C8 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		C6A356D023A1BA4200C064C8 /* Review.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
+		C6A356D123A1BA4200C064C8 /* Offer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Offer.swift; sourceTree = "<group>"; };
+		C6DDCCAB23A1BBA800E25DA5 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		C6DDCCAD23A1BE2C00E25DA5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C6DDCCAF23A1C98500E25DA5 /* ContainerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4BFBE9032A5D376310DF5BA /* Pods_CoinPort.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +57,8 @@
 			children = (
 				C6A356BA23A1BA0900C064C8 /* CoinPort */,
 				C6A356B923A1BA0900C064C8 /* Products */,
+				EDBAB21E079B3E3E39A5AB78 /* Pods */,
+				D97C0B9A28C4AABE50AA779C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +73,53 @@
 		C6A356BA23A1BA0900C064C8 /* CoinPort */ = {
 			isa = PBXGroup;
 			children = (
+				C6DDCCAA23A1BB8100E25DA5 /* Controllers */,
+				C6A356D523A1BA4B00C064C8 /* DataModel */,
 				C6A356BB23A1BA0900C064C8 /* AppDelegate.swift */,
 				C6A356BD23A1BA0900C064C8 /* SceneDelegate.swift */,
-				C6A356BF23A1BA0900C064C8 /* ViewController.swift */,
 				C6A356C123A1BA0900C064C8 /* Main.storyboard */,
 				C6A356C423A1BA0A00C064C8 /* Assets.xcassets */,
 				C6A356C623A1BA0A00C064C8 /* LaunchScreen.storyboard */,
 				C6A356C923A1BA0A00C064C8 /* Info.plist */,
+				C6DDCCAD23A1BE2C00E25DA5 /* GoogleService-Info.plist */,
 			);
 			path = CoinPort;
+			sourceTree = "<group>";
+		};
+		C6A356D523A1BA4B00C064C8 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				C6A356D123A1BA4200C064C8 /* Offer.swift */,
+				C6A356D023A1BA4200C064C8 /* Review.swift */,
+				C6A356CF23A1BA4200C064C8 /* User.swift */,
+			);
+			path = DataModel;
+			sourceTree = "<group>";
+		};
+		C6DDCCAA23A1BB8100E25DA5 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C6DDCCAB23A1BBA800E25DA5 /* SignInViewController.swift */,
+				C6DDCCAF23A1C98500E25DA5 /* ContainerController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		D97C0B9A28C4AABE50AA779C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4BD6A49AF7727292DCBD1BEE /* Pods_CoinPort.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EDBAB21E079B3E3E39A5AB78 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6B438E1AB70975859B9FE0B8 /* Pods-CoinPort.debug.xcconfig */,
+				7A1D9FBF3766009305D5BA65 /* Pods-CoinPort.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +129,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C6A356CC23A1BA0A00C064C8 /* Build configuration list for PBXNativeTarget "CoinPort" */;
 			buildPhases = (
+				BEA28A2A16742155D42E8379 /* [CP] Check Pods Manifest.lock */,
 				C6A356B423A1BA0900C064C8 /* Sources */,
 				C6A356B523A1BA0900C064C8 /* Frameworks */,
 				C6A356B623A1BA0900C064C8 /* Resources */,
+				A93DA258CB1418A35D155580 /* [CP] Embed Pods Frameworks */,
+				BDC7A9DB3AA57FD78C0D8D6F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -126,6 +184,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6A356C823A1BA0A00C064C8 /* LaunchScreen.storyboard in Resources */,
+				C6DDCCAE23A1BE2C00E25DA5 /* GoogleService-Info.plist in Resources */,
 				C6A356C523A1BA0A00C064C8 /* Assets.xcassets in Resources */,
 				C6A356C323A1BA0900C064C8 /* Main.storyboard in Resources */,
 			);
@@ -133,12 +192,75 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		A93DA258CB1418A35D155580 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CoinPort/Pods-CoinPort-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CoinPort/Pods-CoinPort-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CoinPort/Pods-CoinPort-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BDC7A9DB3AA57FD78C0D8D6F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CoinPort/Pods-CoinPort-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CoinPort/Pods-CoinPort-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CoinPort/Pods-CoinPort-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BEA28A2A16742155D42E8379 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CoinPort-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C6A356B423A1BA0900C064C8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C6A356C023A1BA0900C064C8 /* ViewController.swift in Sources */,
+				C6A356D423A1BA4200C064C8 /* Offer.swift in Sources */,
+				C6A356D323A1BA4200C064C8 /* Review.swift in Sources */,
+				C6DDCCAC23A1BBA800E25DA5 /* SignInViewController.swift in Sources */,
+				C6A356D223A1BA4200C064C8 /* User.swift in Sources */,
+				C6DDCCB023A1C98500E25DA5 /* ContainerController.swift in Sources */,
 				C6A356BC23A1BA0900C064C8 /* AppDelegate.swift in Sources */,
 				C6A356BE23A1BA0900C064C8 /* SceneDelegate.swift in Sources */,
 			);
@@ -282,6 +404,7 @@
 		};
 		C6A356CD23A1BA0A00C064C8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6B438E1AB70975859B9FE0B8 /* Pods-CoinPort.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -299,6 +422,7 @@
 		};
 		C6A356CE23A1BA0A00C064C8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7A1D9FBF3766009305D5BA65 /* Pods-CoinPort.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
