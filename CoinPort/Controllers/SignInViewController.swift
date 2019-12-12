@@ -10,10 +10,11 @@ import UIKit
 import Firebase
 import GoogleSignIn
 
+
 class SignInViewController: UIViewController, GIDSignInDelegate {
 
     @IBOutlet weak var signInButton: GIDSignInButton!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,6 +39,7 @@ class SignInViewController: UIViewController, GIDSignInDelegate {
                 print(error)
                 return
             }
+           
             print(authResult)
         }
     
