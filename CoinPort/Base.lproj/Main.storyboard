@@ -19,22 +19,33 @@
                                 <rect key="frame" x="75" y="204" width="225" height="75"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="225" id="5hp-fU-uw3"/>
-                                    <constraint firstAttribute="height" constant="75" id="FP4-y6-mbh"/>
+                                    <constraint firstAttribute="height" constant="75" id="fcj-wZ-UEX"/>
+                                    <constraint firstAttribute="width" constant="225" id="sEu-Fz-a9x"/>
                                 </constraints>
                                 <connections>
                                     <action selector="signInButtonPressed:" destination="BYZ-38-t0r" eventType="valueChanged" id="Xd7-6E-2Za"/>
                                 </connections>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qDn-G4-jOh" customClass="FBSDKLoginButton">
+                                <rect key="frame" x="75" y="329" width="225" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="225" id="Cg7-88-J7Q"/>
+                                    <constraint firstAttribute="height" constant="75" id="tnX-8b-hAf"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="qDn-G4-jOh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1ge-bO-QnN"/>
                             <constraint firstItem="M18-2C-xRj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="m9P-Wr-XIy"/>
                             <constraint firstItem="M18-2C-xRj" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="204" id="wNs-OD-7zd"/>
+                            <constraint firstItem="qDn-G4-jOh" firstAttribute="top" secondItem="M18-2C-xRj" secondAttribute="bottom" constant="50" id="yAC-eF-SEt"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="fbSignInButton" destination="qDn-G4-jOh" id="dAq-Kc-Lif"/>
                         <outlet property="signInButton" destination="M18-2C-xRj" id="4MJ-Wb-hIl"/>
                     </connections>
                 </viewController>

@@ -9,25 +9,39 @@
 import UIKit
 import Firebase
 import GoogleSignIn
+import FBSDKLoginKit
 
 
-class SignInViewController: UIViewController, GIDSignInDelegate {
+class SignInViewController: UIViewController, GIDSignInDelegate, LoginButtonDelegate {
+
 
     @IBOutlet weak var signInButton: GIDSignInButton!
 
+    @IBOutlet weak var fbSignInButton: FBLoginButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         GIDSignIn.sharedInstance()?.presentingViewController = self
-        GIDSignIn.sharedInstance().signIn()
         
-        //fBLoginButton.delegate = self as? LoginButtonDelegate
+        fbSignInButton.delegate = self
+        
         signInButton.accessibilityLabel?.append(" with Google")
-        //fBLoginButton.titleLabel?.text = "Sign In with Facebook"
+        
+        fbSignInButton.frame.size.height = 100
+        fbSignInButton.titleLabel?.text = "Sign In with Facebook"
+    }
+    
+    func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
+        
+    }
+    
+    func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
+        
     }
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-        if let error = error {
+            if let error = error {
             print(error)
             return
         }
@@ -40,7 +54,7 @@ class SignInViewController: UIViewController, GIDSignInDelegate {
                 return
             }
            
-            print(authResult)
+           print(authResult)
         }
     
     }
