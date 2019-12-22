@@ -20,7 +20,6 @@ class SignInViewController: UIViewController, GIDSignInDelegate {
         super.viewDidLoad()
 
         GIDSignIn.sharedInstance()?.presentingViewController = self
-
         signInButton.accessibilityLabel?.append(" with Google")
         
         configureFBSignInButton()
@@ -34,6 +33,7 @@ class SignInViewController: UIViewController, GIDSignInDelegate {
         fbSignInButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 13.5)
         fbSignInButton.addTarget(self, action: #selector(fbLoginHandle), for: .touchUpInside)
     }
+    
     @objc func fbLoginHandle() {
     
         LoginManager().logIn(permissions: ["email", "public_profile"], from: self) { (result, error) in
