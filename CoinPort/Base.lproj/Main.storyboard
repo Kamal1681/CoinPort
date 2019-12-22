@@ -22,36 +22,42 @@
                                     <constraint firstAttribute="height" constant="75" id="fcj-wZ-UEX"/>
                                     <constraint firstAttribute="width" constant="225" id="sEu-Fz-a9x"/>
                                 </constraints>
-                                <connections>
-                                    <action selector="signInButtonPressed:" destination="BYZ-38-t0r" eventType="valueChanged" id="Xd7-6E-2Za"/>
-                                </connections>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qDn-G4-jOh" customClass="FBSDKLoginButton">
-                                <rect key="frame" x="75" y="329" width="225" height="75"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qDn-G4-jOh">
+                                <rect key="frame" x="75" y="309" width="225" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="225" id="Cg7-88-J7Q"/>
-                                    <constraint firstAttribute="height" constant="75" id="tnX-8b-hAf"/>
+                                    <constraint firstAttribute="height" constant="40" id="afp-AD-KWf"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="facebook-icon-white-logo-png-transparent" translatesAutoresizingMaskIntoConstraints="NO" id="uKc-75-fR6">
+                                <rect key="frame" x="75" y="309" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="c5u-Nd-05e"/>
+                                    <constraint firstAttribute="width" constant="40" id="uuE-hP-fdm"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="qDn-G4-jOh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1ge-bO-QnN"/>
+                            <constraint firstItem="qDn-G4-jOh" firstAttribute="width" secondItem="M18-2C-xRj" secondAttribute="width" id="AIS-7E-8G7"/>
+                            <constraint firstItem="uKc-75-fR6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="75" id="H9W-2y-Efc"/>
+                            <constraint firstItem="qDn-G4-jOh" firstAttribute="centerY" secondItem="uKc-75-fR6" secondAttribute="centerY" id="Mdx-ct-VnG"/>
                             <constraint firstItem="M18-2C-xRj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="m9P-Wr-XIy"/>
+                            <constraint firstItem="qDn-G4-jOh" firstAttribute="top" secondItem="M18-2C-xRj" secondAttribute="bottom" constant="30" id="tJo-FQ-wEg"/>
                             <constraint firstItem="M18-2C-xRj" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="204" id="wNs-OD-7zd"/>
-                            <constraint firstItem="qDn-G4-jOh" firstAttribute="top" secondItem="M18-2C-xRj" secondAttribute="bottom" constant="50" id="yAC-eF-SEt"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="fbSignInButton" destination="qDn-G4-jOh" id="dAq-Kc-Lif"/>
-                        <outlet property="signInButton" destination="M18-2C-xRj" id="4MJ-Wb-hIl"/>
+                        <outlet property="fbSignInButton" destination="qDn-G4-jOh" id="dGs-fd-UeR"/>
+                        <outlet property="signInButton" destination="M18-2C-xRj" id="Fhz-3j-iYl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="132" y="96"/>
+            <point key="canvasLocation" x="132" y="95.802098950524751"/>
         </scene>
         <!--Container Controller-->
         <scene sceneID="91Y-j9-gIv">
@@ -63,10 +69,14 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="mxa-E1-7Td"/>
                     </view>
+                    <navigationItem key="navigationItem" id="XGb-Lm-E7A"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AgY-1r-8fG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="951" y="96"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="facebook-icon-white-logo-png-transparent" width="2400" height="2343"/>
+    </resources>
 </document>

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C63FA53723AECCB500735EE0 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63FA53623AECCB500735EE0 /* SignInViewController.swift */; };
 		C6A356BC23A1BA0900C064C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A356BB23A1BA0900C064C8 /* AppDelegate.swift */; };
 		C6A356BE23A1BA0900C064C8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A356BD23A1BA0900C064C8 /* SceneDelegate.swift */; };
 		C6A356C323A1BA0900C064C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6A356C123A1BA0900C064C8 /* Main.storyboard */; };
@@ -15,7 +16,6 @@
 		C6A356D223A1BA4200C064C8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A356CF23A1BA4200C064C8 /* User.swift */; };
 		C6A356D323A1BA4200C064C8 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A356D023A1BA4200C064C8 /* Review.swift */; };
 		C6A356D423A1BA4200C064C8 /* Offer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A356D123A1BA4200C064C8 /* Offer.swift */; };
-		C6DDCCAC23A1BBA800E25DA5 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DDCCAB23A1BBA800E25DA5 /* SignInViewController.swift */; };
 		C6DDCCAE23A1BE2C00E25DA5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C6DDCCAD23A1BE2C00E25DA5 /* GoogleService-Info.plist */; };
 		C6DDCCB023A1C98500E25DA5 /* ContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DDCCAF23A1C98500E25DA5 /* ContainerController.swift */; };
 		E4BFBE9032A5D376310DF5BA /* Pods_CoinPort.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BD6A49AF7727292DCBD1BEE /* Pods_CoinPort.framework */; };
@@ -25,6 +25,7 @@
 		4BD6A49AF7727292DCBD1BEE /* Pods_CoinPort.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoinPort.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B438E1AB70975859B9FE0B8 /* Pods-CoinPort.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoinPort.debug.xcconfig"; path = "Target Support Files/Pods-CoinPort/Pods-CoinPort.debug.xcconfig"; sourceTree = "<group>"; };
 		7A1D9FBF3766009305D5BA65 /* Pods-CoinPort.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoinPort.release.xcconfig"; path = "Target Support Files/Pods-CoinPort/Pods-CoinPort.release.xcconfig"; sourceTree = "<group>"; };
+		C63FA53623AECCB500735EE0 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		C6A356B823A1BA0900C064C8 /* CoinPort.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoinPort.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6A356BB23A1BA0900C064C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6A356BD23A1BA0900C064C8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -35,7 +36,6 @@
 		C6A356CF23A1BA4200C064C8 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C6A356D023A1BA4200C064C8 /* Review.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		C6A356D123A1BA4200C064C8 /* Offer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Offer.swift; sourceTree = "<group>"; };
-		C6DDCCAB23A1BBA800E25DA5 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		C6DDCCAD23A1BE2C00E25DA5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C6DDCCAF23A1C98500E25DA5 /* ContainerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -99,8 +99,8 @@
 		C6DDCCAA23A1BB8100E25DA5 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				C6DDCCAB23A1BBA800E25DA5 /* SignInViewController.swift */,
 				C6DDCCAF23A1C98500E25DA5 /* ContainerController.swift */,
+				C63FA53623AECCB500735EE0 /* SignInViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -133,8 +133,8 @@
 				C6A356B423A1BA0900C064C8 /* Sources */,
 				C6A356B523A1BA0900C064C8 /* Frameworks */,
 				C6A356B623A1BA0900C064C8 /* Resources */,
-				A93DA258CB1418A35D155580 /* [CP] Embed Pods Frameworks */,
-				BDC7A9DB3AA57FD78C0D8D6F /* [CP] Copy Pods Resources */,
+				1BAA15135E4B17E85F3BC4D4 /* [CP] Embed Pods Frameworks */,
+				15E08CEFCCCEB4A7DF921546 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -193,24 +193,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		A93DA258CB1418A35D155580 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CoinPort/Pods-CoinPort-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CoinPort/Pods-CoinPort-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CoinPort/Pods-CoinPort-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BDC7A9DB3AA57FD78C0D8D6F /* [CP] Copy Pods Resources */ = {
+		15E08CEFCCCEB4A7DF921546 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -225,6 +208,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CoinPort/Pods-CoinPort-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1BAA15135E4B17E85F3BC4D4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CoinPort/Pods-CoinPort-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CoinPort/Pods-CoinPort-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CoinPort/Pods-CoinPort-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		BEA28A2A16742155D42E8379 /* [CP] Check Pods Manifest.lock */ = {
@@ -256,9 +256,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C63FA53723AECCB500735EE0 /* SignInViewController.swift in Sources */,
 				C6A356D423A1BA4200C064C8 /* Offer.swift in Sources */,
 				C6A356D323A1BA4200C064C8 /* Review.swift in Sources */,
-				C6DDCCAC23A1BBA800E25DA5 /* SignInViewController.swift in Sources */,
 				C6A356D223A1BA4200C064C8 /* User.swift in Sources */,
 				C6DDCCB023A1C98500E25DA5 /* ContainerController.swift in Sources */,
 				C6A356BC23A1BA0900C064C8 /* AppDelegate.swift in Sources */,

@@ -2,7 +2,7 @@
 //  SignInViewController.swift
 //  CoinPort
 //
-//  Created by Kamal Maged on 2019-12-11.
+//  Created by Kamal Maged on 2019-12-21.
 //  Copyright © 2019 Kamal Maged. All rights reserved.
 //
 
@@ -11,37 +11,51 @@ import Firebase
 import GoogleSignIn
 import FBSDKLoginKit
 
-
-class SignInViewController: UIViewController, GIDSignInDelegate, LoginButtonDelegate {
-
+class SignInViewController: UIViewController, GIDSignInDelegate {
 
     @IBOutlet weak var signInButton: GIDSignInButton!
-
     @IBOutlet weak var fbSignInButton: FBLoginButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         GIDSignIn.sharedInstance()?.presentingViewController = self
-        
-        fbSignInButton.delegate = self
-        
+
         signInButton.accessibilityLabel?.append(" with Google")
         
-        fbSignInButton.frame.size.height = 100
-        fbSignInButton.titleLabel?.text = "Sign In with Facebook"
+        configureFBSignInButton()
     }
-    
-    func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
-        
+
+    func configureFBSignInButton() {
+        fbSignInButton.backgroundColor = UIColor(red: 0.2314, green: 0.349, blue: 0.5961, alpha: 1)
+        fbSignInButton.setTitle("Sign In with Facebook", for: .normal)
+        fbSignInButton.setTitleColor(.white, for: .normal)
+        fbSignInButton.layer.cornerRadius = 2
+        fbSignInButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 13.5)
+        fbSignInButton.addTarget(self, action: #selector(fbLoginHandle), for: .touchUpInside)
     }
+    @objc func fbLoginHandle() {
     
-    func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
-        
-    }
-    
-    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        LoginManager().logIn(permissions: ["email", "public_profile"], from: self) { (result, error) in
             if let error = error {
+                print(error)
+                return
+            }
+            GraphRequest(graphPath: "/me", parameters: ["fields": "id, name, email, picture"]).start { (connection, result, error) in
+                if let error = error {
+                    print(error)
+                    return
+                }
+                let resultDictionary = result as! Dictionary<String, Any>
+                let name = resultDictionary["name"]
+                let picture = resultDictionary["picture"]
+                let email = resultDictionary["email"]
+            }
+        }
+    }
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        
+        if let error = error {
             print(error)
             return
         }
@@ -56,13 +70,11 @@ class SignInViewController: UIViewController, GIDSignInDelegate, LoginButtonDele
            
            print(authResult)
         }
-    
     }
     
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
         //
     }
- 
     /*
     // MARK: - Navigation
 
