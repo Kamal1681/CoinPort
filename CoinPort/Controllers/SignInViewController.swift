@@ -58,19 +58,7 @@ class SignInViewController: UIViewController, GIDSignInDelegate {
                     print(error)
                     return
                 }
-                print(authResult?.user.photoURL)   //TODO remove
-            }
-            
-            GraphRequest(graphPath: "/me", parameters: ["fields": "id, name, email, picture"]).start { (connection, result, error) in
-                if let error = error {
-                    print(error)
-                    return
-                }
-                let resultDictionary = result as! Dictionary<String, Any>
-                let name = resultDictionary["name"]
-                let picture = resultDictionary["picture"]
-                let email = resultDictionary["email"]
-
+                print(authResult?.user.displayName)   //TODO remove
             }
         }
     }
@@ -89,7 +77,7 @@ class SignInViewController: UIViewController, GIDSignInDelegate {
                 return
             }
            
-            print(authResult?.user.email)    //TODO remove
+            print(authResult?.user.displayName)    //TODO remove
         }
     }
     
