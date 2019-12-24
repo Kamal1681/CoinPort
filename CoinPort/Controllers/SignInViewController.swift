@@ -21,12 +21,13 @@ class SignInViewController: UIViewController, GIDSignInDelegate {
         super.viewDidLoad()
 
         GIDSignIn.sharedInstance()?.presentingViewController = self
+        GIDSignIn.sharedInstance().delegate = self
         signInButton.accessibilityLabel?.append(" with Google")
         
         configureFBSignInButton()
     }
 
-    func configureFBSignInButton() {
+    private func configureFBSignInButton() {
         
         fbSignInButton.backgroundColor = UIColor(red: 0.2314, green: 0.349, blue: 0.5961, alpha: 1)
         fbSignInButton.setTitle("Sign In with Facebook", for: .normal)
@@ -52,12 +53,12 @@ class SignInViewController: UIViewController, GIDSignInDelegate {
             let credentials = FacebookAuthProvider.credential(withAccessToken: accessTokenString)
             
            
-            Auth.auth().signIn(with: credentials) { (user, error) in
+            Auth.auth().signIn(with: credentials) { (authResult, error) in
                 if let error = error {
                     print(error)
                     return
                 }
-                print(user!)
+                print(authResult?.user.photoURL)   //TODO remove
             }
             
             GraphRequest(graphPath: "/me", parameters: ["fields": "id, name, email, picture"]).start { (connection, result, error) in
@@ -88,7 +89,7 @@ class SignInViewController: UIViewController, GIDSignInDelegate {
                 return
             }
            
-           print(authResult)
+            print(authResult?.user.email)    //TODO remove
         }
     }
     

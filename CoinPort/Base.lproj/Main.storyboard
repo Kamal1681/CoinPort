@@ -23,10 +23,6 @@
                                     <constraint firstAttribute="width" constant="225" id="sEu-Fz-a9x"/>
                                 </constraints>
                             </view>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="NG9-KA-Vh9">
-                                <rect key="frame" x="85" y="214" width="20" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qDn-G4-jOh">
                                 <rect key="frame" x="75" y="309" width="225" height="40"/>
                                 <constraints>
