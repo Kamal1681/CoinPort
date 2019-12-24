@@ -133,8 +133,8 @@
 				C6A356B423A1BA0900C064C8 /* Sources */,
 				C6A356B523A1BA0900C064C8 /* Frameworks */,
 				C6A356B623A1BA0900C064C8 /* Resources */,
-				1BAA15135E4B17E85F3BC4D4 /* [CP] Embed Pods Frameworks */,
-				15E08CEFCCCEB4A7DF921546 /* [CP] Copy Pods Resources */,
+				6162C353FBA7BA870F84062F /* [CP] Embed Pods Frameworks */,
+				5EF11848C734A61079701224 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -193,7 +193,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		15E08CEFCCCEB4A7DF921546 /* [CP] Copy Pods Resources */ = {
+		5EF11848C734A61079701224 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -210,7 +210,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CoinPort/Pods-CoinPort-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		1BAA15135E4B17E85F3BC4D4 /* [CP] Embed Pods Frameworks */ = {
+		6162C353FBA7BA870F84062F /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
