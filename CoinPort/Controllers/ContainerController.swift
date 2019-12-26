@@ -10,21 +10,60 @@ import UIKit
 
 class ContainerController: UIViewController {
 
+    var menuViewController: UIViewController!
+    var centerController: UIViewController!
+    var isExpanded = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        configureHomeViewController()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func configureHomeViewController() {
+        
+        let homeViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+        centerController = UINavigationController(rootViewController: homeViewController)
+        
+        view.addSubview(centerController.view)
+        addChild(centerController)
+        centerController.didMove(toParent: self)
+        homeViewController.delegate = self
     }
-    */
+    
+    func configureMenuViewController() {
+        if menuViewController == nil {
+            menuViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MenuViewController") as! MenuViewController
+            view.insertSubview(menuViewController.view, at: 0)
+            addChild(menuViewController)
+            menuViewController.didMove(toParent: self)
+        }
+    }
+    
+    func showMenuController (shouldAppear: Bool) {
+        if shouldAppear {
+            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
+                let width = self.centerController.view.frame.size.width
+                self.centerController.view.frame.origin.x = width - width/2
+            }, completion: nil)
+        } else {
+            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
+                self.centerController.view.frame.origin.x = 0
+            }, completion: nil)
+            
+        }
+    }
 
+}
+
+extension ContainerController: HomeViewControllerDelegate {
+    func handleMenuToggle() {
+        if !isExpanded {
+            configureMenuViewController()
+        }
+        isExpanded = !isExpanded
+        showMenuController(shouldAppear: isExpanded)
+    }
+    
+    
 }

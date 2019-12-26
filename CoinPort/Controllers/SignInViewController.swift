@@ -16,6 +16,9 @@ class SignInViewController: UIViewController, GIDSignInDelegate {
 
     @IBOutlet weak var signInButton: GIDSignInButton!
     @IBOutlet weak var fbSignInButton: FBLoginButton!
+    static var email = ""
+    static var userName = ""
+    static var profilePicture: URL?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,7 +61,13 @@ class SignInViewController: UIViewController, GIDSignInDelegate {
                     print(error)
                     return
                 }
-                print(authResult?.user.displayName)   //TODO remove
+                guard let email = authResult?.user.email, let userName = authResult?.user.displayName, let profilePicture = authResult?.user.photoURL else { return }
+                
+                SignInViewController.email = email
+                SignInViewController.userName = userName
+                SignInViewController.profilePicture = profilePicture
+                self.openHomeScreen()
+   
             }
         }
     }
@@ -76,22 +85,28 @@ class SignInViewController: UIViewController, GIDSignInDelegate {
                 print(error)
                 return
             }
-           
-            print(authResult?.user.displayName)    //TODO remove
+            guard let email = authResult?.user.email, let userName = authResult?.user.displayName, let profilePicture = authResult?.user.photoURL else { return }
+            
+            SignInViewController.email = email
+            SignInViewController.userName = userName
+            SignInViewController.profilePicture = profilePicture
+            
+            self.openHomeScreen()
         }
     }
     
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
         //
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func openHomeScreen() {
+        
+        let container = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ContainerController") as! ContainerController
+        UIView.animate(withDuration: 0.1, delay: 0, options: .curveEaseInOut, animations: {
+                self.view.addSubview(container.view)
+                self.addChild(container)
+                container.didMove(toParent: self)
+        }, completion: nil)
     }
-    */
 
 }
