@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class MenuViewController: UIViewController {
     
@@ -17,11 +18,9 @@ class MenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
  
-        email.text = SignInViewController.email
-        userName.text? = SignInViewController.userName
-    
-
-       
+        email.text = Auth.auth().currentUser?.email
+        userName.text = Auth.auth().currentUser?.displayName
+        profilePicture.image = SignInViewController.image
     }
     
 

@@ -44,7 +44,7 @@ class ContainerController: UIViewController {
         if shouldAppear {
             UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
                 let width = self.centerController.view.frame.size.width
-                self.centerController.view.frame.origin.x = width - width/2
+                self.centerController.view.frame.origin.x = width - width/4
             }, completion: nil)
         } else {
             UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {

@@ -12,16 +12,17 @@ import UIKit
 class User {
     var userID: String?
     var name: String?
-    var photo: UIImageView?
+    var email: String?
+    var photo: UIImage?
     var offersArray = [Offer?]()
     
     
     
-    init(userID: String, name: String, photo: UIImageView) {
-        self.userID = userID
+    init(email: String, name: String, photo: UIImage) {
+        
+        self.email = email
         self.name = name
         self.photo = photo
-        
     }
     
 }

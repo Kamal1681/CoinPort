@@ -16,9 +16,7 @@ class SignInViewController: UIViewController, GIDSignInDelegate {
 
     @IBOutlet weak var signInButton: GIDSignInButton!
     @IBOutlet weak var fbSignInButton: FBLoginButton!
-    static var email = ""
-    static var userName = ""
-    static var profilePicture: URL?
+    static var image: UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,13 +59,14 @@ class SignInViewController: UIViewController, GIDSignInDelegate {
                     print(error)
                     return
                 }
-                guard let email = authResult?.user.email, let userName = authResult?.user.displayName, let profilePicture = authResult?.user.photoURL else { return }
+                guard
+                    let email = authResult?.user.email,
+                    let userName = authResult?.user.displayName,
+                    let profilePicture = authResult?.user.photoURL
+                    else { return }
                 
-                SignInViewController.email = email
-                SignInViewController.userName = userName
-                SignInViewController.profilePicture = profilePicture
+                self.getUser(profilePicture: profilePicture)
                 self.openHomeScreen()
-   
             }
         }
     }
@@ -85,12 +84,13 @@ class SignInViewController: UIViewController, GIDSignInDelegate {
                 print(error)
                 return
             }
-            guard let email = authResult?.user.email, let userName = authResult?.user.displayName, let profilePicture = authResult?.user.photoURL else { return }
+            guard
+                let email = authResult?.user.email,
+                let userName = authResult?.user.displayName,
+                let profilePicture = authResult?.user.photoURL
+                else { return }
             
-            SignInViewController.email = email
-            SignInViewController.userName = userName
-            SignInViewController.profilePicture = profilePicture
-            
+            self.getUser(profilePicture: profilePicture)
             self.openHomeScreen()
         }
     }
@@ -98,7 +98,28 @@ class SignInViewController: UIViewController, GIDSignInDelegate {
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
         //
     }
-    
+    func getUser(profilePicture: URL) {
+        
+        URLSession.shared.dataTask(with: profilePicture) { (data, response, error) in
+            if let error = error {
+                DispatchQueue.main.async {
+                    print(error)
+                }
+              return
+            }
+                guard let data = data else {
+                    DispatchQueue.main.async {
+                        print("No Data")
+                    }
+                    return
+                }
+            DispatchQueue.main.async {
+                guard let photo = UIImage(data: data)  else { return }
+                SignInViewController.image = photo
+            }
+        }.resume()
+        
+    }
     func openHomeScreen() {
         
         let container = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ContainerController") as! ContainerController
