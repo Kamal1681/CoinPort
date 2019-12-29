@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UINavigationBarDelegate {
     
     var delegate: HomeViewControllerDelegate?
     
@@ -16,10 +16,13 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         configureNavigationBar()
-        
+
     }
-    
+    func position(for bar: UIBarPositioning) -> UIBarPosition {
+        return .topAttached
+    }
     func configureNavigationBar() {
+        
         navigationController?.navigationBar.barTintColor = UIColor(red: 71/255, green: 91/255, blue: 195/255, alpha: 1)
         navigationController?.navigationBar.barStyle = .black
         

@@ -17,12 +17,21 @@ class MenuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
- 
+        
+        configureImageView()
         email.text = Auth.auth().currentUser?.email
         userName.text = Auth.auth().currentUser?.displayName
         profilePicture.image = SignInViewController.image
     }
     
+    func configureImageView() {
+        
+        profilePicture.layer.borderWidth = 1.0
+        profilePicture.layer.cornerRadius = profilePicture.frame.size.width / 2
+        profilePicture.layer.borderColor = UIColor.lightGray.cgColor
+        profilePicture.layer.masksToBounds = true
+        profilePicture.clipsToBounds = true
+    }
 
     /*
     // MARK: - Navigation
