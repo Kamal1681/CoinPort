@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import Firebase
 
 class ContainerController: UIViewController {
 
-    var menuViewController: UIViewController!
+    var menuViewController: MenuViewController!
     var centerController: UIViewController!
     var isExpanded = false
     
@@ -35,13 +36,14 @@ class ContainerController: UIViewController {
     func configureMenuViewController() {
         if menuViewController == nil {
             menuViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MenuViewController") as! MenuViewController
+            menuViewController.delegate = self
             view.insertSubview(menuViewController.view, at: 0)
             addChild(menuViewController)
             menuViewController.didMove(toParent: self)
         }
     }
     
-    func showMenuController (shouldAppear: Bool) {
+    func showMenuController (shouldAppear: Bool, menuOption: MenuOption?) {
         if shouldAppear {
             UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
                 let width = self.centerController.view.frame.size.width
@@ -50,20 +52,60 @@ class ContainerController: UIViewController {
         } else {
             UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
                 self.centerController.view.frame.origin.x = 0
-            }, completion: nil)
+            }) { _ in
+                guard let menuOption = menuOption else { return }
+                self.didSelectMenuOption(menuOption: menuOption)
+            }
+        }
+
+    }
+    
+    func didSelectMenuOption(menuOption: MenuOption) {
+        switch menuOption {
             
+        case .myProfile:
+            let profileViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
+            view.addSubview(profileViewController.view)
+            addChild(profileViewController)
+            profileViewController.didMove(toParent: self)
+            
+        case .addNewOffer:
+            print("new offer")
+        case .inbox:
+            print("inbox")
+        case .favorites:
+            print("favorites")
+        case .arabBitNews:
+            print("arab news")
+        case .logout:
+            do {
+                try Auth.auth().signOut()
+            }
+            catch {
+                print("error")
+            }
+        case .repeatTutorial:
+            print("tutorial")
+        case .tellAboutUs:
+            print("about us")
+        case .rateApp:
+            print("rate app")
+        case .contactUs:
+            print("contact us")
         }
     }
 
 }
 
 extension ContainerController: HomeViewControllerDelegate {
-    func handleMenuToggle() {
+    
+    func handleMenuToggle(forMenuOption menuOption: MenuOption?) {
+        
         if !isExpanded {
             configureMenuViewController()
         }
         isExpanded = !isExpanded
-        showMenuController(shouldAppear: isExpanded)
+        showMenuController(shouldAppear: isExpanded, menuOption: menuOption)
     }
     
     

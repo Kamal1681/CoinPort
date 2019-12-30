@@ -8,5 +8,5 @@
 
 import Foundation
 protocol HomeViewControllerDelegate {
-    func handleMenuToggle()
+    func handleMenuToggle(forMenuOption menuOption: MenuOption?)
 }

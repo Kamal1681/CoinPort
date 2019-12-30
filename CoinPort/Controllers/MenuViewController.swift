@@ -11,9 +11,13 @@ import Firebase
 
 class MenuViewController: UIViewController {
     
+    @IBOutlet weak var menuTableView: UITableView!
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var email: UILabel!
     @IBOutlet weak var profilePicture: UIImageView!
+    
+    let reuseIdentifier = "Menu Table Cell"
+    var delegate: HomeViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +26,10 @@ class MenuViewController: UIViewController {
         email.text = Auth.auth().currentUser?.email
         userName.text = Auth.auth().currentUser?.displayName
         profilePicture.image = SignInViewController.image
+        menuTableView.dataSource = self
+        menuTableView.delegate = self
+        menuTableView.separatorStyle = .none
+    
     }
     
     func configureImageView() {
@@ -43,4 +51,34 @@ class MenuViewController: UIViewController {
     }
     */
 
+}
+
+    // MARK: - Table view delegate and datasource
+
+extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 6
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = menuTableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! MenuTableCell
+        
+        let menuOption = MenuOption(rawValue: indexPath.row)
+        cell.itemLabel.text = menuOption?.description
+        cell.itemImage.image = menuOption?.image
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let menuOption = MenuOption(rawValue: indexPath.row)
+        delegate?.handleMenuToggle(forMenuOption: menuOption)
+    }
+    
 }

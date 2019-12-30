@@ -11,6 +11,9 @@
 		C6477D7423B404E10043C29D /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6477D7323B404E10043C29D /* MenuViewController.swift */; };
 		C6477D7623B405100043C29D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6477D7523B405100043C29D /* HomeViewController.swift */; };
 		C6477D7923B42E7E0043C29D /* HomeViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6477D7823B42E7E0043C29D /* HomeViewControllerDelegate.swift */; };
+		C6477D7B23B95C7E0043C29D /* MenuTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6477D7A23B95C7E0043C29D /* MenuTableCell.swift */; };
+		C6477D7D23B96A940043C29D /* MenuOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6477D7C23B96A940043C29D /* MenuOptions.swift */; };
+		C6477D7F23B990DF0043C29D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6477D7E23B990DF0043C29D /* ProfileViewController.swift */; };
 		C6A356BC23A1BA0900C064C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A356BB23A1BA0900C064C8 /* AppDelegate.swift */; };
 		C6A356BE23A1BA0900C064C8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A356BD23A1BA0900C064C8 /* SceneDelegate.swift */; };
 		C6A356C323A1BA0900C064C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6A356C123A1BA0900C064C8 /* Main.storyboard */; };
@@ -32,6 +35,9 @@
 		C6477D7323B404E10043C29D /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		C6477D7523B405100043C29D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C6477D7823B42E7E0043C29D /* HomeViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerDelegate.swift; sourceTree = "<group>"; };
+		C6477D7A23B95C7E0043C29D /* MenuTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableCell.swift; sourceTree = "<group>"; };
+		C6477D7C23B96A940043C29D /* MenuOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuOptions.swift; sourceTree = "<group>"; };
+		C6477D7E23B990DF0043C29D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		C6A356B823A1BA0900C064C8 /* CoinPort.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoinPort.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6A356BB23A1BA0900C064C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6A356BD23A1BA0900C064C8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -107,6 +113,7 @@
 				C6A356D123A1BA4200C064C8 /* Offer.swift */,
 				C6A356D023A1BA4200C064C8 /* Review.swift */,
 				C6A356CF23A1BA4200C064C8 /* User.swift */,
+				C6477D7C23B96A940043C29D /* MenuOptions.swift */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -118,6 +125,8 @@
 				C6477D7323B404E10043C29D /* MenuViewController.swift */,
 				C6477D7523B405100043C29D /* HomeViewController.swift */,
 				C63FA53623AECCB500735EE0 /* SignInViewController.swift */,
+				C6477D7A23B95C7E0043C29D /* MenuTableCell.swift */,
+				C6477D7E23B990DF0043C29D /* ProfileViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -278,9 +287,12 @@
 				C6477D7923B42E7E0043C29D /* HomeViewControllerDelegate.swift in Sources */,
 				C6A356D323A1BA4200C064C8 /* Review.swift in Sources */,
 				C6A356D223A1BA4200C064C8 /* User.swift in Sources */,
+				C6477D7D23B96A940043C29D /* MenuOptions.swift in Sources */,
 				C6DDCCB023A1C98500E25DA5 /* ContainerController.swift in Sources */,
 				C6477D7623B405100043C29D /* HomeViewController.swift in Sources */,
 				C6A356BC23A1BA0900C064C8 /* AppDelegate.swift in Sources */,
+				C6477D7B23B95C7E0043C29D /* MenuTableCell.swift in Sources */,
+				C6477D7F23B990DF0043C29D /* ProfileViewController.swift in Sources */,
 				C6A356BE23A1BA0900C064C8 /* SceneDelegate.swift in Sources */,
 				C6477D7423B404E10043C29D /* MenuViewController.swift in Sources */,
 			);
