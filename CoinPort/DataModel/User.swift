@@ -15,7 +15,7 @@ class User {
     var email: String?
     var photo: UIImage?
     var offersArray = [Offer?]()
-    
+    var reviewsArray = [Review?]()
     
     
     init(email: String, name: String, photo: UIImage) {

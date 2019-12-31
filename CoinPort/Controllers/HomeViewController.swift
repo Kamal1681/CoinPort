@@ -16,11 +16,11 @@ class HomeViewController: UIViewController, UINavigationBarDelegate {
         super.viewDidLoad()
         view.backgroundColor = .white
         configureNavigationBar()
-        navigationController?.setNavigationBarHidden(true, animated: false)
-
+        
     }
     
     func configureNavigationBar() {
+        navigationController?.setNavigationBarHidden(true, animated: false)
         let item = UINavigationItem()
         item.title = "Global Offers"
         item.titleView?.tintColor = .white

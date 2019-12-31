@@ -52,10 +52,10 @@ class ContainerController: UIViewController {
         } else {
             UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
                 self.centerController.view.frame.origin.x = 0
-            }) { _ in
-                guard let menuOption = menuOption else { return }
-                self.didSelectMenuOption(menuOption: menuOption)
-            }
+                if let menuOption = menuOption {
+                   self.didSelectMenuOption(menuOption: menuOption)
+                }
+            }, completion: nil)
         }
 
     }
@@ -65,9 +65,7 @@ class ContainerController: UIViewController {
             
         case .myProfile:
             let profileViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
-            view.addSubview(profileViewController.view)
-            addChild(profileViewController)
-            profileViewController.didMove(toParent: self)
+            present(UINavigationController(rootViewController: profileViewController), animated: true, completion: nil)
             
         case .addNewOffer:
             print("new offer")
@@ -80,6 +78,7 @@ class ContainerController: UIViewController {
         case .logout:
             do {
                 try Auth.auth().signOut()
+
             }
             catch {
                 print("error")

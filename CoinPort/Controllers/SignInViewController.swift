@@ -12,8 +12,7 @@ import GoogleSignIn
 import FBSDKLoginKit
 
 class SignInViewController: UIViewController, GIDSignInDelegate {
-
-
+    
     @IBOutlet weak var signInButton: GIDSignInButton!
     @IBOutlet weak var fbSignInButton: FBLoginButton!
     static var image: UIImage?
@@ -40,12 +39,14 @@ class SignInViewController: UIViewController, GIDSignInDelegate {
     }
     
     @objc func fbLoginHandle() {
-    
+        
         LoginManager().logIn(permissions: ["email", "public_profile"], from: self) { (result, error) in
             if let error = error {
                 print(error)
                 return
             }
+            guard let result = result else { return }
+            if result.isCancelled { return }
             
             let accessToken = AccessToken.current
             guard let accessTokenString = accessToken?.tokenString else {
@@ -59,10 +60,7 @@ class SignInViewController: UIViewController, GIDSignInDelegate {
                     print(error)
                     return
                 }
-                guard
-                    let email = authResult?.user.email,
-                    let userName = authResult?.user.displayName,
-                    let profilePicture = authResult?.user.photoURL
+                guard let profilePicture = authResult?.user.photoURL
                     else { return }
                 
                 SignInViewController.getUser(profilePicture: profilePicture)
@@ -85,10 +83,7 @@ class SignInViewController: UIViewController, GIDSignInDelegate {
                 return
             }
 
-            guard
-                let email = authResult?.user.email,
-                let userName = authResult?.user.displayName,
-                let profilePicture = authResult?.user.photoURL
+            guard let profilePicture = authResult?.user.photoURL
                 else { return }
             
             SignInViewController.getUser(profilePicture: profilePicture)
