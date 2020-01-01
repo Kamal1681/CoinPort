@@ -246,17 +246,63 @@
                                     <constraint firstItem="THa-4r-rnZ" firstAttribute="top" secondItem="oQL-lM-Ezz" secondAttribute="bottom" constant="30" id="scC-iG-st2"/>
                                 </constraints>
                             </view>
+                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="flb-Fl-7Gn">
+                                <rect key="frame" x="0.0" y="200" width="375" height="49"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <items>
+                                    <tabBarItem tag="1" title="Info" image="info.circle" catalog="system" id="r3r-T9-7Tb"/>
+                                    <tabBarItem tag="2" title="Offers" image="coloncurrencysign.circle" catalog="system" id="8VA-9U-OQn"/>
+                                </items>
+                            </tabBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TdL-oh-tMA">
+                                <rect key="frame" x="0.0" y="249" width="375" height="418"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oa7-MK-AST">
+                                <rect key="frame" x="0.0" y="249" width="375" height="418"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JCt-ll-tyY">
+                                        <rect key="frame" x="15" y="198.5" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="JCt-ll-tyY" firstAttribute="leading" secondItem="oa7-MK-AST" secondAttribute="leading" constant="15" id="YjR-aN-hFJ"/>
+                                    <constraint firstItem="JCt-ll-tyY" firstAttribute="centerY" secondItem="oa7-MK-AST" secondAttribute="centerY" id="lCy-ci-mbw"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="tds-KP-Lsc" firstAttribute="leading" secondItem="Jot-0Y-QD1" secondAttribute="leading" id="1Q6-O9-fTo"/>
                             <constraint firstItem="tds-KP-Lsc" firstAttribute="trailing" secondItem="Jot-0Y-QD1" secondAttribute="trailing" id="6L4-zI-ZJH"/>
+                            <constraint firstItem="oa7-MK-AST" firstAttribute="trailing" secondItem="Jot-0Y-QD1" secondAttribute="trailing" id="E86-aH-hNB"/>
+                            <constraint firstItem="TdL-oh-tMA" firstAttribute="leading" secondItem="Jot-0Y-QD1" secondAttribute="leading" id="FYZ-Eh-eU7"/>
+                            <constraint firstItem="Jot-0Y-QD1" firstAttribute="bottom" secondItem="TdL-oh-tMA" secondAttribute="bottom" id="Fm2-3u-jbg"/>
+                            <constraint firstItem="oa7-MK-AST" firstAttribute="top" secondItem="flb-Fl-7Gn" secondAttribute="bottom" id="MHn-lI-nsa"/>
+                            <constraint firstItem="flb-Fl-7Gn" firstAttribute="leading" secondItem="Jot-0Y-QD1" secondAttribute="leading" id="OyI-yT-zvz"/>
+                            <constraint firstItem="oa7-MK-AST" firstAttribute="height" secondItem="TdL-oh-tMA" secondAttribute="height" id="Uzq-41-aaa"/>
+                            <constraint firstItem="Jot-0Y-QD1" firstAttribute="trailing" secondItem="TdL-oh-tMA" secondAttribute="trailing" id="WNt-5n-ygJ"/>
                             <constraint firstItem="tds-KP-Lsc" firstAttribute="top" secondItem="Jot-0Y-QD1" secondAttribute="top" id="huM-DK-efx"/>
+                            <constraint firstItem="TdL-oh-tMA" firstAttribute="top" secondItem="flb-Fl-7Gn" secondAttribute="bottom" id="knN-c7-yR5"/>
+                            <constraint firstItem="flb-Fl-7Gn" firstAttribute="trailing" secondItem="Jot-0Y-QD1" secondAttribute="trailing" id="mN1-v4-pUL"/>
+                            <constraint firstItem="oa7-MK-AST" firstAttribute="width" secondItem="TdL-oh-tMA" secondAttribute="width" id="nDn-rO-dG3"/>
+                            <constraint firstItem="flb-Fl-7Gn" firstAttribute="top" secondItem="tds-KP-Lsc" secondAttribute="bottom" id="oiP-Pp-njW"/>
+                            <constraint firstItem="oa7-MK-AST" firstAttribute="leading" secondItem="Jot-0Y-QD1" secondAttribute="leading" id="qY2-Om-nSB"/>
+                            <constraint firstItem="oa7-MK-AST" firstAttribute="bottom" secondItem="Jot-0Y-QD1" secondAttribute="bottom" id="vvK-aB-Mvq"/>
+                            <constraint firstItem="oa7-MK-AST" firstAttribute="centerX" secondItem="nCK-Ho-keg" secondAttribute="centerX" id="zAb-FX-2gr"/>
                             <constraint firstItem="tds-KP-Lsc" firstAttribute="height" secondItem="nCK-Ho-keg" secondAttribute="height" multiplier="0.3" id="zrS-O1-a5g"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Jot-0Y-QD1"/>
                     </view>
                     <connections>
+                        <outlet property="infoLabel" destination="JCt-ll-tyY" id="xRC-iE-hjE"/>
+                        <outlet property="infoLabelView" destination="oa7-MK-AST" id="FXn-5i-2Da"/>
+                        <outlet property="menuTabBar" destination="flb-Fl-7Gn" id="eHn-gP-FCh"/>
+                        <outlet property="offersTableView" destination="TdL-oh-tMA" id="cVF-Ms-o7D"/>
                         <outlet property="profilePicture" destination="oQL-lM-Ezz" id="S5O-NN-Fzj"/>
                         <outlet property="userName" destination="THa-4r-rnZ" id="dVE-fX-jPc"/>
                     </connections>
@@ -267,6 +313,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="coloncurrencysign.circle" catalog="system" width="64" height="60"/>
         <image name="facebook-icon-white-logo-png-transparent" width="2400" height="2343"/>
+        <image name="info.circle" catalog="system" width="64" height="60"/>
     </resources>
 </document>

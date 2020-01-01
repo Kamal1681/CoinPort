@@ -9,19 +9,27 @@
 import UIKit
 import Firebase
 
-class ProfileViewController: UIViewController, UINavigationBarDelegate {
+class ProfileViewController: UIViewController, UINavigationBarDelegate, UITabBarDelegate {
 
+    @IBOutlet weak var menuTabBar: UITabBar!
     @IBOutlet weak var profilePicture: UIImageView!
-    
     @IBOutlet weak var userName: UILabel!
+    @IBOutlet weak var infoLabel: UILabel!
+    @IBOutlet weak var offersTableView: UITableView!
+    @IBOutlet weak var infoLabelView: UIView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureImageView()
         configureNavigationBar()
+        configureInfoLabel()
+        menuTabBar.delegate = self
         userName.text = Auth.auth().currentUser?.displayName
         profilePicture.image = SignInViewController.image
+        
     }
-    
+
     func configureImageView() {
         
         profilePicture.layer.borderWidth = 1.0
@@ -38,21 +46,34 @@ class ProfileViewController: UIViewController, UINavigationBarDelegate {
  
         navigationController?.navigationBar.tintColor = .white
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        
         navigationItem.title = "Profile"
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "backButton"), style: .plain, target: self, action: #selector(dismissProfileController))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.left"), style: .plain, target: self, action: #selector(dismissProfileController))
     }
         
     @objc func dismissProfileController() {
         self.dismiss(animated: true, completion: nil)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func configureInfoLabel() {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMMM dd, yyyy"
+        guard let date = Auth.auth().currentUser?.metadata.creationDate else { return }
+        infoLabel.text = "Member since: \(formatter.string(from: date))"
     }
-    */
 
+    // MARK:- Tab Bar functions
+    
+    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        
+        if item.tag == 1 {
+            infoLabelView.isHidden = false
+            offersTableView.isHidden = true
+        }
+        if item.tag == 2 {
+            offersTableView.isHidden = false
+            infoLabelView.isHidden = true
+        }
+    }
+    
 }
