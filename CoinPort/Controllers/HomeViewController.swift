@@ -10,13 +10,15 @@ import UIKit
 
 class HomeViewController: UIViewController, UINavigationBarDelegate {
     
+    @IBOutlet weak var viewTopConstraint: NSLayoutConstraint!
+    
     var delegate: HomeViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         configureNavigationBar()
-        
+        viewTopConstraint.constant = (navigationController?.navigationBar.frame.size.height)!
     }
     
     func configureNavigationBar() {
@@ -25,6 +27,13 @@ class HomeViewController: UIViewController, UINavigationBarDelegate {
         item.title = "Global Offers"
         item.titleView?.tintColor = .white
         item.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "ic_menu_white_3x").withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(handleMenuToggle))
+        
+        let filterButton = UIBarButtonItem(image: UIImage(systemName: "line.horizontal.3.decrease"), style: .plain, target: self, action: #selector(openFilterViewController))
+        filterButton.tintColor = .white
+        let mapButton = UIBarButtonItem(image: UIImage(systemName: "map"), style: .plain, target: self, action: #selector(openMapViewController))
+        mapButton.tintColor = .white
+        item.rightBarButtonItems = [mapButton, filterButton]
+        
         
         let navigationBar = UINavigationBar()
         navigationBar.delegate = self
@@ -46,5 +55,13 @@ class HomeViewController: UIViewController, UINavigationBarDelegate {
     
     @objc func handleMenuToggle() {
         delegate?.handleMenuToggle(forMenuOption: nil)
+    }
+    
+    @objc func openFilterViewController() {
+        print("openfilterviewController")
+    }
+    
+    @objc func openMapViewController() {
+        print("openmapviewcontroller")
     }
 }

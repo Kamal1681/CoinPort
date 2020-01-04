@@ -31,7 +31,6 @@ class CountryListViewController: UIViewController, UITableViewDelegate, UITableV
         currencyTableView.separatorStyle = .none
 
         searchBar.delegate = self
-    
     }
 
         
@@ -50,15 +49,26 @@ class CountryListViewController: UIViewController, UITableViewDelegate, UITableV
                     }
                 }
             }
+            UIView.animate(withDuration: 0.1) {
+                self.currencyTableView.frame.size.height = self.currencyTableView.rowHeight * CGFloat(self.currencies.count)
+                
+            }
+//            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(closeCurrencyTableView))
+//            self.view.addGestureRecognizer(tapGesture)
+
         } else {
             for currency in tempCurrencies {
                 currencies.append(currency)
                 flags.append(UIImage(named: currency, in: FlagKit.assetBundle, with: nil) ?? UIImage())
             }
         }
+
         currencyTableView.reloadData()
     }
     
+    @objc func closeCurrencyTableView() {
+        self.dismiss(animated: true, completion: nil)
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return currencies.count

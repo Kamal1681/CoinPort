@@ -71,9 +71,7 @@ class ContainerController: UIViewController {
             print("new offer")
         case .inbox:
             let countryListViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CountryListViewcontroller") as! CountryListViewController
-            view.addSubview(countryListViewController.view)
-            addChild(countryListViewController)
-            countryListViewController.didMove(toParent: self)
+            present(countryListViewController, animated: true, completion: nil)
         case .favorites:
             print("favorites")
         case .arabBitNews:

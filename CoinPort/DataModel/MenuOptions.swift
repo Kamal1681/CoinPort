@@ -47,21 +47,21 @@ enum MenuOption: Int, CustomStringConvertible {
         case .addNewOffer:
             return UIImage(systemName: "plus")?.withRenderingMode(.alwaysOriginal) ?? UIImage()
         case .inbox:
-            return UIImage(systemName: "envelope")?.withRenderingMode(.alwaysOriginal) ?? UIImage()
+            return UIImage(systemName: "bolt.horizontal.circle.fill")?.withRenderingMode(.alwaysOriginal) ?? UIImage()
         case .favorites:
             return UIImage(systemName: "heart")?.withRenderingMode(.alwaysOriginal) ?? UIImage()
         case .arabBitNews:
             return UIImage(systemName: "wifi")?.withRenderingMode(.alwaysOriginal) ?? UIImage()
         case .logout:
-            return UIImage(named: "ic_person_outline_white_2x") ?? UIImage()
+            return UIImage(systemName: "escape")?.withRenderingMode(.alwaysOriginal) ?? UIImage()
         case .repeatTutorial:
-            return UIImage(named: "ic_person_outline_white_2x") ?? UIImage()
+            return UIImage(systemName: "questionmark.circle.fill")?.withRenderingMode(.alwaysOriginal) ?? UIImage()
         case .tellAboutUs:
-            return UIImage(named: "ic_person_outline_white_2x") ?? UIImage()
+            return UIImage(systemName: "paperplane")?.withRenderingMode(.alwaysOriginal) ?? UIImage()
         case .rateApp:
-            return UIImage(named: "ic_person_outline_white_2x") ?? UIImage()
+            return UIImage(systemName: "hand.thumbsup")?.withRenderingMode(.alwaysOriginal) ?? UIImage()
         case .contactUs:
-            return UIImage(named: "ic_person_outline_white_2x") ?? UIImage()
+            return UIImage(systemName: "envelope")?.withRenderingMode(.alwaysOriginal) ?? UIImage()
         }
     }
 }
