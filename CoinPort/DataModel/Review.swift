@@ -9,12 +9,8 @@
 import Foundation
 
 class Review {
-    var offer: Offer
+    var offer: Offer?
     var reviewText: String?
     var rating: Int?
-    
-    init(offer: Offer) {
-        self.offer = offer
-        
-    }
+
 }

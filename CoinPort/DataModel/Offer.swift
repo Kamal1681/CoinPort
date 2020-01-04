@@ -7,11 +7,30 @@
 //
 
 import Foundation
+import GoogleMaps
+
+enum OfferRequest: String {
+    case ToBuy
+    case ToSell
+}
+
+enum OfferStatus: String {
+    case Expired
+    case Active
+}
 
 class Offer {
-    var currency: String = ""
+    var digitalCurrency: String = ""
+    var exchangeAount = 0.0
+    var exchangeRate: String = ""
+    var realCurrency: String = ""
+    var offerLocation: CLLocationCoordinate2D?
+    var offerRequest: OfferRequest?
+    var offerStatus: OfferStatus?
+    var user: String = ""
+    var userCoiuntry: String = ""
     var distance: String = ""
-    var views = 0
+    var numberOfViews = 0
     var review: Review?
     
 }

@@ -9,24 +9,23 @@
 import UIKit
 import Firebase
 
-class ProfileViewController: UIViewController, UINavigationBarDelegate, UITabBarDelegate {
+class ProfileViewController: UIViewController, UINavigationBarDelegate {
 
-    @IBOutlet weak var menuTabBar: UITabBar!
     @IBOutlet weak var profilePicture: UIImageView!
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var infoLabel: UILabel!
     @IBOutlet weak var offersTableView: UITableView!
     @IBOutlet weak var infoLabelView: UIView!
-    
+    @IBOutlet weak var segmentedControlView: UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureImageView()
         configureNavigationBar()
         configureInfoLabel()
-        menuTabBar.delegate = self
         userName.text = Auth.auth().currentUser?.displayName
         profilePicture.image = SignInViewController.image
+        segmentControlSetup()
         
     }
 
@@ -62,19 +61,25 @@ class ProfileViewController: UIViewController, UINavigationBarDelegate, UITabBar
         infoLabel.text = "Member since: \(formatter.string(from: date))"
     }
 
-    // MARK:- Tab Bar functions
-    
-    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+    // MARK:- Segmented Control Function
+
+    func segmentControlSetup() {
         
-        if item.tag == 1 {
+        let selectedIndex = segmentedControlView.selectedSegmentIndex
+        switch selectedIndex {
+            
+        case 0:
             infoLabelView.isHidden = false
             offersTableView.isHidden = true
-        }
-        if item.tag == 2 {
+        case 1:
             offersTableView.isHidden = false
             infoLabelView.isHidden = true
+        default:
+            break
         }
     }
-
+    @IBAction func segmentedConrolTapped(_ sender: Any) {
+        segmentControlSetup()
+    }
     
 }
