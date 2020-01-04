@@ -29,6 +29,7 @@ class MenuViewController: UIViewController {
         menuTableView.dataSource = self
         menuTableView.delegate = self
         menuTableView.separatorStyle = .none
+        menuTableView.separatorInset = UIEdgeInsets.zero
     
     }
     
@@ -72,7 +73,7 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
+        return 40
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

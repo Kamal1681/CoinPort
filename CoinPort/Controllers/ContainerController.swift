@@ -70,7 +70,10 @@ class ContainerController: UIViewController {
         case .addNewOffer:
             print("new offer")
         case .inbox:
-            print("inbox")
+            let countryListViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CountryListViewcontroller") as! CountryListViewController
+            view.addSubview(countryListViewController.view)
+            addChild(countryListViewController)
+            countryListViewController.didMove(toParent: self)
         case .favorites:
             print("favorites")
         case .arabBitNews:

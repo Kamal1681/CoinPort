@@ -1,21 +1,21 @@
 //
-//  MenuTableCellTableViewCell.swift
+//  CountryListTableCell.swift
 //  CoinPort
 //
-//  Created by Kamal Maged on 2019-12-29.
-//  Copyright © 2019 Kamal Maged. All rights reserved.
+//  Created by Kamal Maged on 2020-01-03.
+//  Copyright © 2020 Kamal Maged. All rights reserved.
 //
 
 import UIKit
 
-class MenuTableCell: UITableViewCell {
-
-
+class CountryListTableCell: UITableViewCell {
     @IBOutlet weak var itemLabel: UILabel!
+    
     @IBOutlet weak var itemImage: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         self.selectionStyle = .none
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

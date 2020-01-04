@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B097A9C2CCE9C7AFAE3D1B05 /* Pods_CoinPort.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17634A695EDEFBB96407D710 /* Pods_CoinPort.framework */; };
 		C63FA53723AECCB500735EE0 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63FA53623AECCB500735EE0 /* SignInViewController.swift */; };
 		C6477D7423B404E10043C29D /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6477D7323B404E10043C29D /* MenuViewController.swift */; };
 		C6477D7623B405100043C29D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6477D7523B405100043C29D /* HomeViewController.swift */; };
@@ -22,13 +23,14 @@
 		C6A356D223A1BA4200C064C8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A356CF23A1BA4200C064C8 /* User.swift */; };
 		C6A356D323A1BA4200C064C8 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A356D023A1BA4200C064C8 /* Review.swift */; };
 		C6A356D423A1BA4200C064C8 /* Offer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A356D123A1BA4200C064C8 /* Offer.swift */; };
+		C6ACA5D923BFF8C000D487E2 /* CountryListTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ACA5D823BFF8C000D487E2 /* CountryListTableCell.swift */; };
 		C6DDCCAE23A1BE2C00E25DA5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C6DDCCAD23A1BE2C00E25DA5 /* GoogleService-Info.plist */; };
 		C6DDCCB023A1C98500E25DA5 /* ContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DDCCAF23A1C98500E25DA5 /* ContainerController.swift */; };
-		E4BFBE9032A5D376310DF5BA /* Pods_CoinPort.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BD6A49AF7727292DCBD1BEE /* Pods_CoinPort.framework */; };
+		C6EA3CBC23BE8FBB0084DD0E /* CountryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EA3CBB23BE8FBA0084DD0E /* CountryListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4BD6A49AF7727292DCBD1BEE /* Pods_CoinPort.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoinPort.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		17634A695EDEFBB96407D710 /* Pods_CoinPort.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoinPort.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B438E1AB70975859B9FE0B8 /* Pods-CoinPort.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoinPort.debug.xcconfig"; path = "Target Support Files/Pods-CoinPort/Pods-CoinPort.debug.xcconfig"; sourceTree = "<group>"; };
 		7A1D9FBF3766009305D5BA65 /* Pods-CoinPort.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoinPort.release.xcconfig"; path = "Target Support Files/Pods-CoinPort/Pods-CoinPort.release.xcconfig"; sourceTree = "<group>"; };
 		C63FA53623AECCB500735EE0 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -48,8 +50,10 @@
 		C6A356CF23A1BA4200C064C8 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C6A356D023A1BA4200C064C8 /* Review.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		C6A356D123A1BA4200C064C8 /* Offer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Offer.swift; sourceTree = "<group>"; };
+		C6ACA5D823BFF8C000D487E2 /* CountryListTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryListTableCell.swift; sourceTree = "<group>"; };
 		C6DDCCAD23A1BE2C00E25DA5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C6DDCCAF23A1C98500E25DA5 /* ContainerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerController.swift; sourceTree = "<group>"; };
+		C6EA3CBB23BE8FBA0084DD0E /* CountryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4BFBE9032A5D376310DF5BA /* Pods_CoinPort.framework in Frameworks */,
+				B097A9C2CCE9C7AFAE3D1B05 /* Pods_CoinPort.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,6 +131,8 @@
 				C63FA53623AECCB500735EE0 /* SignInViewController.swift */,
 				C6477D7A23B95C7E0043C29D /* MenuTableCell.swift */,
 				C6477D7E23B990DF0043C29D /* ProfileViewController.swift */,
+				C6EA3CBB23BE8FBA0084DD0E /* CountryListViewController.swift */,
+				C6ACA5D823BFF8C000D487E2 /* CountryListTableCell.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -134,7 +140,7 @@
 		D97C0B9A28C4AABE50AA779C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4BD6A49AF7727292DCBD1BEE /* Pods_CoinPort.framework */,
+				17634A695EDEFBB96407D710 /* Pods_CoinPort.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -159,8 +165,8 @@
 				C6A356B423A1BA0900C064C8 /* Sources */,
 				C6A356B523A1BA0900C064C8 /* Frameworks */,
 				C6A356B623A1BA0900C064C8 /* Resources */,
-				6162C353FBA7BA870F84062F /* [CP] Embed Pods Frameworks */,
-				5EF11848C734A61079701224 /* [CP] Copy Pods Resources */,
+				35FF9A774D08B25AFA4B3617 /* [CP] Embed Pods Frameworks */,
+				4D74F84CFBF45941439CCA84 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -219,24 +225,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		5EF11848C734A61079701224 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CoinPort/Pods-CoinPort-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CoinPort/Pods-CoinPort-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CoinPort/Pods-CoinPort-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6162C353FBA7BA870F84062F /* [CP] Embed Pods Frameworks */ = {
+		35FF9A774D08B25AFA4B3617 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -251,6 +240,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CoinPort/Pods-CoinPort-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4D74F84CFBF45941439CCA84 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CoinPort/Pods-CoinPort-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CoinPort/Pods-CoinPort-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CoinPort/Pods-CoinPort-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		BEA28A2A16742155D42E8379 /* [CP] Check Pods Manifest.lock */ = {
@@ -283,6 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C63FA53723AECCB500735EE0 /* SignInViewController.swift in Sources */,
+				C6ACA5D923BFF8C000D487E2 /* CountryListTableCell.swift in Sources */,
 				C6A356D423A1BA4200C064C8 /* Offer.swift in Sources */,
 				C6477D7923B42E7E0043C29D /* HomeViewControllerDelegate.swift in Sources */,
 				C6A356D323A1BA4200C064C8 /* Review.swift in Sources */,
@@ -291,6 +298,7 @@
 				C6DDCCB023A1C98500E25DA5 /* ContainerController.swift in Sources */,
 				C6477D7623B405100043C29D /* HomeViewController.swift in Sources */,
 				C6A356BC23A1BA0900C064C8 /* AppDelegate.swift in Sources */,
+				C6EA3CBC23BE8FBB0084DD0E /* CountryListViewController.swift in Sources */,
 				C6477D7B23B95C7E0043C29D /* MenuTableCell.swift in Sources */,
 				C6477D7F23B990DF0043C29D /* ProfileViewController.swift in Sources */,
 				C6A356BE23A1BA0900C064C8 /* SceneDelegate.swift in Sources */,
@@ -374,6 +382,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -427,6 +436,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = "";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -441,10 +451,139 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X6GVVL7554;
+				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = CoinPort/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"c++\"",
+					"-l\"icucore\"",
+					"-l\"sqlite3\"",
+					"-l\"z\"",
+					"-framework",
+					"\"Accelerate\"",
+					"-framework",
+					"\"AppAuth\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"CoreData\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreImage\"",
+					"-framework",
+					"\"CoreLocation\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"CoreText\"",
+					"-framework",
+					"\"FBSDKCoreKit\"",
+					"-framework",
+					"\"FBSDKLoginKit\"",
+					"-framework",
+					"\"FIRAnalyticsConnector\"",
+					"-framework",
+					"\"FirebaseAnalytics\"",
+					"-framework",
+					"\"FirebaseAuth\"",
+					"-framework",
+					"\"FirebaseCore\"",
+					"-framework",
+					"\"FirebaseCoreDiagnostics\"",
+					"-framework",
+					"\"FirebaseDatabase\"",
+					"-framework",
+					"\"FirebaseFirestore\"",
+					"-framework",
+					"\"FirebaseInstanceID\"",
+					"-framework",
+					"\"FirebaseMessaging\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"GLKit\"",
+					"-framework",
+					"\"GTMAppAuth\"",
+					"-framework",
+					"\"GTMSessionFetcher\"",
+					"-framework",
+					"\"GoogleAppMeasurement\"",
+					"-framework",
+					"\"GoogleDataTransport\"",
+					"-framework",
+					"\"GoogleDataTransportCCTSupport\"",
+					"-framework",
+					"\"GoogleMaps\"",
+					"-framework",
+					"\"GoogleMapsBase\"",
+					"-framework",
+					"\"GoogleMapsCore\"",
+					"-framework",
+					"\"GooglePlaces\"",
+					"-framework",
+					"\"GoogleSignIn\"",
+					"-framework",
+					"\"GoogleUtilities\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"LocalAuthentication\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"OpenGLES\"",
+					"-framework",
+					"\"Protobuf\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"SafariServices\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"StoreKit\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					"-framework",
+					"\"grpc\"",
+					"-framework",
+					"\"grpcpp\"",
+					"-framework",
+					"\"leveldb\"",
+					"-framework",
+					"\"nanopb\"",
+					"-framework",
+					"\"openssl_grpc\"",
+					"-weak_framework",
+					"\"Accounts\"",
+					"-weak_framework",
+					"\"AudioToolbox\"",
+					"-weak_framework",
+					"\"AuthenticationServices\"",
+					"-weak_framework",
+					"\"CoreGraphics\"",
+					"-weak_framework",
+					"\"CoreLocation\"",
+					"-weak_framework",
+					"\"Foundation\"",
+					"-weak_framework",
+					"\"QuartzCore\"",
+					"-weak_framework",
+					"\"Security\"",
+					"-weak_framework",
+					"\"Social\"",
+					"-weak_framework",
+					"\"UIKit\"",
+					"-weak_framework",
+					"\"UserNotifications\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Kamal.CoinPort;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -460,10 +599,139 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X6GVVL7554;
+				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = CoinPort/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"c++\"",
+					"-l\"icucore\"",
+					"-l\"sqlite3\"",
+					"-l\"z\"",
+					"-framework",
+					"\"Accelerate\"",
+					"-framework",
+					"\"AppAuth\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"CoreData\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreImage\"",
+					"-framework",
+					"\"CoreLocation\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"CoreText\"",
+					"-framework",
+					"\"FBSDKCoreKit\"",
+					"-framework",
+					"\"FBSDKLoginKit\"",
+					"-framework",
+					"\"FIRAnalyticsConnector\"",
+					"-framework",
+					"\"FirebaseAnalytics\"",
+					"-framework",
+					"\"FirebaseAuth\"",
+					"-framework",
+					"\"FirebaseCore\"",
+					"-framework",
+					"\"FirebaseCoreDiagnostics\"",
+					"-framework",
+					"\"FirebaseDatabase\"",
+					"-framework",
+					"\"FirebaseFirestore\"",
+					"-framework",
+					"\"FirebaseInstanceID\"",
+					"-framework",
+					"\"FirebaseMessaging\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"GLKit\"",
+					"-framework",
+					"\"GTMAppAuth\"",
+					"-framework",
+					"\"GTMSessionFetcher\"",
+					"-framework",
+					"\"GoogleAppMeasurement\"",
+					"-framework",
+					"\"GoogleDataTransport\"",
+					"-framework",
+					"\"GoogleDataTransportCCTSupport\"",
+					"-framework",
+					"\"GoogleMaps\"",
+					"-framework",
+					"\"GoogleMapsBase\"",
+					"-framework",
+					"\"GoogleMapsCore\"",
+					"-framework",
+					"\"GooglePlaces\"",
+					"-framework",
+					"\"GoogleSignIn\"",
+					"-framework",
+					"\"GoogleUtilities\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"LocalAuthentication\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"OpenGLES\"",
+					"-framework",
+					"\"Protobuf\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"SafariServices\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"StoreKit\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					"-framework",
+					"\"grpc\"",
+					"-framework",
+					"\"grpcpp\"",
+					"-framework",
+					"\"leveldb\"",
+					"-framework",
+					"\"nanopb\"",
+					"-framework",
+					"\"openssl_grpc\"",
+					"-weak_framework",
+					"\"Accounts\"",
+					"-weak_framework",
+					"\"AudioToolbox\"",
+					"-weak_framework",
+					"\"AuthenticationServices\"",
+					"-weak_framework",
+					"\"CoreGraphics\"",
+					"-weak_framework",
+					"\"CoreLocation\"",
+					"-weak_framework",
+					"\"Foundation\"",
+					"-weak_framework",
+					"\"QuartzCore\"",
+					"-weak_framework",
+					"\"Security\"",
+					"-weak_framework",
+					"\"Social\"",
+					"-weak_framework",
+					"\"UIKit\"",
+					"-weak_framework",
+					"\"UserNotifications\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Kamal.CoinPort;
 				PRODUCT_NAME = "$(TARGET_NAME)";

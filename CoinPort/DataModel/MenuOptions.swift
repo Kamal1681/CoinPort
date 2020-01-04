@@ -43,15 +43,15 @@ enum MenuOption: Int, CustomStringConvertible {
         switch self {
             
         case .myProfile:
-            return UIImage(named: "ic_person_outline_white_2x") ?? UIImage()
+            return UIImage(systemName: "person")?.withRenderingMode(.alwaysOriginal) ?? UIImage()
         case .addNewOffer:
-            return UIImage(named: "ic_person_outline_white_2x") ?? UIImage()
+            return UIImage(systemName: "plus")?.withRenderingMode(.alwaysOriginal) ?? UIImage()
         case .inbox:
-            return UIImage(named: "ic_person_outline_white_2x") ?? UIImage()
+            return UIImage(systemName: "envelope")?.withRenderingMode(.alwaysOriginal) ?? UIImage()
         case .favorites:
-            return UIImage(named: "ic_person_outline_white_2x") ?? UIImage()
+            return UIImage(systemName: "heart")?.withRenderingMode(.alwaysOriginal) ?? UIImage()
         case .arabBitNews:
-            return UIImage(named: "ic_person_outline_white_2x") ?? UIImage()
+            return UIImage(systemName: "wifi")?.withRenderingMode(.alwaysOriginal) ?? UIImage()
         case .logout:
             return UIImage(named: "ic_person_outline_white_2x") ?? UIImage()
         case .repeatTutorial:

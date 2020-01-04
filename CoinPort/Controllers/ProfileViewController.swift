@@ -75,5 +75,6 @@ class ProfileViewController: UIViewController, UINavigationBarDelegate, UITabBar
             infoLabelView.isHidden = true
         }
     }
+
     
 }
