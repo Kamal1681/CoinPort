@@ -205,10 +205,16 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u58-UT-mxk">
                                         <rect key="frame" x="304" y="70" width="51" height="30"/>
                                         <state key="normal" title="Publish"/>
+                                        <connections>
+                                            <action selector="publishButtonPressed:" destination="XXX-5D-fcL" eventType="touchUpInside" id="Wky-py-Hcz"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ezk-po-tzr">
                                         <rect key="frame" x="80" y="70" width="120" height="30"/>
                                         <state key="normal" title="Choose Currency"/>
+                                        <connections>
+                                            <action selector="chooseCurrencyPressed:" destination="XXX-5D-fcL" eventType="touchUpInside" id="fAf-dB-pSM"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -226,16 +232,36 @@
                                     <constraint firstItem="tJb-ce-0Mv" firstAttribute="leading" secondItem="tRy-No-H2c" secondAttribute="leading" constant="10" id="p1R-Xj-tCB"/>
                                 </constraints>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XAY-WF-L0h">
+                                <rect key="frame" x="0.0" y="168" width="375" height="499"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Offer Table Cell" rowHeight="299" id="T9X-et-n4C" customClass="OfferTableCell" customModule="CoinPort" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="299"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="T9X-et-n4C" id="g8m-Dx-lx6">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="299"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="hOg-vw-3Ii" firstAttribute="trailing" secondItem="XAY-WF-L0h" secondAttribute="trailing" id="3qG-Oc-aR1"/>
                             <constraint firstItem="hOg-vw-3Ii" firstAttribute="trailing" secondItem="tRy-No-H2c" secondAttribute="trailing" id="IN4-u5-nDA"/>
                             <constraint firstItem="tRy-No-H2c" firstAttribute="leading" secondItem="hOg-vw-3Ii" secondAttribute="leading" id="KgB-UL-HQg"/>
+                            <constraint firstItem="hOg-vw-3Ii" firstAttribute="bottom" secondItem="XAY-WF-L0h" secondAttribute="bottom" id="Q11-CP-erJ"/>
+                            <constraint firstItem="XAY-WF-L0h" firstAttribute="top" secondItem="tRy-No-H2c" secondAttribute="bottom" id="YsQ-a7-BFT"/>
                             <constraint firstItem="tRy-No-H2c" firstAttribute="top" secondItem="hOg-vw-3Ii" secondAttribute="top" constant="68" id="eBA-Iw-o5r"/>
+                            <constraint firstItem="XAY-WF-L0h" firstAttribute="leading" secondItem="hOg-vw-3Ii" secondAttribute="leading" id="hbr-VD-HJs"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hOg-vw-3Ii"/>
                     </view>
                     <connections>
+                        <outlet property="nameLabel" destination="lo3-UE-MnA" id="b8R-M1-E33"/>
+                        <outlet property="offersTableView" destination="XAY-WF-L0h" id="jBm-WG-HG3"/>
                         <outlet property="viewTopConstraint" destination="eBA-Iw-o5r" id="tAr-3K-TO0"/>
                     </connections>
                 </viewController>
@@ -398,6 +424,16 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TdL-oh-tMA">
                                 <rect key="frame" x="0.0" y="231" width="375" height="436"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Offer Table Cell" id="Dv1-4l-fVT">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Dv1-4l-fVT" id="u46-2u-0rD">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="xiU-hk-cuu">
                                 <rect key="frame" x="20" y="200" width="335" height="32"/>

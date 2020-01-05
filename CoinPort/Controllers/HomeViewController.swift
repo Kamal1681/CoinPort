@@ -7,18 +7,25 @@
 //
 
 import UIKit
+import Firebase
 
 class HomeViewController: UIViewController, UINavigationBarDelegate {
     
+    
+    @IBOutlet weak var offersTableView: UITableView!
     @IBOutlet weak var viewTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var nameLabel: UILabel!
     
     var delegate: HomeViewControllerDelegate?
-    
+    var offersArray = [Offer]()
+    let reuseIdentifier = "Offer Table Cell"
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         configureNavigationBar()
         viewTopConstraint.constant = (navigationController?.navigationBar.frame.size.height)!
+        guard let userName = Auth.auth().currentUser?.displayName else { return }
+        nameLabel.text = "Hello, \(userName)"
     }
     
     func configureNavigationBar() {
@@ -51,7 +58,7 @@ class HomeViewController: UIViewController, UINavigationBarDelegate {
         
     }
     
-    
+    //MARK:- Button Actions
     
     @objc func handleMenuToggle() {
         delegate?.handleMenuToggle(forMenuOption: nil)
@@ -63,5 +70,31 @@ class HomeViewController: UIViewController, UINavigationBarDelegate {
     
     @objc func openMapViewController() {
         print("openmapviewcontroller")
+    }
+    
+    @IBAction func publishButtonPressed(_ sender: Any) {
+        print("publish")
+    }
+    
+    @IBAction func chooseCurrencyPressed(_ sender: Any) {
+        print("choose")
+    }
+    
+
+}
+    //MARK:- TableView Delegate and DataSource
+extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = offersTableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return offersArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 200
     }
 }
