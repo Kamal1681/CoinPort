@@ -57,6 +57,7 @@ class MenuViewController: UIViewController {
     // MARK: - Table view delegate and datasource
 
 extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10
     }

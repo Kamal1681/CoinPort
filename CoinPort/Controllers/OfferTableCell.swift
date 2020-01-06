@@ -7,12 +7,29 @@
 //
 
 import UIKit
+import FlagKit
+import Firebase
+import GoogleMaps
 
 class OfferTableCell: UITableViewCell {
 
+    @IBOutlet weak var userLabel: UILabel!
+    @IBOutlet weak var userFlag: UIImageView!
+    @IBOutlet weak var digitalCurrencyLabel: UILabel!
+    @IBOutlet weak var distanceLabel: UILabel!
+    @IBOutlet weak var exchangeAmountLabel: UILabel!
+    @IBOutlet weak var exchangeRateLabel: UILabel!
+    @IBOutlet weak var isFavorite: UIButton!
+    @IBOutlet weak var numberOfViewsLabel: UILabel!
+    @IBOutlet weak var offerRequestLabel: UILabel!
+    @IBOutlet weak var offerStatusLabel: UILabel!
+    var countryCode: String?
+    var delegate: OfferTableCellDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -20,5 +37,35 @@ class OfferTableCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    func configureCell(offer: Offer) {
+        userLabel.text = offer.user
+        if let countryCode = countryCode {
+            userFlag.image = UIImage(named: countryCode, in: FlagKit.assetBundle, with: nil)
+        }
+        digitalCurrencyLabel.text = offer.digitalCurrency
+        exchangeRateLabel.text = offer.exchangeRate
+        exchangeAmountLabel.text = String(offer.exchangeAmount)
+        numberOfViewsLabel.text = String(offer.numberOfViews)
+        offerStatusLabel.text = offer.offerStatus.map { $0.rawValue }
+        offerRequestLabel.text = offer.offerRequest.map { $0.rawValue }
+        if let offerLocation = offer.offerLocation {
+            delegate?.getDistance(offerLocation: offerLocation, completion: { (distance) in
+                offer.distance = distance
+                self.distanceLabel.text = offer.distance
+            })
+        }
+        
+    }
+    
+    @IBAction func isFavoriteButtonPressed(_ sender: Any) {
+        
+    }
+    
+    @IBAction func mapButtonPressed(_ sender: Any) {
+        
+    }
+    
 
+    
 }

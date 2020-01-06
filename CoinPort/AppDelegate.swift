@@ -12,6 +12,9 @@ import GoogleSignIn
 import FBSDKCoreKit
 import FBSDKLoginKit
 
+
+let googleApiKey = "AIzaSyARUFKhynjMngf4c9qxv3dU5Y5a2EMudpI"
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 

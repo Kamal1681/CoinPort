@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import GoogleMaps
 
 class HomeViewController: UIViewController, UINavigationBarDelegate {
     
@@ -19,13 +20,76 @@ class HomeViewController: UIViewController, UINavigationBarDelegate {
     var delegate: HomeViewControllerDelegate?
     var offersArray = [Offer]()
     let reuseIdentifier = "Offer Table Cell"
+    
+    let db = Firestore.firestore()
+    let settings = FirestoreSettings()
+
+    let locationManager = CLLocationManager()
+    var countryCodesDictionary = [String: String]()
+    var currentLocation: CLLocation?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        
         configureNavigationBar()
+        Firestore.firestore().settings = settings
+        
         viewTopConstraint.constant = (navigationController?.navigationBar.frame.size.height)!
         guard let userName = Auth.auth().currentUser?.displayName else { return }
         nameLabel.text = "Hello, \(userName)"
+        
+        offersTableView.delegate = self
+        offersTableView.dataSource = self
+        
+        getCountryCodes()
+        getUserLocation()
+        getOffers()
+       
+    }
+    
+    //MARK:- Getters and Configuration functions
+    
+    func getOffers() {
+         let FBQuery = db.collection("Offers")
+        FBQuery.getDocuments { (snapshot, error) in
+            if let error = error {
+                print("Error getting documents: \(error)")
+            } else {
+                
+                for document in snapshot!.documents {
+                   guard
+                    let digtalCurrency = document.get("digitalCurrency") as? String,
+                    let exchangeAmount = document.get("exchangeAmount") as? Double,
+                    let exchangeRate = document.get("exchangeRate") as? String,
+                    let numberOfViews = document.get("numberOfViews") as? Int,
+                    let offerLocation = document.get("offerLocation") as? GeoPoint,
+                    //let offerRequest = document.get("offerRequest") as? OfferRequest,
+                    //let offerStatus = document.get("offerStatus") as? OfferStatus,
+                    let realcurrency = document.get("realCurrency") as? String,
+                    let user = document.get("user") as? String,
+                    let userCountry = document.get("userCountry") as? String
+                    else {
+                        print("Error geting data from Firebase")
+                        return
+                    }
+                    let offer = Offer()
+                    offer.digitalCurrency = digtalCurrency
+                    offer.exchangeAmount = exchangeAmount
+                    offer.exchangeRate = exchangeRate
+                    offer.numberOfViews = numberOfViews
+                    offer.offerLocation = offerLocation
+                    //offer.offerRequest = offerRequest
+                    //offer.offerStatus = offerStatus
+                    offer.realCurrency = realcurrency
+                    offer.user = user
+                    offer.userCountry = userCountry
+
+                    self.offersArray.append(offer)
+                }
+                self.offersTableView.reloadData()
+            }
+        }
+        
     }
     
     func configureNavigationBar() {
@@ -58,6 +122,28 @@ class HomeViewController: UIViewController, UINavigationBarDelegate {
         
     }
     
+    func getCountryCodes() {
+        let countryCodes: [String] = NSLocale.isoCountryCodes
+        
+        for countryCode in countryCodes {
+
+            let identifier = NSLocale(localeIdentifier: countryCode)
+            if let country = identifier.displayName(forKey: NSLocale.Key.countryCode, value: countryCode) {
+                countryCodesDictionary[country] = countryCode
+            }
+        }
+    }
+    
+    func getUserLocation() {
+        
+        locationManager.requestWhenInUseAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            currentLocation = locationManager.location
+        }
+    }
+    
+    
     //MARK:- Button Actions
     
     @objc func handleMenuToggle() {
@@ -80,13 +166,17 @@ class HomeViewController: UIViewController, UINavigationBarDelegate {
         print("choose")
     }
     
-
 }
     //MARK:- TableView Delegate and DataSource
+
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = offersTableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
+        let cell = offersTableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! OfferTableCell
+        cell.countryCode = countryCodesDictionary[offersArray[indexPath.row].userCountry]
+        cell.delegate = self
+        cell.configureCell(offer: offersArray[indexPath.row])
+    
         return cell
     }
     
@@ -95,6 +185,45 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
+        return 230
+    }
+}
+
+    //MARK:- Offer Table Cell Delegate
+
+extension HomeViewController: OfferTableCellDelegate {
+    
+    func getDistance(offerLocation: GeoPoint, completion: @escaping (String) -> Void) {
+        
+        guard let currentLocation = currentLocation else { return }
+        let startPoint = currentLocation.coordinate
+        let endPoint = offerLocation
+        var distance: String?
+
+        let url = URL(string: "https://maps.googleapis.com/maps/api/directions/json?origin=\(startPoint.latitude),\(startPoint.longitude)&destination=\(endPoint.latitude),\(endPoint.longitude)&key=\(googleApiKey)")
+       
+        URLSession.shared.dataTask(with: url! as URL) { (data, response, error) in
+
+            do {
+                if data != nil {
+                    let dict = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as! [String : Any]
+    
+                    let routes = dict["routes"] as! [Dictionary<String, Any>]
+                    let legsDict = routes[0]
+                    let legs = legsDict["legs"] as! [Dictionary<String, Any>]
+                    let distDict = legs[0]
+                    let dist = distDict["distance"] as! [String : Any]
+                    distance = dist["text"] as? String
+                    
+                    DispatchQueue.main.async {
+                        completion(distance!)
+                    }
+                }
+            }
+            catch {
+                print("Error")
+            }
+            
+        }.resume()
     }
 }

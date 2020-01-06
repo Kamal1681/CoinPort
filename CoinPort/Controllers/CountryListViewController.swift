@@ -53,8 +53,7 @@ class CountryListViewController: UIViewController, UITableViewDelegate, UITableV
                 self.currencyTableView.frame.size.height = self.currencyTableView.rowHeight * CGFloat(self.currencies.count)
                 
             }
-//            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(closeCurrencyTableView))
-//            self.view.addGestureRecognizer(tapGesture)
+
 
         } else {
             for currency in tempCurrencies {
@@ -86,6 +85,10 @@ class CountryListViewController: UIViewController, UITableViewDelegate, UITableV
         
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 30
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
     }
     
     func listCountriesAndCurrencies() {
