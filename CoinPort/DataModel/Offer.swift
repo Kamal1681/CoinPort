@@ -11,8 +11,8 @@ import GoogleMaps
 import Firebase
 
 enum OfferRequest: String {
-    case ToBuy
-    case ToSell
+    case ToBuy = "To Buy"
+    case ForSale = "For Sale"
 }
 
 enum OfferStatus: String {
@@ -32,6 +32,7 @@ class Offer {
     var userCountry: String = ""
     var distance: String = ""
     var numberOfViews = 0
+    var profilePictureURL: URL?
     var review: Review?
     
 }

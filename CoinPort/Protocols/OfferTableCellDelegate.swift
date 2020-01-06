@@ -11,4 +11,5 @@ import Firebase
 
 protocol OfferTableCellDelegate {
     func getDistance(offerLocation: GeoPoint, completion: @escaping (String) -> Void)
+    func getUser(profilePicture: URL, completion: @escaping (UIImage) -> Void)
 }

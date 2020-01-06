@@ -22,7 +22,11 @@ class OfferTableCell: UITableViewCell {
     @IBOutlet weak var isFavorite: UIButton!
     @IBOutlet weak var numberOfViewsLabel: UILabel!
     @IBOutlet weak var offerRequestLabel: UILabel!
+    
+    @IBOutlet weak var profilePicture: UIImageView!
+    
     @IBOutlet weak var offerStatusLabel: UILabel!
+    
     var countryCode: String?
     var delegate: OfferTableCellDelegate?
     
@@ -49,14 +53,26 @@ class OfferTableCell: UITableViewCell {
         numberOfViewsLabel.text = String(offer.numberOfViews)
         offerStatusLabel.text = offer.offerStatus.map { $0.rawValue }
         offerRequestLabel.text = offer.offerRequest.map { $0.rawValue }
+        
         if let offerLocation = offer.offerLocation {
             delegate?.getDistance(offerLocation: offerLocation, completion: { (distance) in
                 offer.distance = distance
                 self.distanceLabel.text = offer.distance
             })
         }
+        if let profilePictureURL = offer.profilePictureURL {
+            delegate?.getUser(profilePicture: profilePictureURL, completion: { (photo) in
+                self.profilePicture.image = photo
+                self.profilePicture.layer.borderWidth = 1.0
+                self.profilePicture.layer.cornerRadius = self.profilePicture.frame.size.width / 2
+                self.profilePicture.layer.borderColor = UIColor.lightGray.cgColor
+                self.profilePicture.layer.masksToBounds = true
+                self.profilePicture.clipsToBounds = true
+            })
+        }
         
     }
+    
     
     @IBAction func isFavoriteButtonPressed(_ sender: Any) {
         

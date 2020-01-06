@@ -40,6 +40,7 @@ class HomeViewController: UIViewController, UINavigationBarDelegate {
         
         offersTableView.delegate = self
         offersTableView.dataSource = self
+        offersTableView.separatorStyle = .singleLine
         
         getCountryCodes()
         getUserLocation()
@@ -63,11 +64,12 @@ class HomeViewController: UIViewController, UINavigationBarDelegate {
                     let exchangeRate = document.get("exchangeRate") as? String,
                     let numberOfViews = document.get("numberOfViews") as? Int,
                     let offerLocation = document.get("offerLocation") as? GeoPoint,
-                    //let offerRequest = document.get("offerRequest") as? OfferRequest,
-                    //let offerStatus = document.get("offerStatus") as? OfferStatus,
+                    let offerRequestRawValue = document.get("offerRequest") as? String,
+                    let offerStatusRawValue = document.get("offerStatus") as? String,
                     let realcurrency = document.get("realCurrency") as? String,
                     let user = document.get("user") as? String,
-                    let userCountry = document.get("userCountry") as? String
+                    let userCountry = document.get("userCountry") as? String,
+                    let profilePictureURL = document.get("profilePictureURL") as? String
                     else {
                         print("Error geting data from Firebase")
                         return
@@ -78,12 +80,12 @@ class HomeViewController: UIViewController, UINavigationBarDelegate {
                     offer.exchangeRate = exchangeRate
                     offer.numberOfViews = numberOfViews
                     offer.offerLocation = offerLocation
-                    //offer.offerRequest = offerRequest
-                    //offer.offerStatus = offerStatus
+                    offer.offerRequest = OfferRequest(rawValue: offerRequestRawValue)
+                    offer.offerStatus = OfferStatus(rawValue: offerStatusRawValue)
                     offer.realCurrency = realcurrency
                     offer.user = user
                     offer.userCountry = userCountry
-
+                    offer.profilePictureURL = URL(string: profilePictureURL)
                     self.offersArray.append(offer)
                 }
                 self.offersTableView.reloadData()
@@ -185,7 +187,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 230
+        return 200
     }
 }
 
@@ -226,4 +228,26 @@ extension HomeViewController: OfferTableCellDelegate {
             
         }.resume()
     }
+    
+    func getUser(profilePicture: URL, completion: @escaping (UIImage) -> Void) {
+        URLSession.shared.dataTask(with: profilePicture) { (data, response, error) in
+            if let error = error {
+                DispatchQueue.main.async {
+                    print(error)
+                }
+                return
+            }
+            guard let data = data else {
+                DispatchQueue.main.async {
+                    print("No Data")
+                }
+                return
+            }
+            DispatchQueue.main.async {
+                guard let photo = UIImage(data: data)  else { return }
+                completion(photo)
+            }
+        }.resume()
+    }
+
 }
