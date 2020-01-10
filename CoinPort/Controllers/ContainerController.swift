@@ -30,7 +30,7 @@ class ContainerController: UIViewController {
         addChild(centerController)
         centerController.didMove(toParent: self)
         homeViewController.delegate = self
-
+    
     }
     
     func configureMenuViewController() {

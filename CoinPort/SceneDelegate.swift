@@ -25,7 +25,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             if user != nil {
                 self.window?.rootViewController = storyBoard.instantiateViewController(identifier: "ContainerController")
                 guard let profileURL = Auth.auth().currentUser?.photoURL else { return }
-                SignInViewController.getUser(profilePicture: profileURL)
+                SignInViewController.getUser(profilePicture: profileURL, completion: nil)
                 self.window?.makeKeyAndVisible()
             } else {
                 self.window?.rootViewController = storyBoard.instantiateViewController(identifier: "SignInViewController")

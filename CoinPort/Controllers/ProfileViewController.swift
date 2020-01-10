@@ -48,6 +48,7 @@ class ProfileViewController: UIViewController, UINavigationBarDelegate {
         
         navigationItem.title = "Profile"
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.left"), style: .plain, target: self, action: #selector(dismissProfileController))
+        
     }
         
     @objc func dismissProfileController() {

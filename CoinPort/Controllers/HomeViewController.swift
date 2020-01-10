@@ -12,10 +12,12 @@ import GoogleMaps
 
 class HomeViewController: UIViewController, UINavigationBarDelegate {
     
+    @IBOutlet weak var profilePicture: UIImageView!
     
     @IBOutlet weak var offersTableView: UITableView!
     @IBOutlet weak var viewTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var makeNewOffer: UIButton!
     
     var delegate: HomeViewControllerDelegate?
     var offersArray = [Offer]()
@@ -32,11 +34,18 @@ class HomeViewController: UIViewController, UINavigationBarDelegate {
         super.viewDidLoad()
         
         configureNavigationBar()
+        configureButton()
+        configureImageView()
+        
         Firestore.firestore().settings = settings
         
         viewTopConstraint.constant = (navigationController?.navigationBar.frame.size.height)!
-        guard let userName = Auth.auth().currentUser?.displayName else { return }
-        nameLabel.text = "Hello, \(userName)"
+
+       
+        
+        if let userName = Auth.auth().currentUser?.displayName {
+            nameLabel.text = "Hello, \(userName)"
+        }
         
         offersTableView.delegate = self
         offersTableView.dataSource = self
@@ -48,7 +57,7 @@ class HomeViewController: UIViewController, UINavigationBarDelegate {
        
     }
     
-    //MARK:- Getters and Configuration functions
+    //MARK:- Getter functions
     
     func getOffers() {
          let FBQuery = db.collection("Offers")
@@ -94,6 +103,29 @@ class HomeViewController: UIViewController, UINavigationBarDelegate {
         
     }
     
+    func getCountryCodes() {
+        let countryCodes: [String] = NSLocale.isoCountryCodes
+        
+        for countryCode in countryCodes {
+
+            let identifier = NSLocale(localeIdentifier: countryCode)
+            if let country = identifier.displayName(forKey: NSLocale.Key.countryCode, value: countryCode) {
+                countryCodesDictionary[country] = countryCode
+            }
+        }
+    }
+    
+    func getUserLocation() {
+        
+        locationManager.requestWhenInUseAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            currentLocation = locationManager.location
+        }
+    }
+    
+    //MARK:- Configuration Functions
+    
     func configureNavigationBar() {
         navigationController?.setNavigationBarHidden(true, animated: false)
         let item = UINavigationItem()
@@ -122,28 +154,35 @@ class HomeViewController: UIViewController, UINavigationBarDelegate {
         
         navigationBar.items = [item]
         
+        
     }
     
-    func getCountryCodes() {
-        let countryCodes: [String] = NSLocale.isoCountryCodes
+    func configureButton() {
         
-        for countryCode in countryCodes {
+        makeNewOffer.backgroundColor = UIColor(red: 71/255, green: 91/255, blue: 195/255, alpha: 1)
+        makeNewOffer.tintColor = UIColor.white
+        makeNewOffer.layer.cornerRadius = 7
+        makeNewOffer.layer.shadowColor = UIColor.black.cgColor
+        makeNewOffer.layer.shadowOffset = CGSize(width: 3, height: 3)
+        makeNewOffer.layer.shadowOpacity = 0.5
+    }
+    
+    func configureImageView() {
+        guard let profilePictureURL = Auth.auth().currentUser?.photoURL else { return }
+    
+        SignInViewController.getUser(profilePicture: profilePictureURL, completion: {
+            
+            self.profilePicture.image = SignInViewController.image
+            self.profilePicture.layer.borderWidth = 1.0
+            self.profilePicture.layer.cornerRadius = self.profilePicture.frame.size.width / 2
+            self.profilePicture.layer.borderColor = UIColor.lightGray.cgColor
+            self.profilePicture.layer.masksToBounds = true
+            self.profilePicture.clipsToBounds = true
+        })
 
-            let identifier = NSLocale(localeIdentifier: countryCode)
-            if let country = identifier.displayName(forKey: NSLocale.Key.countryCode, value: countryCode) {
-                countryCodesDictionary[country] = countryCode
-            }
-        }
     }
     
-    func getUserLocation() {
-        
-        locationManager.requestWhenInUseAuthorization()
-        
-        if CLLocationManager.locationServicesEnabled() {
-            currentLocation = locationManager.location
-        }
-    }
+
     
     
     //MARK:- Button Actions
@@ -159,14 +198,8 @@ class HomeViewController: UIViewController, UINavigationBarDelegate {
     @objc func openMapViewController() {
         print("openmapviewcontroller")
     }
-    
-    @IBAction func publishButtonPressed(_ sender: Any) {
-        print("publish")
-    }
-    
-    @IBAction func chooseCurrencyPressed(_ sender: Any) {
-        print("choose")
-    }
+
+
     
 }
     //MARK:- TableView Delegate and DataSource

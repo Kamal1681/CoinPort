@@ -33,7 +33,6 @@ class OfferTableCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -41,7 +40,7 @@ class OfferTableCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+
     func configureCell(offer: Offer) {
         userLabel.text = offer.user
         if let countryCode = countryCode {
@@ -75,11 +74,12 @@ class OfferTableCell: UITableViewCell {
     
     
     @IBAction func isFavoriteButtonPressed(_ sender: Any) {
+        print("favorite")
         
     }
     
     @IBAction func mapButtonPressed(_ sender: Any) {
-        
+        print("map")
     }
     
 

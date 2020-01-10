@@ -63,7 +63,7 @@ class SignInViewController: UIViewController, GIDSignInDelegate {
                 guard let profilePicture = authResult?.user.photoURL
                     else { return }
                 
-                SignInViewController.getUser(profilePicture: profilePicture)
+                SignInViewController.getUser(profilePicture: profilePicture, completion: nil)
                 self.openHomeScreen()
             }
         }
@@ -86,7 +86,7 @@ class SignInViewController: UIViewController, GIDSignInDelegate {
             guard let profilePicture = authResult?.user.photoURL
                 else { return }
             
-            SignInViewController.getUser(profilePicture: profilePicture)
+            SignInViewController.getUser(profilePicture: profilePicture, completion: nil)
             self.openHomeScreen()
         }
     }
@@ -94,7 +94,7 @@ class SignInViewController: UIViewController, GIDSignInDelegate {
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
         //
     }
-    static func getUser(profilePicture: URL) {
+    static func getUser(profilePicture: URL, completion: (() -> Void)? = nil) {
         
         URLSession.shared.dataTask(with: profilePicture) { (data, response, error) in
             if let error = error {
@@ -112,6 +112,7 @@ class SignInViewController: UIViewController, GIDSignInDelegate {
             DispatchQueue.main.async {
                 guard let photo = UIImage(data: data)  else { return }
                 SignInViewController.image = photo
+                (completion ?? {})()
             }
         }.resume()
         
