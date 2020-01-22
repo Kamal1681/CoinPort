@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-enum CurrencyOption: Int, CustomStringConvertible {
+enum DigitalCurrencyOption: Int, CustomStringConvertible {
     
     case bitcoin
     case ripple
