@@ -66,7 +66,7 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
         
         let cell = menuTableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! MenuTableCell
         
-        let menuOption = MenuOption(rawValue: indexPath.row)
+        let menuOption = MenuOptions(rawValue: indexPath.row)
         cell.itemLabel.text = menuOption?.description
         cell.itemImage.image = menuOption?.image
         
@@ -79,7 +79,7 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let menuOption = MenuOption(rawValue: indexPath.row)
+        let menuOption = MenuOptions(rawValue: indexPath.row)
         delegate?.handleMenuToggle(forMenuOption: menuOption)
     }
     

@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-enum DigitalCurrencyOption: Int, CustomStringConvertible {
+enum DigitalCurrencyOptions: Int, CustomStringConvertible {
     
     case bitcoin
     case ripple
@@ -40,7 +40,7 @@ enum DigitalCurrencyOption: Int, CustomStringConvertible {
         switch self {
             
         case .bitcoin: return "BTC"
-        case .ripple: return "XTR"
+        case .ripple: return "XRP"
         case .ethereum: return "BTH"
         case .eos: return "EOS"
         case .litecoin: return "LTC"

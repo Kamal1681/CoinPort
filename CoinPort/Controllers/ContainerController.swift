@@ -35,7 +35,7 @@ class ContainerController: UIViewController {
     
     func configureMenuViewController() {
         if menuViewController == nil {
-            menuViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MenuViewController") as! MenuViewController
+            menuViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MenuViewController") as? MenuViewController
             menuViewController.delegate = self
             view.insertSubview(menuViewController.view, at: 0)
             addChild(menuViewController)
@@ -43,7 +43,7 @@ class ContainerController: UIViewController {
         }
     }
     
-    func showMenuController (shouldAppear: Bool, menuOption: MenuOption?) {
+    func showMenuController (shouldAppear: Bool, menuOption: MenuOptions?) {
         if shouldAppear {
             UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
                 let width = self.centerController.view.frame.size.width
@@ -60,7 +60,7 @@ class ContainerController: UIViewController {
 
     }
     
-    func didSelectMenuOption(menuOption: MenuOption) {
+    func didSelectMenuOption(menuOption: MenuOptions) {
         switch menuOption {
             
         case .myProfile:
@@ -99,7 +99,7 @@ class ContainerController: UIViewController {
 
 extension ContainerController: HomeViewControllerDelegate {
     
-    func handleMenuToggle(forMenuOption menuOption: MenuOption?) {
+    func handleMenuToggle(forMenuOption menuOption: MenuOptions?) {
         
         if !isExpanded {
             configureMenuViewController()

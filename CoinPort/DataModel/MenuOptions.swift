@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-enum MenuOption: Int, CustomStringConvertible {
+enum MenuOptions: Int, CustomStringConvertible {
     
     case myProfile
     case addNewOffer

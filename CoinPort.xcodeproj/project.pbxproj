@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B097A9C2CCE9C7AFAE3D1B05 /* Pods_CoinPort.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17634A695EDEFBB96407D710 /* Pods_CoinPort.framework */; };
+		C61D06DA23DE3CFD003BA261 /* DigitalCurrencyTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61D06D923DE3CFD003BA261 /* DigitalCurrencyTableCell.swift */; };
 		C63FA53723AECCB500735EE0 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63FA53623AECCB500735EE0 /* SignInViewController.swift */; };
 		C6477D7423B404E10043C29D /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6477D7323B404E10043C29D /* MenuViewController.swift */; };
 		C6477D7623B405100043C29D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6477D7523B405100043C29D /* HomeViewController.swift */; };
@@ -37,6 +38,7 @@
 		17634A695EDEFBB96407D710 /* Pods_CoinPort.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoinPort.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B438E1AB70975859B9FE0B8 /* Pods-CoinPort.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoinPort.debug.xcconfig"; path = "Target Support Files/Pods-CoinPort/Pods-CoinPort.debug.xcconfig"; sourceTree = "<group>"; };
 		7A1D9FBF3766009305D5BA65 /* Pods-CoinPort.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoinPort.release.xcconfig"; path = "Target Support Files/Pods-CoinPort/Pods-CoinPort.release.xcconfig"; sourceTree = "<group>"; };
+		C61D06D923DE3CFD003BA261 /* DigitalCurrencyTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalCurrencyTableCell.swift; sourceTree = "<group>"; };
 		C63FA53623AECCB500735EE0 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		C6477D7323B404E10043C29D /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		C6477D7523B405100043C29D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				C6ACA5D823BFF8C000D487E2 /* CountryListTableCell.swift */,
 				C6D92A8223C1600F00450591 /* OfferTableCell.swift */,
 				C6ADDD9923C75E6A00F4BEEE /* DigitalCurrencyViewController.swift */,
+				C61D06D923DE3CFD003BA261 /* DigitalCurrencyTableCell.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 				C6477D7D23B96A940043C29D /* MenuOptions.swift in Sources */,
 				C667BD6823D8CF8C00AD56D5 /* DigitalCurrencyOptions.swift in Sources */,
 				C6DDCCB023A1C98500E25DA5 /* ContainerController.swift in Sources */,
+				C61D06DA23DE3CFD003BA261 /* DigitalCurrencyTableCell.swift in Sources */,
 				C6477D7623B405100043C29D /* HomeViewController.swift in Sources */,
 				C6D92A8323C1600F00450591 /* OfferTableCell.swift in Sources */,
 				C6A356BC23A1BA0900C064C8 /* AppDelegate.swift in Sources */,
