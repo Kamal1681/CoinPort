@@ -2,7 +2,7 @@
 //  OfferTableCell.swift
 //  CoinPort
 //
-//  Created by Kamal Maged on 2020-01-04.
+//  Created by Kamal Maged on 2020-02-06.
 //  Copyright © 2020 Kamal Maged. All rights reserved.
 //
 
@@ -25,8 +25,10 @@ class OfferTableCell: UITableViewCell {
     
     @IBOutlet weak var profilePicture: UIImageView!
     
+    
     @IBOutlet weak var offerStatusLabel: UILabel!
     
+    @IBOutlet weak var mapButton: UIButton!
     var countryCode: String?
     var delegate: OfferTableCellDelegate?
     
@@ -40,7 +42,7 @@ class OfferTableCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
     func configureCell(offer: Offer) {
         userLabel.text = offer.user
         if let countryCode = countryCode {
@@ -69,7 +71,6 @@ class OfferTableCell: UITableViewCell {
                 self.profilePicture.clipsToBounds = true
             })
         }
-        
     }
     
     
@@ -81,7 +82,5 @@ class OfferTableCell: UITableViewCell {
     @IBAction func mapButtonPressed(_ sender: Any) {
         print("map")
     }
-    
-
     
 }

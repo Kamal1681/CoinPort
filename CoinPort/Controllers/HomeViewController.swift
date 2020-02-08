@@ -40,8 +40,6 @@ class HomeViewController: UIViewController, UINavigationBarDelegate {
         Firestore.firestore().settings = settings
         
         viewTopConstraint.constant = (navigationController?.navigationBar.frame.size.height)!
-
-       
         
         if let userName = Auth.auth().currentUser?.displayName {
             nameLabel.text = "Hello, \(userName)"
@@ -50,6 +48,7 @@ class HomeViewController: UIViewController, UINavigationBarDelegate {
         offersTableView.delegate = self
         offersTableView.dataSource = self
         offersTableView.separatorStyle = .singleLine
+        offersTableView.register(UINib(nibName: "OfferTableCell", bundle: nil), forCellReuseIdentifier: "Offer Table Cell")
         
         getCountryCodes()
         getUserLocation()

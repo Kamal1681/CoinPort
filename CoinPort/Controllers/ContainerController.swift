@@ -68,7 +68,9 @@ class ContainerController: UIViewController {
             present(UINavigationController(rootViewController: profileViewController), animated: true, completion: nil)
             
         case .addNewOffer:
-            print("new offer")
+            let digitalCurrencyViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DigitalCurrencyViewController") as! DigitalCurrencyViewController
+            present(UINavigationController(rootViewController: digitalCurrencyViewController), animated: true, completion: nil)
+            
         case .inbox:
             let countryListViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CountryListViewcontroller") as! CountryListViewController
             present(countryListViewController, animated: true, completion: nil)
@@ -79,7 +81,6 @@ class ContainerController: UIViewController {
         case .logout:
             do {
                 try Auth.auth().signOut()
-
             }
             catch {
                 print("error")

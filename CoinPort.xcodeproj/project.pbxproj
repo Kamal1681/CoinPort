@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		B097A9C2CCE9C7AFAE3D1B05 /* Pods_CoinPort.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17634A695EDEFBB96407D710 /* Pods_CoinPort.framework */; };
+		C6011C2323ECD4330079C779 /* OfferTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6011C2123ECD4330079C779 /* OfferTableCell.swift */; };
+		C6011C2423ECD4330079C779 /* OfferTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6011C2223ECD4330079C779 /* OfferTableCell.xib */; };
 		C61D06DA23DE3CFD003BA261 /* DigitalCurrencyTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61D06D923DE3CFD003BA261 /* DigitalCurrencyTableCell.swift */; };
 		C63FA53723AECCB500735EE0 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63FA53623AECCB500735EE0 /* SignInViewController.swift */; };
 		C6477D7423B404E10043C29D /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6477D7323B404E10043C29D /* MenuViewController.swift */; };
@@ -28,7 +30,6 @@
 		C6ACA5D923BFF8C000D487E2 /* CountryListTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ACA5D823BFF8C000D487E2 /* CountryListTableCell.swift */; };
 		C6ADDD9823C2F59D00F4BEEE /* OfferTableCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ADDD9723C2F59D00F4BEEE /* OfferTableCellDelegate.swift */; };
 		C6ADDD9A23C75E6A00F4BEEE /* DigitalCurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ADDD9923C75E6A00F4BEEE /* DigitalCurrencyViewController.swift */; };
-		C6D92A8323C1600F00450591 /* OfferTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D92A8223C1600F00450591 /* OfferTableCell.swift */; };
 		C6DDCCAE23A1BE2C00E25DA5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C6DDCCAD23A1BE2C00E25DA5 /* GoogleService-Info.plist */; };
 		C6DDCCB023A1C98500E25DA5 /* ContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DDCCAF23A1C98500E25DA5 /* ContainerController.swift */; };
 		C6EA3CBC23BE8FBB0084DD0E /* CountryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EA3CBB23BE8FBA0084DD0E /* CountryListViewController.swift */; };
@@ -38,6 +39,8 @@
 		17634A695EDEFBB96407D710 /* Pods_CoinPort.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoinPort.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B438E1AB70975859B9FE0B8 /* Pods-CoinPort.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoinPort.debug.xcconfig"; path = "Target Support Files/Pods-CoinPort/Pods-CoinPort.debug.xcconfig"; sourceTree = "<group>"; };
 		7A1D9FBF3766009305D5BA65 /* Pods-CoinPort.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoinPort.release.xcconfig"; path = "Target Support Files/Pods-CoinPort/Pods-CoinPort.release.xcconfig"; sourceTree = "<group>"; };
+		C6011C2123ECD4330079C779 /* OfferTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferTableCell.swift; sourceTree = "<group>"; };
+		C6011C2223ECD4330079C779 /* OfferTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OfferTableCell.xib; sourceTree = "<group>"; };
 		C61D06D923DE3CFD003BA261 /* DigitalCurrencyTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalCurrencyTableCell.swift; sourceTree = "<group>"; };
 		C63FA53623AECCB500735EE0 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		C6477D7323B404E10043C29D /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -60,7 +63,6 @@
 		C6ACA5D823BFF8C000D487E2 /* CountryListTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryListTableCell.swift; sourceTree = "<group>"; };
 		C6ADDD9723C2F59D00F4BEEE /* OfferTableCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferTableCellDelegate.swift; sourceTree = "<group>"; };
 		C6ADDD9923C75E6A00F4BEEE /* DigitalCurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalCurrencyViewController.swift; sourceTree = "<group>"; };
-		C6D92A8223C1600F00450591 /* OfferTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferTableCell.swift; sourceTree = "<group>"; };
 		C6DDCCAD23A1BE2C00E25DA5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C6DDCCAF23A1C98500E25DA5 /* ContainerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerController.swift; sourceTree = "<group>"; };
 		C6EA3CBB23BE8FBA0084DD0E /* CountryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryListViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +80,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C6011C2023ECD3380079C779 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C6A356C123A1BA0900C064C8 /* Main.storyboard */,
+				C6477D7A23B95C7E0043C29D /* MenuTableCell.swift */,
+				C6ACA5D823BFF8C000D487E2 /* CountryListTableCell.swift */,
+				C6011C2123ECD4330079C779 /* OfferTableCell.swift */,
+				C6011C2223ECD4330079C779 /* OfferTableCell.xib */,
+				C61D06D923DE3CFD003BA261 /* DigitalCurrencyTableCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		C6477D7723B42E5D0043C29D /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -108,12 +123,12 @@
 		C6A356BA23A1BA0900C064C8 /* CoinPort */ = {
 			isa = PBXGroup;
 			children = (
+				C6011C2023ECD3380079C779 /* View */,
 				C6477D7723B42E5D0043C29D /* Protocols */,
 				C6DDCCAA23A1BB8100E25DA5 /* Controllers */,
 				C6A356D523A1BA4B00C064C8 /* DataModel */,
 				C6A356BB23A1BA0900C064C8 /* AppDelegate.swift */,
 				C6A356BD23A1BA0900C064C8 /* SceneDelegate.swift */,
-				C6A356C123A1BA0900C064C8 /* Main.storyboard */,
 				C6A356C423A1BA0A00C064C8 /* Assets.xcassets */,
 				C6A356C623A1BA0A00C064C8 /* LaunchScreen.storyboard */,
 				C6A356C923A1BA0A00C064C8 /* Info.plist */,
@@ -141,13 +156,9 @@
 				C6477D7323B404E10043C29D /* MenuViewController.swift */,
 				C6477D7523B405100043C29D /* HomeViewController.swift */,
 				C63FA53623AECCB500735EE0 /* SignInViewController.swift */,
-				C6477D7A23B95C7E0043C29D /* MenuTableCell.swift */,
 				C6477D7E23B990DF0043C29D /* ProfileViewController.swift */,
 				C6EA3CBB23BE8FBA0084DD0E /* CountryListViewController.swift */,
-				C6ACA5D823BFF8C000D487E2 /* CountryListTableCell.swift */,
-				C6D92A8223C1600F00450591 /* OfferTableCell.swift */,
 				C6ADDD9923C75E6A00F4BEEE /* DigitalCurrencyViewController.swift */,
-				C61D06D923DE3CFD003BA261 /* DigitalCurrencyTableCell.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -232,6 +243,7 @@
 			files = (
 				C6A356C823A1BA0A00C064C8 /* LaunchScreen.storyboard in Resources */,
 				C6DDCCAE23A1BE2C00E25DA5 /* GoogleService-Info.plist in Resources */,
+				C6011C2423ECD4330079C779 /* OfferTableCell.xib in Resources */,
 				C6A356C523A1BA0A00C064C8 /* Assets.xcassets in Resources */,
 				C6A356C323A1BA0900C064C8 /* Main.storyboard in Resources */,
 			);
@@ -307,6 +319,7 @@
 				C6ACA5D923BFF8C000D487E2 /* CountryListTableCell.swift in Sources */,
 				C6A356D423A1BA4200C064C8 /* Offer.swift in Sources */,
 				C6ADDD9823C2F59D00F4BEEE /* OfferTableCellDelegate.swift in Sources */,
+				C6011C2323ECD4330079C779 /* OfferTableCell.swift in Sources */,
 				C6477D7923B42E7E0043C29D /* HomeViewControllerDelegate.swift in Sources */,
 				C6A356D323A1BA4200C064C8 /* Review.swift in Sources */,
 				C6A356D223A1BA4200C064C8 /* User.swift in Sources */,
@@ -315,7 +328,6 @@
 				C6DDCCB023A1C98500E25DA5 /* ContainerController.swift in Sources */,
 				C61D06DA23DE3CFD003BA261 /* DigitalCurrencyTableCell.swift in Sources */,
 				C6477D7623B405100043C29D /* HomeViewController.swift in Sources */,
-				C6D92A8323C1600F00450591 /* OfferTableCell.swift in Sources */,
 				C6A356BC23A1BA0900C064C8 /* AppDelegate.swift in Sources */,
 				C6EA3CBC23BE8FBB0084DD0E /* CountryListViewController.swift in Sources */,
 				C6477D7B23B95C7E0043C29D /* MenuTableCell.swift in Sources */,
