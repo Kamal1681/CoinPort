@@ -8,14 +8,14 @@
 
 import UIKit
 
-class DigitalCurrencyViewController: UIViewController, UINavigationBarDelegate, DigitalCurrencyTableCellDelegate {
+class DigitalCurrencyViewController: UIViewController, UINavigationBarDelegate {
     
 
     @IBOutlet weak var currencyTableView: UITableView!
 
     @IBOutlet weak var nextButton: UIButton!
     
-    var offer: Offer?
+    var offer = Offer()
     let reuseIdentifier = "Digital Currency Table Cell"
     
     override func viewDidLoad() {
@@ -28,6 +28,7 @@ class DigitalCurrencyViewController: UIViewController, UINavigationBarDelegate, 
         
         nextButton.backgroundColor = UIColor(red: 71/255, green: 91/255, blue: 195/255, alpha: 1)
         nextButton.tintColor = UIColor.white
+        nextButton.isUserInteractionEnabled = false
     }
     
     func configureNavigationBar() {
@@ -63,10 +64,6 @@ class DigitalCurrencyViewController: UIViewController, UINavigationBarDelegate, 
     }
     
 
-    func setCurrency(digtalCurrency: String) {
-        offer?.digitalCurrency = digtalCurrency
-    }
-
     // MARK: - Segue
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -93,12 +90,19 @@ extension DigitalCurrencyViewController: UITableViewDelegate, UITableViewDataSou
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = currencyTableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! DigitalCurrencyTableCell
         let digitalCurrencyOptions = DigitalCurrencyOptions(rawValue: indexPath.row)
-        cell.delegate = self
+
         cell.currencyLabel.text = digitalCurrencyOptions?.description
         cell.abbreviationLabel.text = digitalCurrencyOptions?.abbreviation
         cell.currencyImage.image = digitalCurrencyOptions?.image
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = currencyTableView.cellForRow(at: indexPath) as! DigitalCurrencyTableCell
+        cell.selectionStyle = .blue
+        offer.digitalCurrency = cell.currencyLabel.text!
+        nextButton.isUserInteractionEnabled = true
     }
     
     
