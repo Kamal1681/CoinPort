@@ -9,6 +9,8 @@
 import UIKit
 import Firebase
 import GoogleSignIn
+import GoogleMaps
+import GooglePlaces
 import FBSDKCoreKit
 import FBSDKLoginKit
 
@@ -19,6 +21,9 @@ let googleApiKey = "AIzaSyARUFKhynjMngf4c9qxv3dU5Y5a2EMudpI"
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        GMSServices.provideAPIKey(googleApiKey)
+        GMSPlacesClient.provideAPIKey(googleApiKey)
         
         FirebaseApp.configure()
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID

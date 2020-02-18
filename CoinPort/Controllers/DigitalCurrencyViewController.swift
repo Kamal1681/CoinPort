@@ -8,12 +8,14 @@
 
 import UIKit
 
-class DigitalCurrencyViewController: UIViewController, UINavigationBarDelegate {
+class DigitalCurrencyViewController: UIViewController, UINavigationBarDelegate, DigitalCurrencyTableCellDelegate {
+    
 
     @IBOutlet weak var currencyTableView: UITableView!
-    @IBOutlet weak var viewTopConstraint: NSLayoutConstraint!
+
     @IBOutlet weak var nextButton: UIButton!
     
+    var offer: Offer?
     let reuseIdentifier = "Digital Currency Table Cell"
     
     override func viewDidLoad() {
@@ -53,7 +55,6 @@ class DigitalCurrencyViewController: UIViewController, UINavigationBarDelegate {
         navigationBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
 
         navigationBar.items = [item]
-        viewTopConstraint.constant = 60
         
     }
     
@@ -61,18 +62,20 @@ class DigitalCurrencyViewController: UIViewController, UINavigationBarDelegate {
         self.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func nextButtonPressed(_ sender: Any) {
-    }
-    
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func setCurrency(digtalCurrency: String) {
+        offer?.digitalCurrency = digtalCurrency
     }
-    */
+
+    // MARK: - Segue
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "OpenUserLocationViewController" {
+            let userLocationViewController = segue.destination as! UserLocationViewController
+            userLocationViewController.offer = offer
+        }
+    }
+
 
 }
 
@@ -90,7 +93,7 @@ extension DigitalCurrencyViewController: UITableViewDelegate, UITableViewDataSou
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = currencyTableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! DigitalCurrencyTableCell
         let digitalCurrencyOptions = DigitalCurrencyOptions(rawValue: indexPath.row)
-        
+        cell.delegate = self
         cell.currencyLabel.text = digitalCurrencyOptions?.description
         cell.abbreviationLabel.text = digitalCurrencyOptions?.abbreviation
         cell.currencyImage.image = digitalCurrencyOptions?.image

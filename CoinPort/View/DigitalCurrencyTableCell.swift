@@ -14,6 +14,8 @@ class DigitalCurrencyTableCell: UITableViewCell {
     @IBOutlet weak var abbreviationLabel: UILabel!
     @IBOutlet weak var currencyLabel: UILabel!
     
+    var delegate: DigitalCurrencyTableCellDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -22,8 +24,7 @@ class DigitalCurrencyTableCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         self.selectionStyle = .blue
-        
-        // Configure the view for the selected state
+        delegate?.setCurrency(digtalCurrency: currencyLabel.text!)
     }
 
 }

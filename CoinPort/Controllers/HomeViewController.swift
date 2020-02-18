@@ -40,7 +40,7 @@ class HomeViewController: UIViewController, UINavigationBarDelegate {
         Firestore.firestore().settings = settings
         
         viewTopConstraint.constant = (navigationController?.navigationBar.frame.size.height)!
-        
+
         if let userName = Auth.auth().currentUser?.displayName {
             nameLabel.text = "Hello, \(userName)"
         }

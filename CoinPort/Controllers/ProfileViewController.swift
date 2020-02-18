@@ -26,6 +26,7 @@ class ProfileViewController: UIViewController, UINavigationBarDelegate {
         userName.text = Auth.auth().currentUser?.displayName
         profilePicture.image = SignInViewController.image
         segmentControlSetup()
+
         
     }
 
