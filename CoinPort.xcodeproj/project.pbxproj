@@ -12,6 +12,7 @@
 		C6011C2423ECD4330079C779 /* OfferTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6011C2223ECD4330079C779 /* OfferTableCell.xib */; };
 		C61D06DA23DE3CFD003BA261 /* DigitalCurrencyTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61D06D923DE3CFD003BA261 /* DigitalCurrencyTableCell.swift */; };
 		C634161323F490E5001DFDE5 /* UserLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C634161223F490E5001DFDE5 /* UserLocationViewController.swift */; };
+		C63CBFC5240163DB00CFA281 /* CountryListViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63CBFC4240163DB00CFA281 /* CountryListViewControllerDelegate.swift */; };
 		C63FA53723AECCB500735EE0 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63FA53623AECCB500735EE0 /* SignInViewController.swift */; };
 		C6477D7423B404E10043C29D /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6477D7323B404E10043C29D /* MenuViewController.swift */; };
 		C6477D7623B405100043C29D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6477D7523B405100043C29D /* HomeViewController.swift */; };
@@ -45,6 +46,7 @@
 		C6011C2223ECD4330079C779 /* OfferTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OfferTableCell.xib; sourceTree = "<group>"; };
 		C61D06D923DE3CFD003BA261 /* DigitalCurrencyTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalCurrencyTableCell.swift; sourceTree = "<group>"; };
 		C634161223F490E5001DFDE5 /* UserLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserLocationViewController.swift; path = CoinPort/Controllers/UserLocationViewController.swift; sourceTree = SOURCE_ROOT; };
+		C63CBFC4240163DB00CFA281 /* CountryListViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryListViewControllerDelegate.swift; sourceTree = "<group>"; };
 		C63FA53623AECCB500735EE0 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		C6477D7323B404E10043C29D /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		C6477D7523B405100043C29D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 			children = (
 				C6477D7823B42E7E0043C29D /* HomeViewControllerDelegate.swift */,
 				C6ADDD9723C2F59D00F4BEEE /* OfferTableCellDelegate.swift */,
+				C63CBFC4240163DB00CFA281 /* CountryListViewControllerDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -342,6 +345,7 @@
 				C6477D7F23B990DF0043C29D /* ProfileViewController.swift in Sources */,
 				C6A356BE23A1BA0900C064C8 /* SceneDelegate.swift in Sources */,
 				C6ADDD9A23C75E6A00F4BEEE /* DigitalCurrencyViewController.swift in Sources */,
+				C63CBFC5240163DB00CFA281 /* CountryListViewControllerDelegate.swift in Sources */,
 				C6477D7423B404E10043C29D /* MenuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

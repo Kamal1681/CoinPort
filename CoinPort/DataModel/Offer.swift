@@ -28,6 +28,7 @@ class Offer {
     var offerLocation: GeoPoint?
     var offerRequest: OfferRequest?
     var offerStatus: OfferStatus?
+    var offerAddress: String = ""
     var user: String = ""
     var userCountry: String = ""
     var distance: String = ""

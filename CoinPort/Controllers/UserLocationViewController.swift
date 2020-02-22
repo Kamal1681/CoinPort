@@ -16,6 +16,10 @@ import CoreLocation
 class UserLocationViewController: UIViewController, UINavigationBarDelegate, GMSMapViewDelegate, CLLocationManagerDelegate {
   
     @IBOutlet weak var nextButton: UIButton!
+    
+    @IBOutlet weak var backButton: UIButton!
+    
+    @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var mapView: UIView!
     @IBOutlet weak var addressLabel: UILabel!
     
@@ -27,9 +31,23 @@ class UserLocationViewController: UIViewController, UINavigationBarDelegate, GMS
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigationBar()
-
+        configureButtons()
+        
         setLocationManager()
         setGoogleMapView()
+    }
+    
+    //MARK:- Configuration Functions
+    
+    func configureButtons() {
+        nextButton.backgroundColor = UIColor(red: 71/255, green: 91/255, blue: 195/255, alpha: 1)
+        nextButton.tintColor = UIColor.white
+        
+        backButton.backgroundColor = UIColor(red: 71/255, green: 91/255, blue: 195/255, alpha: 1)
+        backButton.tintColor = UIColor.white
+        
+        closeButton.backgroundColor = UIColor(red: 71/255, green: 91/255, blue: 195/255, alpha: 1)
+        closeButton.tintColor = UIColor.white
     }
     
     func configureNavigationBar() {
@@ -59,7 +77,24 @@ class UserLocationViewController: UIViewController, UINavigationBarDelegate, GMS
           
       }
 
-      @objc func dismissProfileController() {
+    //MARK:- Button actions
+    
+    @IBAction func backButtonPressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func closeButtonPressed(_ sender: Any) {
+        
+        let container = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ContainerController") as! ContainerController
+        UIView.animate(withDuration: 0.1, delay: 0, options: .curveEaseInOut, animations: {
+                self.view.addSubview(container.view)
+                self.addChild(container)
+                container.didMove(toParent: self)
+        }, completion: nil)
+ 
+    }
+    
+    @objc func dismissProfileController() {
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -84,6 +119,7 @@ class UserLocationViewController: UIViewController, UINavigationBarDelegate, GMS
                 DispatchQueue.main.async {
                     self.addressLabel.text = fullAddressResult
                     self.offer.offerLocation = GeoPoint(latitude: currentLocation.latitude, longitude: currentLocation.longitude)
+                    self.offer.offerAddress = fullAddressResult
                 }
             }
         }
@@ -137,6 +173,7 @@ class UserLocationViewController: UIViewController, UINavigationBarDelegate, GMS
             DispatchQueue.main.async {
                 self.addressLabel.text = fullAddressResult
                 self.offer.offerLocation = GeoPoint(latitude: coordinate.latitude, longitude: coordinate.longitude)
+                self.offer.offerAddress = fullAddressResult
             }
         }
     }
@@ -144,9 +181,10 @@ class UserLocationViewController: UIViewController, UINavigationBarDelegate, GMS
     func setGoogleMapView() {
         googleMapView = GMSMapView(frame: mapView.frame)
         mapView.insertSubview(googleMapView, at: 0)
-        googleMapView.settings.myLocationButton = true
+        //googleMapView.settings.myLocationButton = true
         googleMapView.isMyLocationEnabled = true
         googleMapView.settings.compassButton = true
+
         
         googleMapView.delegate = self
         
@@ -155,6 +193,7 @@ class UserLocationViewController: UIViewController, UINavigationBarDelegate, GMS
         googleMapView.leftAnchor.constraint(equalTo: mapView.leftAnchor, constant: 0).isActive = true
         googleMapView.rightAnchor.constraint(equalTo: mapView.rightAnchor, constant: 0).isActive = true
         googleMapView.bottomAnchor.constraint(equalTo: mapView.bottomAnchor, constant: 0).isActive = true
+        setMapAndMarker(location: locationManager.location!.coordinate)
 
     }
     
@@ -176,6 +215,7 @@ class UserLocationViewController: UIViewController, UINavigationBarDelegate, GMS
             let offerDetailsViewController = segue.destination as! OfferDetailsViewController
             offerDetailsViewController.offer = offer
         }
+        
     }
 
 }

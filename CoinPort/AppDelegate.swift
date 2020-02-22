@@ -15,7 +15,7 @@ import FBSDKCoreKit
 import FBSDKLoginKit
 
 
-let googleApiKey = "AIzaSyARUFKhynjMngf4c9qxv3dU5Y5a2EMudpI"
+let googleApiKey = "AIzaSyBCptW-OVult1Mau_bAC5DAqhcAyqJrOJw"
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

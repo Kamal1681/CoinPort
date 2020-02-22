@@ -21,6 +21,8 @@ class ContainerController: UIViewController {
         configureHomeViewController()
     }
     
+    //MARK:- Configuration
+    
     func configureHomeViewController() {
         
         let homeViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
@@ -42,6 +44,62 @@ class ContainerController: UIViewController {
             menuViewController.didMove(toParent: self)
         }
     }
+
+}
+    
+    //MARK:- HomeViewController Delegate and Menu Toggle Functions
+
+extension ContainerController: HomeViewControllerDelegate {
+    
+    func handleMenuToggle(forMenuOption menuOption: MenuOptions?) {
+        
+        if !isExpanded {
+            configureMenuViewController()
+        }
+        isExpanded = !isExpanded
+        showMenuController(shouldAppear: isExpanded, menuOption: menuOption)
+    }
+    
+    func didSelectMenuOption(menuOption: MenuOptions) {
+        switch menuOption {
+            
+        case .myProfile:
+            let profileViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
+            present(UINavigationController(rootViewController: profileViewController), animated: true, completion: nil)
+            
+        case .addNewOffer:
+            let digitalCurrencyViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DigitalCurrencyViewController") as! DigitalCurrencyViewController
+            present(UINavigationController(rootViewController: digitalCurrencyViewController), animated: true, completion: nil)
+            
+        case .inbox:
+            print("Inbox")
+            
+        case .favorites:
+            print("favorites")
+            
+        case .arabBitNews:
+            print("arab news")
+            
+        case .logout:
+            do {
+                try Auth.auth().signOut()
+            }
+            catch {
+                print("error")
+            }
+        case .repeatTutorial:
+            print("tutorial")
+            
+        case .tellAboutUs:
+            print("about us")
+            
+        case .rateApp:
+            print("rate app")
+            
+        case .contactUs:
+            print("contact us")
+        }
+    }
     
     func showMenuController (shouldAppear: Bool, menuOption: MenuOptions?) {
         if shouldAppear {
@@ -57,56 +115,6 @@ class ContainerController: UIViewController {
                 }
             }, completion: nil)
         }
-
-    }
-    
-    func didSelectMenuOption(menuOption: MenuOptions) {
-        switch menuOption {
-            
-        case .myProfile:
-            let profileViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
-            present(UINavigationController(rootViewController: profileViewController), animated: true, completion: nil)
-            
-        case .addNewOffer:
-            let digitalCurrencyViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DigitalCurrencyViewController") as! DigitalCurrencyViewController
-            present(UINavigationController(rootViewController: digitalCurrencyViewController), animated: true, completion: nil)
-            
-        case .inbox:
-            let countryListViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CountryListViewcontroller") as! CountryListViewController
-            present(countryListViewController, animated: true, completion: nil)
-        case .favorites:
-            print("favorites")
-        case .arabBitNews:
-            print("arab news")
-        case .logout:
-            do {
-                try Auth.auth().signOut()
-            }
-            catch {
-                print("error")
-            }
-        case .repeatTutorial:
-            print("tutorial")
-        case .tellAboutUs:
-            print("about us")
-        case .rateApp:
-            print("rate app")
-        case .contactUs:
-            print("contact us")
-        }
-    }
-
-}
-
-extension ContainerController: HomeViewControllerDelegate {
-    
-    func handleMenuToggle(forMenuOption menuOption: MenuOptions?) {
-        
-        if !isExpanded {
-            configureMenuViewController()
-        }
-        isExpanded = !isExpanded
-        showMenuController(shouldAppear: isExpanded, menuOption: menuOption)
     }
     
     

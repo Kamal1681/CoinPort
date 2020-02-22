@@ -237,9 +237,13 @@ extension HomeViewController: OfferTableCellDelegate {
         let url = URL(string: "https://maps.googleapis.com/maps/api/directions/json?origin=\(startPoint.latitude),\(startPoint.longitude)&destination=\(endPoint.latitude),\(endPoint.longitude)&key=\(googleApiKey)")
        
         URLSession.shared.dataTask(with: url! as URL) { (data, response, error) in
-
+            if let error = error {
+                print(error)
+                return
+            }
             do {
                 if data != nil {
+
                     let dict = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as! [String : Any]
     
                     let routes = dict["routes"] as! [Dictionary<String, Any>]

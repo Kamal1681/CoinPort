@@ -9,7 +9,6 @@
 import UIKit
 
 class DigitalCurrencyViewController: UIViewController, UINavigationBarDelegate {
-    
 
     @IBOutlet weak var currencyTableView: UITableView!
 
@@ -22,16 +21,23 @@ class DigitalCurrencyViewController: UIViewController, UINavigationBarDelegate {
         super.viewDidLoad()
 
         configureNavigationBar()
+        configureNextButton()
+        
         currencyTableView.delegate = self
         currencyTableView.dataSource = self
         currencyTableView.separatorStyle = .none
-        
+    }
+    
+    //MARK:- Configuration Functions
+    
+    func configureNextButton() {
         nextButton.backgroundColor = UIColor(red: 71/255, green: 91/255, blue: 195/255, alpha: 1)
         nextButton.tintColor = UIColor.white
         nextButton.isUserInteractionEnabled = false
     }
     
     func configureNavigationBar() {
+        navigationController?.setNavigationBarHidden(true, animated: false)
         let navigationBar = UINavigationBar()
         navigationBar.isTranslucent = false
         navigationBar.barTintColor = UIColor(red: 71/255, green: 91/255, blue: 195/255, alpha: 1)

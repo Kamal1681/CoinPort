@@ -14,7 +14,6 @@ class CountryListTableCell: UITableViewCell {
     @IBOutlet weak var itemImage: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.selectionStyle = .none
         
     }
 
