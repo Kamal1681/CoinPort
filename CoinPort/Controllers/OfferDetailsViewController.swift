@@ -38,6 +38,7 @@ class OfferDetailsViewController: UIViewController, UINavigationBarDelegate, UIT
     }
     
     
+    
     //MARK:- Configuration Functions
     
     func configureButtons() {
@@ -138,6 +139,10 @@ class OfferDetailsViewController: UIViewController, UINavigationBarDelegate, UIT
         selectCurrencyButton2.setImage(flag, for: .normal)
         selectCurrencyButton2.setTitle(realCurrency, for: .normal)
         offer.realCurrency = realCurrency
+        setAlpha()
+    }
+    
+    func setAlpha() {
         self.view.alpha = 1
     }
 

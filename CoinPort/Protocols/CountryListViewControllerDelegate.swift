@@ -11,4 +11,5 @@ import UIKit
 
 protocol CountryListViewControllerDelegate {
     func setRealCurrencyAndFlag(realCurrency: String, flag: UIImage)
+    func setAlpha()
 }

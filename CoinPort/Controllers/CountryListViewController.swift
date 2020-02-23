@@ -23,6 +23,9 @@ class CountryListViewController: UIViewController, UITableViewDelegate, UITableV
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var currencyTableView: UITableView!
+    @IBOutlet weak var tapGestureView: UIView!
+    
+    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     
     
     override func viewDidLoad() {
@@ -35,6 +38,9 @@ class CountryListViewController: UIViewController, UITableViewDelegate, UITableV
         currencyTableView.separatorStyle = .none
 
         searchBar.delegate = self
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(closeCurrencyTableView))
+        tapGestureView.addGestureRecognizer(tapGesture)
     }
 
         
@@ -56,9 +62,10 @@ class CountryListViewController: UIViewController, UITableViewDelegate, UITableV
                 }
             }
             UIView.animate(withDuration: 0.1) {
-
-                self.currencyTableView.frame.size.height = 30 * CGFloat(self.currencies.count)
+            
+            self.currencyTableView.frame.size.height = 30 * CGFloat(self.currencies.count)
                 
+            self.bottomConstraint.constant = self.view.frame.size.height / 2 - self.currencyTableView.frame.size.height / 2
             }
 
         } else {
@@ -105,6 +112,7 @@ class CountryListViewController: UIViewController, UITableViewDelegate, UITableV
       }
     
     @objc func closeCurrencyTableView() {
+        delegate?.setAlpha()
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -129,6 +137,7 @@ class CountryListViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    
         delegate?.setRealCurrencyAndFlag(realCurrency: currencies[indexPath.row], flag: flags[indexPath.row])
         self.dismiss(animated: true, completion: nil)
     }
