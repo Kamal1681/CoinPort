@@ -63,9 +63,9 @@ class CountryListViewController: UIViewController, UITableViewDelegate, UITableV
             }
             UIView.animate(withDuration: 0.1) {
             
-            self.currencyTableView.frame.size.height = 30 * CGFloat(self.currencies.count)
+                self.currencyTableView.frame.size.height = 30 * CGFloat(self.currencies.count) + self.searchBar.frame.size.height
                 
-            self.bottomConstraint.constant = self.view.frame.size.height / 2 - self.currencyTableView.frame.size.height / 2
+                self.bottomConstraint.constant = self.view.frame.size.height  - self.currencyTableView.frame.size.height
             }
 
         } else {
