@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-protocol CountryListViewControllerDelegate {
+protocol CurrencyListViewControllerDelegate {
     func setRealCurrencyAndFlag(realCurrency: String, flag: UIImage)
     func setAlpha()
 }

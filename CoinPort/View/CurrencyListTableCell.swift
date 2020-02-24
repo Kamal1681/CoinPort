@@ -8,10 +8,12 @@
 
 import UIKit
 
-class CountryListTableCell: UITableViewCell {
+class CurrencyListTableCell: UITableViewCell {
+    
     @IBOutlet weak var itemLabel: UILabel!
     
     @IBOutlet weak var itemImage: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         

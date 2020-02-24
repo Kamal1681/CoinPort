@@ -79,10 +79,10 @@
             </objects>
             <point key="canvasLocation" x="132" y="95.802098950524751"/>
         </scene>
-        <!--Country List View Controller-->
+        <!--Currency List View Controller-->
         <scene sceneID="xxg-Lk-Wkb">
             <objects>
-                <viewController storyboardIdentifier="CountryListViewcontroller" modalPresentationStyle="overFullScreen" id="oc4-qK-5XI" customClass="CountryListViewController" customModule="CoinPort" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CurrencyListViewcontroller" modalPresentationStyle="overFullScreen" id="oc4-qK-5XI" customClass="CurrencyListViewController" customModule="CoinPort" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aec-Ho-aId">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -105,7 +105,7 @@
                                         <rect key="frame" x="0.0" y="44" width="295" height="583"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="Country List Table Cell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Country List Table Cell" rowHeight="107" id="Em7-pY-IjD" customClass="CountryListTableCell" customModule="CoinPort" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="Country List Table Cell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Currency List Table Cell" rowHeight="107" id="Em7-pY-IjD" customClass="CurrencyListTableCell" customModule="CoinPort" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="295" height="107"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Em7-pY-IjD" id="weJ-2u-U6F">
@@ -135,8 +135,8 @@
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <connections>
-                                                    <outlet property="itemImage" destination="DXZ-Uf-w9S" id="tHV-FK-sxi"/>
-                                                    <outlet property="itemLabel" destination="bzf-v2-lRY" id="1Sk-Jt-Chv"/>
+                                                    <outlet property="itemImage" destination="DXZ-Uf-w9S" id="YcH-Uv-sXJ"/>
+                                                    <outlet property="itemLabel" destination="bzf-v2-lRY" id="tSH-WP-8wI"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
@@ -487,13 +487,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Z4-4Y-Hzm">
-                                <rect key="frame" x="157.5" y="622" width="60" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="lkg-Mp-Sya"/>
-                                </constraints>
-                                <state key="normal" title="Next"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0BG-ed-sl5">
                                 <rect key="frame" x="307" y="622" width="60" height="30"/>
                                 <constraints>
@@ -538,45 +531,88 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" smartQuotesType="no"/>
                             </textField>
+                            <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="I0H-cb-9fB">
+                                <rect key="frame" x="152.5" y="334" width="70" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="DtE-28-7Pn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" smartQuotesType="no"/>
+                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Car-mD-3wh">
-                                <rect key="frame" x="93" y="231.5" width="134" height="29"/>
+                                <rect key="frame" x="88" y="231.5" width="134" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <state key="normal" title="Select Currency Unit"/>
                                 <connections>
-                                    <segue destination="oc4-qK-5XI" kind="popoverPresentation" identifier="CountryListPopOver" popoverAnchorView="Car-mD-3wh" id="K0S-1G-fv8">
+                                    <segue destination="oc4-qK-5XI" kind="popoverPresentation" identifier="CurrencyListPopOver" popoverAnchorView="Car-mD-3wh" id="K0S-1G-fv8">
                                         <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                     </segue>
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zNr-X2-Bw8">
-                                <rect key="frame" x="93" y="237.5" width="61" height="17"/>
+                                <rect key="frame" x="88" y="237.5" width="61" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <state key="normal" title="Button" image="EU">
                                     <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
-                                    <segue destination="oc4-qK-5XI" kind="popoverPresentation" identifier="CountryListPopOver" popoverAnchorView="zNr-X2-Bw8" id="aRW-n1-6Ue">
+                                    <segue destination="oc4-qK-5XI" kind="popoverPresentation" identifier="CurrencyListPopOver" popoverAnchorView="zNr-X2-Bw8" id="aRW-n1-6Ue">
                                         <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                     </segue>
+                                </connections>
+                            </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="QcS-ys-3ro">
+                                <rect key="frame" x="0.0" y="293" width="375" height="32"/>
+                                <segments>
+                                    <segment title="Asking Best Offer"/>
+                                    <segment title="Rate"/>
+                                    <segment title="Commision"/>
+                                </segments>
+                                <connections>
+                                    <action selector="offerSegmentedControlTapped:" destination="TIW-Gf-H05" eventType="valueChanged" id="nft-8W-bAN"/>
+                                </connections>
+                            </segmentedControl>
+                            <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="EMW-eK-t31">
+                                <rect key="frame" x="282.5" y="334" width="70" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="YPd-gi-1hS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" smartQuotesType="no"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z1h-aY-eHN">
+                                <rect key="frame" x="152.5" y="622" width="70" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="bOP-1w-9Sh"/>
+                                </constraints>
+                                <state key="normal" title="Next"/>
+                                <connections>
+                                    <action selector="nextButtonPressed:" destination="TIW-Gf-H05" eventType="touchUpInside" id="hOn-RU-vLW"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="Car-mD-3wh" firstAttribute="leading" secondItem="d6Z-Ph-B2s" secondAttribute="trailing" constant="15" id="25B-Mh-mI7"/>
+                            <constraint firstItem="Car-mD-3wh" firstAttribute="leading" secondItem="d6Z-Ph-B2s" secondAttribute="trailing" constant="10" id="25B-Mh-mI7"/>
                             <constraint firstItem="shm-Rm-lcr" firstAttribute="trailing" secondItem="0BG-ed-sl5" secondAttribute="trailing" constant="8" id="5qf-wx-JoF"/>
+                            <constraint firstItem="EMW-eK-t31" firstAttribute="leading" secondItem="I0H-cb-9fB" secondAttribute="trailing" constant="60" id="73K-Gj-c5v"/>
                             <constraint firstItem="jwe-q9-nl9" firstAttribute="centerX" secondItem="4g4-Rc-CR7" secondAttribute="centerX" id="ApJ-Uh-XPy"/>
+                            <constraint firstItem="QcS-ys-3ro" firstAttribute="leading" secondItem="shm-Rm-lcr" secondAttribute="leading" id="CYd-XX-8yl"/>
+                            <constraint firstItem="shm-Rm-lcr" firstAttribute="trailing" secondItem="QcS-ys-3ro" secondAttribute="trailing" id="DPj-BK-pwR"/>
                             <constraint firstItem="jwe-q9-nl9" firstAttribute="leading" secondItem="shm-Rm-lcr" secondAttribute="leading" constant="20" id="E72-4a-a16"/>
                             <constraint firstItem="CR9-Kw-Cyt" firstAttribute="leading" secondItem="shm-Rm-lcr" secondAttribute="leading" constant="8" id="GT6-77-F35"/>
                             <constraint firstItem="Car-mD-3wh" firstAttribute="centerY" secondItem="d6Z-Ph-B2s" secondAttribute="centerY" id="HET-h0-tsU"/>
                             <constraint firstItem="aHJ-VL-yPf" firstAttribute="top" secondItem="jwe-q9-nl9" secondAttribute="bottom" constant="30" id="JG1-wj-Q7D"/>
+                            <constraint firstItem="QcS-ys-3ro" firstAttribute="top" secondItem="d6Z-Ph-B2s" secondAttribute="bottom" constant="30" id="KS4-uC-ajF"/>
                             <constraint firstItem="shm-Rm-lcr" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Car-mD-3wh" secondAttribute="trailing" symbolic="YES" id="Pkt-eI-jcA"/>
                             <constraint firstItem="2Ol-be-3f8" firstAttribute="leading" secondItem="shm-Rm-lcr" secondAttribute="leading" constant="8" id="UuM-SR-G89"/>
-                            <constraint firstItem="1Z4-4Y-Hzm" firstAttribute="centerX" secondItem="4g4-Rc-CR7" secondAttribute="centerX" id="W1x-qc-3dP"/>
+                            <constraint firstItem="EMW-eK-t31" firstAttribute="top" secondItem="QcS-ys-3ro" secondAttribute="bottom" constant="10" id="V5z-jO-HyO"/>
                             <constraint firstItem="zNr-X2-Bw8" firstAttribute="leading" secondItem="Car-mD-3wh" secondAttribute="leading" id="Zow-hU-7WH"/>
                             <constraint firstItem="1sI-eN-fEz" firstAttribute="top" secondItem="shm-Rm-lcr" secondAttribute="top" constant="60" id="blo-Ix-dON"/>
+                            <constraint firstItem="I0H-cb-9fB" firstAttribute="top" secondItem="QcS-ys-3ro" secondAttribute="bottom" constant="10" id="cHv-Lg-YQt"/>
                             <constraint firstItem="d6Z-Ph-B2s" firstAttribute="top" secondItem="aHJ-VL-yPf" secondAttribute="bottom" constant="10" id="cVm-Lq-I7c"/>
                             <constraint firstItem="2Ol-be-3f8" firstAttribute="top" secondItem="1sI-eN-fEz" secondAttribute="bottom" constant="15" id="d6c-UV-axQ"/>
+                            <constraint firstItem="shm-Rm-lcr" firstAttribute="bottom" secondItem="z1h-aY-eHN" secondAttribute="bottom" constant="15" id="eq8-sF-rnl"/>
                             <constraint firstItem="1sI-eN-fEz" firstAttribute="leading" secondItem="shm-Rm-lcr" secondAttribute="leading" constant="8" id="geO-UH-54L"/>
                             <constraint firstItem="d6Z-Ph-B2s" firstAttribute="leading" secondItem="shm-Rm-lcr" secondAttribute="leading" constant="8" id="go7-ov-WdF"/>
                             <constraint firstItem="aHJ-VL-yPf" firstAttribute="leading" secondItem="shm-Rm-lcr" secondAttribute="leading" constant="8" id="iro-ep-ur2"/>
@@ -584,10 +620,11 @@
                             <constraint firstItem="jwe-q9-nl9" firstAttribute="top" secondItem="CR9-Kw-Cyt" secondAttribute="bottom" constant="10" id="n2H-BE-5Yz"/>
                             <constraint firstItem="0BG-ed-sl5" firstAttribute="bottom" secondItem="shm-Rm-lcr" secondAttribute="bottom" constant="-15" id="oVk-aM-eJD"/>
                             <constraint firstItem="CR9-Kw-Cyt" firstAttribute="top" secondItem="2Ol-be-3f8" secondAttribute="bottom" constant="15" id="oYO-am-7xI"/>
+                            <constraint firstItem="I0H-cb-9fB" firstAttribute="centerX" secondItem="QcS-ys-3ro" secondAttribute="centerX" id="pnh-vJ-6Il"/>
                             <constraint firstItem="Dow-Zt-Buc" firstAttribute="leading" secondItem="shm-Rm-lcr" secondAttribute="leading" constant="8" id="rIS-4y-uer"/>
-                            <constraint firstItem="1Z4-4Y-Hzm" firstAttribute="bottom" secondItem="shm-Rm-lcr" secondAttribute="bottom" constant="-15" id="tK3-vL-Y5T"/>
                             <constraint firstItem="Dow-Zt-Buc" firstAttribute="bottom" secondItem="shm-Rm-lcr" secondAttribute="bottom" constant="-15" id="wOh-2F-4qF"/>
                             <constraint firstItem="shm-Rm-lcr" firstAttribute="trailing" secondItem="jwe-q9-nl9" secondAttribute="trailing" constant="20" id="xsz-ir-phM"/>
+                            <constraint firstItem="z1h-aY-eHN" firstAttribute="centerX" secondItem="4g4-Rc-CR7" secondAttribute="centerX" id="yZp-kV-cAZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="shm-Rm-lcr"/>
                     </view>
@@ -595,9 +632,12 @@
                         <outlet property="addressLabel" destination="1sI-eN-fEz" id="Lt5-GP-KMX"/>
                         <outlet property="backButton" destination="Dow-Zt-Buc" id="YYY-8C-gf0"/>
                         <outlet property="closeButton" destination="0BG-ed-sl5" id="51m-1g-xKb"/>
+                        <outlet property="commisionAmount" destination="EMW-eK-t31" id="iqc-Ra-fhH"/>
                         <outlet property="digitalCurrencyLabel" destination="2Ol-be-3f8" id="TQA-tz-Uwb"/>
                         <outlet property="exchangeAmount" destination="d6Z-Ph-B2s" id="yKx-Y8-stu"/>
-                        <outlet property="nextButton" destination="1Z4-4Y-Hzm" id="vGa-1L-iM9"/>
+                        <outlet property="nextButton" destination="z1h-aY-eHN" id="K8b-75-YfW"/>
+                        <outlet property="offerSegmentedControlView" destination="QcS-ys-3ro" id="jin-o9-dYc"/>
+                        <outlet property="rateAmount" destination="I0H-cb-9fB" id="AQe-U3-n92"/>
                         <outlet property="segmentedControlView" destination="jwe-q9-nl9" id="dVa-6g-z5m"/>
                         <outlet property="selectCurrencyButton" destination="Car-mD-3wh" id="qgs-GV-Fga"/>
                         <outlet property="selectCurrencyButton2" destination="zNr-X2-Bw8" id="jfE-cM-SOc"/>
@@ -813,6 +853,6 @@
         <image name="facebook-icon-white-logo-png-transparent" width="2400" height="2343"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="K0S-1G-fv8"/>
+        <segue reference="aRW-n1-6Ue"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -9,7 +9,7 @@
 import UIKit
 import FlagKit
 
-class CountryListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+class CurrencyListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
     var currencies = [String]()
     var flags = [UIImage]()
@@ -17,9 +17,9 @@ class CountryListViewController: UIViewController, UITableViewDelegate, UITableV
     var tempFlags = [UIImage]()
     var getCountryDictionary = [String: String]()
     
-    var delegate: CountryListViewControllerDelegate?
+    var delegate: CurrencyListViewControllerDelegate?
     
-    var reuseIdentifier = "Country List Table Cell"
+    var reuseIdentifier = "Currency List Table Cell"
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var currencyTableView: UITableView!
@@ -62,7 +62,6 @@ class CountryListViewController: UIViewController, UITableViewDelegate, UITableV
                 }
             }
             UIView.animate(withDuration: 0.1) {
-            
                 self.currencyTableView.frame.size.height = 30 * CGFloat(self.currencies.count) + self.searchBar.frame.size.height
                 
                 self.bottomConstraint.constant = self.view.frame.size.height  - self.currencyTableView.frame.size.height
@@ -79,35 +78,36 @@ class CountryListViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func listCountriesAndCurrencies() {
-          let localeIds = Locale.availableIdentifiers
-          var countryCurrency = [String: String]()
-          for localeId in localeIds {
-              let locale = Locale(identifier: localeId)
-
-              if let country = locale.regionCode, country.count == 2 {
-                  if let currency = locale.currencyCode {
-                      
-                      let countryText = locale.localizedString(forRegionCode: country)
-                      if !countryText!.isContiguousUTF8 {
-                          continue
-                      }
-
-                      let currencyText = locale.localizedString(forCurrencyCode: currency)
-                      if !currencyText!.isContiguousUTF8 {
-                         continue
-                      }
-                      countryCurrency[countryText!] = currencyText
-                      getCountryDictionary[currencyText!] = country
-                      
-                      currencies.append(currencyText!)
-                      tempCurrencies.append(currencyText!)
-                      
-                      flags.append(UIImage(named: country, in: FlagKit.assetBundle, with: nil) ?? UIImage())
-                      tempFlags.append(UIImage(named: country, in: FlagKit.assetBundle, with: nil) ?? UIImage())
-                      
-                      currencyTableView.reloadData()
-                  }
-              }
+        
+        let localeIds = Locale.availableIdentifiers
+        var countryCurrency = [String: String]()
+        
+        for localeId in localeIds {
+            let locale = Locale(identifier: localeId)
+            if let country = locale.regionCode, country.count == 2 {
+                if let currency = locale.currencyCode {
+                    
+                    let countryText = locale.localizedString(forRegionCode: country)
+                    if !countryText!.isContiguousUTF8 {
+                        continue
+                    }
+                    
+                    let currencyText = locale.localizedString(forCurrencyCode: currency)
+                    if !currencyText!.isContiguousUTF8 {
+                        continue
+                    }
+                    countryCurrency[countryText!] = currencyText
+                    getCountryDictionary[currencyText!] = country
+                    
+                    currencies.append(currencyText!)
+                    tempCurrencies.append(currencyText!)
+                    
+                    flags.append(UIImage(named: country, in: FlagKit.assetBundle, with: nil) ?? UIImage())
+                    tempFlags.append(UIImage(named: country, in: FlagKit.assetBundle, with: nil) ?? UIImage())
+                    
+                    currencyTableView.reloadData()
+                }
+            }
           }
       }
     
@@ -115,6 +115,8 @@ class CountryListViewController: UIViewController, UITableViewDelegate, UITableV
         delegate?.setAlpha()
         self.dismiss(animated: true, completion: nil)
     }
+    
+    
     
     //MARK:- TableView Delegate and Datasource
     
@@ -124,7 +126,7 @@ class CountryListViewController: UIViewController, UITableViewDelegate, UITableV
         
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = currencyTableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! CountryListTableCell
+        let cell = currencyTableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! CurrencyListTableCell
         
         cell.itemLabel.text = currencies[indexPath.row]
         cell.itemImage.image = flags[indexPath.row]
