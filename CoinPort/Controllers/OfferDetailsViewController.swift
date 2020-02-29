@@ -9,7 +9,7 @@
 import UIKit
 
 
-class OfferDetailsViewController: UIViewController, UINavigationBarDelegate, UITextFieldDelegate, UITextViewDelegate, CurrencyListViewControllerDelegate {
+class OfferDetailsViewController: UIViewController, UINavigationBarDelegate, CurrencyListViewControllerDelegate {
 
     @IBOutlet weak var segmentedControlView: UISegmentedControl!
     @IBOutlet weak var addressLabel: UILabel!
@@ -20,17 +20,23 @@ class OfferDetailsViewController: UIViewController, UINavigationBarDelegate, UIT
     @IBOutlet weak var selectCurrencyButton: UIButton!
     @IBOutlet weak var selectCurrencyButton2: UIButton!
     
+    @IBOutlet weak var currencyPicker: UIPickerView!
+    @IBOutlet weak var rateImageView: UIImageView!
+    
+    @IBOutlet weak var rateCurrencyLabel: UILabel!
     @IBOutlet weak var exchangeAmount: UITextField!
     @IBOutlet weak var rateAmount: UITextField!
     @IBOutlet weak var commissionPercentage: UITextField!
     
-    @IBOutlet weak var publishButton: UIButton!
+    @IBOutlet weak var equalSignLabel: UILabel!
+    @IBOutlet weak var rateTextLabel: UILabel!
+    @IBOutlet weak var commissionTextLabel: UILabel!
+    
+    @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var closeButton: UIButton!
     
-    @IBOutlet weak var additionalNotes: UITextView!
-    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
-    var keyboardHeight : CGFloat?
+    let currencyPickerArray = ["USD", "Euro"]
     
     var offer = Offer()
     
@@ -39,7 +45,6 @@ class OfferDetailsViewController: UIViewController, UINavigationBarDelegate, UIT
 
         configureButtons()
         configureNavigationBar()
-        configureTextView()
         segmentedControlSetUp()
         offerSegmentedControlSetUp()
         
@@ -49,28 +54,20 @@ class OfferDetailsViewController: UIViewController, UINavigationBarDelegate, UIT
         exchangeAmount.delegate = self
         rateAmount.delegate = self
         commissionPercentage.delegate = self
-        additionalNotes.delegate = self
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidChange(notication:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        currencyPicker.delegate = self
+        currencyPicker.dataSource = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        super .viewDidAppear(true)
-        offer.exchangeRate = ""
-        offer.exchangeAmount = 0.0
-        offer.realCurrency = ""
-        offer.commissionPercentage = 0.0
-    }
-    
-    func publish() {
-        
+        super.viewDidAppear(true)
+        //clearPage()
     }
     
     //MARK:- Configuration Functions
     
     func configureButtons() {
-        publishButton.backgroundColor = UIColor(red: 71/255, green: 91/255, blue: 195/255, alpha: 1)
-        publishButton.tintColor = UIColor.white
+        nextButton.backgroundColor = UIColor(red: 71/255, green: 91/255, blue: 195/255, alpha: 1)
+        nextButton.tintColor = UIColor.white
         
         backButton.backgroundColor = UIColor(red: 71/255, green: 91/255, blue: 195/255, alpha: 1)
         backButton.tintColor = UIColor.white
@@ -94,7 +91,7 @@ class OfferDetailsViewController: UIViewController, UINavigationBarDelegate, UIT
           item.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.left"), style: .plain, target: self, action: #selector(dismissProfileController))
           
           let attributes = [NSAttributedString.Key.font: UIFont(name: "Arial-BoldMT", size: 12)]
-          UINavigationBar.appearance().titleTextAttributes = attributes
+        UINavigationBar.appearance().titleTextAttributes = attributes as [NSAttributedString.Key : Any]
           
           view.addSubview(navigationBar)
           navigationBar.translatesAutoresizingMaskIntoConstraints = false
@@ -106,18 +103,29 @@ class OfferDetailsViewController: UIViewController, UINavigationBarDelegate, UIT
           
       }
     
-    func configureTextView() {
-        additionalNotes.text = "Add any additional notes"
-        additionalNotes.textColor = .lightGray
-        additionalNotes.layer.borderWidth = 1.0
-        additionalNotes.layer.borderColor = UIColor.blue.cgColor
-        additionalNotes.layer.cornerRadius = 8
-    }
+    func clearPage() {
+          offer.exchangeRate = ""
+          rateAmount.text = ""
+          rateCurrencyLabel.text = ""
+          rateImageView.image = nil
+          
+          offer.exchangeAmount = 0.0
+          exchangeAmount.text = ""
+          
+          offer.realCurrency = ""
+          selectCurrencyButton.isHidden = false
+          selectCurrencyButton2.isHidden = true
+            offerSegmentedControlSetUp()
+        
+          offer.commissionPercentage = 0.0
+          commissionPercentage.text = ""
+      }
+    
+    
 
     //MARK:- Button Actions
     
     @IBAction func backButtonPressed(_ sender: Any) {
-        
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -131,8 +139,7 @@ class OfferDetailsViewController: UIViewController, UINavigationBarDelegate, UIT
  
     }
     
-    
-    @IBAction func publishButtonPressed(_ sender: Any) {
+    @IBAction func nextButtonPressed(_ sender: Any) {
     
         if segmentedControlView.selectedSegmentIndex == -1 {
             let alertController = UIAlertController(title: "Alert", message: "Select request type Buy/Sell ?", preferredStyle: .alert)
@@ -161,7 +168,7 @@ class OfferDetailsViewController: UIViewController, UINavigationBarDelegate, UIT
             self.present(alertController, animated: true)
 
         }
-        else if offer.exchangeRate == "" && offerSegmentedControlView.selectedSegmentIndex == 1 {
+        else if (offer.exchangeRate == "" || rateAmount.text == "") && offerSegmentedControlView.selectedSegmentIndex == 1 {
             let alertController = UIAlertController(title: "Alert", message: "Please enter your price", preferredStyle: .alert)
             let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             alertController.addAction(alertAction)
@@ -174,7 +181,7 @@ class OfferDetailsViewController: UIViewController, UINavigationBarDelegate, UIT
             self.present(alertController, animated: true)
         }
         else {
-            publish()
+            performSegue(withIdentifier: "PublishViewController", sender: self)
         }
     }
     
@@ -209,115 +216,91 @@ class OfferDetailsViewController: UIViewController, UINavigationBarDelegate, UIT
     }
     
     func offerSegmentedControlSetUp() {
-        
+        currencyPicker.delegate = nil
         let selectedIndex = offerSegmentedControlView.selectedSegmentIndex
         switch selectedIndex {
         case 0:
             offerSegmentedControlView.selectedSegmentTintColor = .darkGray
             offer.exchangeRate = "Asking Best Offer"
-            rateAmount.isEnabled = false
-            commissionPercentage.isEnabled = false
+            disablePageElements()
         case 1:
             offerSegmentedControlView.selectedSegmentTintColor = .darkGray
-            rateAmount.isEnabled = true
-            commissionPercentage.isEnabled = false
+            disableCommissionElements()
         case 2:
             offerSegmentedControlView.selectedSegmentTintColor = .darkGray
-            commissionPercentage.isEnabled = true
-            rateAmount.isEnabled = false
+            disableRateElements()
         default:
             break
         }
     }
-
-    //MARK:- TextField Delegate
     
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let allowedCharacters = "0123456789,."
-        let allowedCharacterSet = CharacterSet(charactersIn: allowedCharacters)
-        let typedCharacterSet = CharacterSet(charactersIn: string)
-        if !allowedCharacterSet.isSuperset(of: typedCharacterSet) {
-            let alertController = UIAlertController(title: "Alert", message: "This Field Accepts Only Numbers", preferredStyle: .alert)
-            let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
-            alertController.addAction(action)
-            self.present(alertController, animated: true)
-        }
-        return allowedCharacterSet.isSuperset(of: typedCharacterSet)
-    }
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        textField.clearsOnBeginEditing = true
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        switch textField.tag {
-        case 0:
-            offer.exchangeAmount = (textField.text! as NSString).doubleValue
-            textField.resignFirstResponder()
-        case 1:
-            if let textFieldText = textField.text {
-                offer.exchangeRate = textFieldText
-                textField.resignFirstResponder()
-            }
-        case 2:
-            textField.resignFirstResponder()
-        default:
-            break
-        }
-
-        return true
-    }
-    
-    //MARK:- TextView handling
-
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.text == "Add any additional notes" {
-            textView.text = nil
-        }
-        textView.textColor =  .black
-
+    func disableRateElements() {
+        currencyPicker.delegate = self
         UIView.animate(withDuration: 0.5) {
-            guard let keyboardHeight = self.keyboardHeight else { return }
-            self.bottomConstraint.constant = keyboardHeight - 50
-            self.view.layoutIfNeeded()
+            self.commissionPercentage.isEnabled = true
+            self.commissionPercentage.isHighlighted = true
+            self.commissionPercentage.becomeFirstResponder()
+            self.commissionTextLabel.textColor = .black
+            self.commissionPercentage.textColor = .black
+            self.rateAmount.isEnabled = false
+            self.rateAmount.isHighlighted = false
+            self.rateAmount.textColor = .lightGray
+            self.rateImageView.alpha = 0.2
+            self.rateCurrencyLabel.textColor = .lightGray
+            self.currencyPicker.isUserInteractionEnabled = false
+            self.rateTextLabel.textColor = .lightGray
+            self.equalSignLabel.textColor = .lightGray
         }
     }
     
-    func textViewDidEndEditing(_ textView: UITextView) {
-
+    func disableCommissionElements() {
+        currencyPicker.delegate = self
         UIView.animate(withDuration: 0.5) {
-            self.bottomConstraint.constant = 75
-            self.view.layoutIfNeeded()
+            self.rateAmount.isEnabled = true
+            self.rateAmount.isHighlighted = true
+            self.rateAmount.becomeFirstResponder()
+            self.rateAmount.textColor = .black
+            self.rateImageView.alpha = 1
+            self.rateCurrencyLabel.textColor = .black
+            self.currencyPicker.isUserInteractionEnabled = true
+            self.rateTextLabel.textColor = .black
+            self.equalSignLabel.textColor = .black
+            self.commissionTextLabel.textColor = .lightGray
+            self.commissionPercentage.isEnabled = false
+            self.commissionPercentage.isHighlighted = false
+            self.commissionPercentage.textColor = .lightGray
         }
-        if textView.text == "" {
-            textView.textColor = .lightGray
-            textView.text = "Add any additional notes"
-        }
-        offer.notes = textView.text
     }
     
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        if text == "\n" {
-            textView.resignFirstResponder()
-            return false
+    func disablePageElements() {
+        currencyPicker.delegate = self
+        UIView.animate(withDuration: 0.5) {
+            self.rateAmount.isEnabled = false
+            self.rateAmount.isHighlighted = false
+            self.rateCurrencyLabel.textColor = .lightGray
+            self.rateImageView.alpha = 0.2
+            self.rateAmount.textColor = .lightGray
+            self.currencyPicker.isUserInteractionEnabled = false
+            self.commissionPercentage.isEnabled = false
+            self.commissionPercentage.isHighlighted = false
+            self.commissionPercentage.textColor = .lightGray
+            self.rateTextLabel.textColor = .lightGray
+            self.equalSignLabel.textColor = .lightGray
+            self.commissionTextLabel.textColor = .lightGray
         }
-        return true
-    }
-    
-    @objc func keyboardDidChange(notication: NSNotification) {
-        let value = notication.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect
-         self.keyboardHeight = value?.size.height
     }
     
     //MARK:- CurrencyListViewControllerDelegate
     
-    func setRealCurrencyAndFlag(realCurrency: String, flag: UIImage) {
+    func setRealCurrencyAndFlag(realCurrency: String, flag: UIImage, currencyCode: String) {
 
         selectCurrencyButton.isHidden = true
         selectCurrencyButton2.isHidden = false
         selectCurrencyButton2.setImage(flag, for: .normal)
-        selectCurrencyButton2.setTitle(realCurrency, for: .normal)
-        offer.realCurrency = realCurrency
+        selectCurrencyButton2.setTitle(currencyCode, for: .normal)
+        rateCurrencyLabel.text = currencyCode
+        rateImageView.image = flag
+        offer.realCurrency = currencyCode
         setAlpha()
     }
     
@@ -334,7 +317,89 @@ class OfferDetailsViewController: UIViewController, UINavigationBarDelegate, UIT
             currencyListPopOver.delegate = self
             self.view.alpha = 0.7
         }
+        if segue.identifier == "PublishViewController" {
+            let publishViewController = segue.destination as! PublishViewController
+            publishViewController.offer = offer
+        }
     }
+}
 
+//MARK:- TextField Delegate
+
+extension OfferDetailsViewController: UITextFieldDelegate {
+
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let allowedCharacters = "0123456789,."
+        let allowedCharacterSet = CharacterSet(charactersIn: allowedCharacters)
+        let typedCharacterSet = CharacterSet(charactersIn: string)
+        if  !allowedCharacterSet.isSuperset(of: typedCharacterSet) {
+            let alertController = UIAlertController(title: "Alert", message: "This Field Accepts Only Numbers", preferredStyle: .alert)
+            let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
+            alertController.addAction(action)
+            self.present(alertController, animated: true)
+        }
+        return allowedCharacterSet.isSuperset(of: typedCharacterSet)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField.tag {
+        case 0:
+            if let textFieldText = textField.text {
+                offer.exchangeAmount = (textFieldText as NSString).doubleValue
+            }
+            textField.resignFirstResponder()
+        case 1:
+            if let textFieldText = textField.text {
+                offer.exchangeRate = "\(currencyPicker.selectedRow(inComponent: 0)) = \(textFieldText) \(String(describing: rateCurrencyLabel.text))"
+            }
+            textField.resignFirstResponder()
+        case 2:
+            if let textFieldText = textField.text {
+                offer.commissionPercentage = (textFieldText as NSString).doubleValue
+            }
+            textField.resignFirstResponder()
+        default:
+            break
+        }
+
+        return true
+    }
+}
+
+    //MARK:- PickerView Delegate and Datasource
+
+extension OfferDetailsViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+            pickerView.subviews.forEach({
+            $0.layer.borderWidth = 0
+            $0.isHidden = $0.frame.height < 1.0
+        })
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return 2
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return currencyPickerArray[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        var pickerLabel: UILabel? = view as? UILabel
+        if pickerLabel == nil {
+            pickerLabel = UILabel()
+            pickerLabel?.font = UIFont(name: "Arial-BoldMT", size: 12)
+            pickerLabel?.textAlignment = .center
+        }
+        pickerLabel?.text = currencyPickerArray[row]
+        if pickerView.isUserInteractionEnabled {
+            pickerLabel?.textColor = .black
+        } else {
+            pickerLabel?.textColor = .lightGray
+        }
+        return pickerLabel!
+    }
     
 }

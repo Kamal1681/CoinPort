@@ -16,6 +16,7 @@ class CurrencyListViewController: UIViewController, UITableViewDelegate, UITable
     var tempCurrencies = [String]()
     var tempFlags = [UIImage]()
     var getCountryDictionary = [String: String]()
+    var currencyCodesDictionary = [String: String]()
     
     var delegate: CurrencyListViewControllerDelegate?
     
@@ -100,6 +101,7 @@ class CurrencyListViewController: UIViewController, UITableViewDelegate, UITable
                     getCountryDictionary[currencyText!] = country
                     
                     currencies.append(currencyText!)
+                    currencyCodesDictionary[currencyText!] = currency
                     tempCurrencies.append(currencyText!)
                     
                     flags.append(UIImage(named: country, in: FlagKit.assetBundle, with: nil) ?? UIImage())
@@ -140,7 +142,7 @@ class CurrencyListViewController: UIViewController, UITableViewDelegate, UITable
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     
-        delegate?.setRealCurrencyAndFlag(realCurrency: currencies[indexPath.row], flag: flags[indexPath.row])
+        delegate?.setRealCurrencyAndFlag(realCurrency: currencies[indexPath.row], flag: flags[indexPath.row], currencyCode: currencyCodesDictionary[currencies[indexPath.row]]!)
         self.dismiss(animated: true, completion: nil)
     }
     

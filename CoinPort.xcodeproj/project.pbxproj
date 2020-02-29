@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B097A9C2CCE9C7AFAE3D1B05 /* Pods_CoinPort.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17634A695EDEFBB96407D710 /* Pods_CoinPort.framework */; };
+		C600B7FA240AC14A00D6DBC4 /* PublishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C600B7F9240AC14A00D6DBC4 /* PublishViewController.swift */; };
 		C6011C2323ECD4330079C779 /* OfferTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6011C2123ECD4330079C779 /* OfferTableCell.swift */; };
 		C6011C2423ECD4330079C779 /* OfferTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6011C2223ECD4330079C779 /* OfferTableCell.xib */; };
 		C61D06DA23DE3CFD003BA261 /* DigitalCurrencyTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61D06D923DE3CFD003BA261 /* DigitalCurrencyTableCell.swift */; };
@@ -42,6 +43,7 @@
 		17634A695EDEFBB96407D710 /* Pods_CoinPort.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoinPort.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B438E1AB70975859B9FE0B8 /* Pods-CoinPort.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoinPort.debug.xcconfig"; path = "Target Support Files/Pods-CoinPort/Pods-CoinPort.debug.xcconfig"; sourceTree = "<group>"; };
 		7A1D9FBF3766009305D5BA65 /* Pods-CoinPort.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoinPort.release.xcconfig"; path = "Target Support Files/Pods-CoinPort/Pods-CoinPort.release.xcconfig"; sourceTree = "<group>"; };
+		C600B7F9240AC14A00D6DBC4 /* PublishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PublishViewController.swift; path = CoinPort/Controllers/PublishViewController.swift; sourceTree = SOURCE_ROOT; };
 		C6011C2123ECD4330079C779 /* OfferTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferTableCell.swift; sourceTree = "<group>"; };
 		C6011C2223ECD4330079C779 /* OfferTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OfferTableCell.xib; sourceTree = "<group>"; };
 		C61D06D923DE3CFD003BA261 /* DigitalCurrencyTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalCurrencyTableCell.swift; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 		C6DDCCAA23A1BB8100E25DA5 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C600B7F9240AC14A00D6DBC4 /* PublishViewController.swift */,
 				C634161223F490E5001DFDE5 /* UserLocationViewController.swift */,
 				C64D9D8623FC348200CC51B0 /* OfferDetailsViewController.swift */,
 				C6DDCCAF23A1C98500E25DA5 /* ContainerController.swift */,
@@ -344,6 +347,7 @@
 				C6477D7B23B95C7E0043C29D /* MenuTableCell.swift in Sources */,
 				C6477D7F23B990DF0043C29D /* ProfileViewController.swift in Sources */,
 				C6A356BE23A1BA0900C064C8 /* SceneDelegate.swift in Sources */,
+				C600B7FA240AC14A00D6DBC4 /* PublishViewController.swift in Sources */,
 				C6ADDD9A23C75E6A00F4BEEE /* DigitalCurrencyViewController.swift in Sources */,
 				C63CBFC5240163DB00CFA281 /* CurrencyListViewControllerDelegate.swift in Sources */,
 				C6477D7423B404E10043C29D /* MenuViewController.swift in Sources */,

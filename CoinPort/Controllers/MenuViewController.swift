@@ -23,9 +23,11 @@ class MenuViewController: UIViewController {
         super.viewDidLoad()
         
         configureImageView()
+        
         email.text = Auth.auth().currentUser?.email
         userName.text = Auth.auth().currentUser?.displayName
         profilePicture.image = SignInViewController.image
+        
         menuTableView.dataSource = self
         menuTableView.delegate = self
         menuTableView.separatorStyle = .none

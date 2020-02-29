@@ -10,6 +10,6 @@ import Foundation
 import UIKit
 
 protocol CurrencyListViewControllerDelegate {
-    func setRealCurrencyAndFlag(realCurrency: String, flag: UIImage)
+    func setRealCurrencyAndFlag(realCurrency: String, flag: UIImage, currencyCode: String)
     func setAlpha()
 }
