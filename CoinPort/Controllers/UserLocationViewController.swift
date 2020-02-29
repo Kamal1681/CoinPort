@@ -143,7 +143,7 @@ class UserLocationViewController: UIViewController, UINavigationBarDelegate, GMS
     }
     
     func getFullAddressFromLocation (location: CLLocationCoordinate2D, complete: @escaping (String) -> Void) {
-        
+  
         var formattedAddress: String? = ""
         let url = URL(string: "https://maps.googleapis.com/maps/api/geocode/json?latlng=\(String(describing: location.latitude)),\(String(describing: location.longitude))&language=en&key=\(googleApiKey)")
         

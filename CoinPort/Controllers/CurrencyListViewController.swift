@@ -24,9 +24,9 @@ class CurrencyListViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var currencyTableView: UITableView!
     @IBOutlet weak var tapGestureView: UIView!
-    
+
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
-    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()

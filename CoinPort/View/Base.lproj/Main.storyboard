@@ -561,7 +561,7 @@
                                     </segue>
                                 </connections>
                             </button>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="QcS-ys-3ro">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="QcS-ys-3ro">
                                 <rect key="frame" x="0.0" y="293" width="375" height="32"/>
                                 <segments>
                                     <segment title="Asking Best Offer"/>
@@ -585,11 +585,21 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="bOP-1w-9Sh"/>
                                 </constraints>
-                                <state key="normal" title="Next"/>
+                                <state key="normal" title="Publish"/>
                                 <connections>
-                                    <action selector="nextButtonPressed:" destination="TIW-Gf-H05" eventType="touchUpInside" id="hOn-RU-vLW"/>
+                                    <action selector="publishButtonPressed:" destination="TIW-Gf-H05" eventType="touchUpInside" id="Ckj-je-Fy3"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="scrollableAxes" keyboardDismissMode="interactive" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="KnE-Z8-sy3">
+                                <rect key="frame" x="10" y="427" width="355" height="120"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="7el-m2-Eh1"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -599,6 +609,7 @@
                             <constraint firstItem="jwe-q9-nl9" firstAttribute="centerX" secondItem="4g4-Rc-CR7" secondAttribute="centerX" id="ApJ-Uh-XPy"/>
                             <constraint firstItem="QcS-ys-3ro" firstAttribute="leading" secondItem="shm-Rm-lcr" secondAttribute="leading" id="CYd-XX-8yl"/>
                             <constraint firstItem="shm-Rm-lcr" firstAttribute="trailing" secondItem="QcS-ys-3ro" secondAttribute="trailing" id="DPj-BK-pwR"/>
+                            <constraint firstItem="KnE-Z8-sy3" firstAttribute="leading" secondItem="shm-Rm-lcr" secondAttribute="leading" constant="10" id="E6o-Fz-nOS"/>
                             <constraint firstItem="jwe-q9-nl9" firstAttribute="leading" secondItem="shm-Rm-lcr" secondAttribute="leading" constant="20" id="E72-4a-a16"/>
                             <constraint firstItem="CR9-Kw-Cyt" firstAttribute="leading" secondItem="shm-Rm-lcr" secondAttribute="leading" constant="8" id="GT6-77-F35"/>
                             <constraint firstItem="Car-mD-3wh" firstAttribute="centerY" secondItem="d6Z-Ph-B2s" secondAttribute="centerY" id="HET-h0-tsU"/>
@@ -607,6 +618,8 @@
                             <constraint firstItem="shm-Rm-lcr" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Car-mD-3wh" secondAttribute="trailing" symbolic="YES" id="Pkt-eI-jcA"/>
                             <constraint firstItem="2Ol-be-3f8" firstAttribute="leading" secondItem="shm-Rm-lcr" secondAttribute="leading" constant="8" id="UuM-SR-G89"/>
                             <constraint firstItem="EMW-eK-t31" firstAttribute="top" secondItem="QcS-ys-3ro" secondAttribute="bottom" constant="10" id="V5z-jO-HyO"/>
+                            <constraint firstItem="KnE-Z8-sy3" firstAttribute="centerX" secondItem="4g4-Rc-CR7" secondAttribute="centerX" id="YwU-Jw-vej"/>
+                            <constraint firstItem="z1h-aY-eHN" firstAttribute="top" secondItem="KnE-Z8-sy3" secondAttribute="bottom" constant="75" id="ZY7-QQ-Kae"/>
                             <constraint firstItem="zNr-X2-Bw8" firstAttribute="leading" secondItem="Car-mD-3wh" secondAttribute="leading" id="Zow-hU-7WH"/>
                             <constraint firstItem="1sI-eN-fEz" firstAttribute="top" secondItem="shm-Rm-lcr" secondAttribute="top" constant="60" id="blo-Ix-dON"/>
                             <constraint firstItem="I0H-cb-9fB" firstAttribute="top" secondItem="QcS-ys-3ro" secondAttribute="bottom" constant="10" id="cHv-Lg-YQt"/>
@@ -629,14 +642,16 @@
                         <viewLayoutGuide key="safeArea" id="shm-Rm-lcr"/>
                     </view>
                     <connections>
+                        <outlet property="additionalNotes" destination="KnE-Z8-sy3" id="LHM-47-CF7"/>
                         <outlet property="addressLabel" destination="1sI-eN-fEz" id="Lt5-GP-KMX"/>
                         <outlet property="backButton" destination="Dow-Zt-Buc" id="YYY-8C-gf0"/>
+                        <outlet property="bottomConstraint" destination="ZY7-QQ-Kae" id="aZt-wU-nbM"/>
                         <outlet property="closeButton" destination="0BG-ed-sl5" id="51m-1g-xKb"/>
-                        <outlet property="commisionAmount" destination="EMW-eK-t31" id="iqc-Ra-fhH"/>
+                        <outlet property="commissionPercentage" destination="EMW-eK-t31" id="aNd-oY-heQ"/>
                         <outlet property="digitalCurrencyLabel" destination="2Ol-be-3f8" id="TQA-tz-Uwb"/>
                         <outlet property="exchangeAmount" destination="d6Z-Ph-B2s" id="yKx-Y8-stu"/>
-                        <outlet property="nextButton" destination="z1h-aY-eHN" id="K8b-75-YfW"/>
                         <outlet property="offerSegmentedControlView" destination="QcS-ys-3ro" id="jin-o9-dYc"/>
+                        <outlet property="publishButton" destination="z1h-aY-eHN" id="Nh4-h9-LZj"/>
                         <outlet property="rateAmount" destination="I0H-cb-9fB" id="AQe-U3-n92"/>
                         <outlet property="segmentedControlView" destination="jwe-q9-nl9" id="dVa-6g-z5m"/>
                         <outlet property="selectCurrencyButton" destination="Car-mD-3wh" id="qgs-GV-Fga"/>

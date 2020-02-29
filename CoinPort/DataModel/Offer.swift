@@ -24,6 +24,7 @@ class Offer {
     var digitalCurrency: String = ""
     var exchangeAmount = 0.0
     var exchangeRate: String = ""
+    var commissionPercentage = 0.0
     var realCurrency: String = ""
     var offerLocation: GeoPoint?
     var offerRequest: OfferRequest?
@@ -35,5 +36,6 @@ class Offer {
     var numberOfViews = 0
     var profilePictureURL: URL?
     var review: Review?
+    var notes: String = ""
     
 }
