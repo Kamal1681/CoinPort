@@ -37,7 +37,7 @@ class OfferDetailsViewController: UIViewController, UINavigationBarDelegate, Cur
     @IBOutlet weak var closeButton: UIButton!
     
     let currencyPickerArray = ["USD", "Euro"]
-    var currencyPickerValue: String?
+    var currencyPickerValue = "USD"
     
     var offer = Offer()
     
@@ -351,7 +351,7 @@ extension OfferDetailsViewController: UITextFieldDelegate {
             textField.resignFirstResponder()
         case 1:
             if let textFieldText = textField.text {
-                offer.exchangeRate = "\(currencyPickerValue ?? "") = \(textFieldText) \(String(describing: rateCurrencyLabel.text!))"
+                offer.exchangeRate = "\(currencyPickerValue) = \(textFieldText) \(String(describing: rateCurrencyLabel.text!))"
             }
             textField.resignFirstResponder()
         case 2:

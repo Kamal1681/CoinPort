@@ -73,7 +73,6 @@ class HomeViewController: UIViewController, UINavigationBarDelegate {
                     let numberOfViews = document.get("numberOfViews") as? Int,
                     let offerLocation = document.get("offerLocation") as? GeoPoint,
                     let offerRequestRawvalue = document.get("offerRequest") as? String,
-                    //let offerStatusRawValue = document.get("offerStatus") as? String,
                     let realcurrency = document.get("realCurrency") as? String,
                     let user = document.get("user") as? String,
                     let userCountry = document.get("userCountry") as? String,
@@ -89,7 +88,6 @@ class HomeViewController: UIViewController, UINavigationBarDelegate {
                     offer.numberOfViews = numberOfViews
                     offer.offerLocation = offerLocation
                     offer.offerRequest = OfferRequest(rawValue: offerRequestRawvalue)
-                    //offer.offerStatus = OfferStatus(rawValue: offerStatusRawValue)
                     offer.realCurrency = realcurrency
                     offer.user = user
                     offer.userCountry = userCountry
