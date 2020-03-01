@@ -45,6 +45,7 @@ class OfferTableCell: UITableViewCell {
     
     func configureCell(offer: Offer) {
         userLabel.text = offer.user
+        countryCode = delegate?.getCountryCode(userCountry: offer.userCountry)
         if let countryCode = countryCode {
             userFlag.image = UIImage(named: countryCode, in: FlagKit.assetBundle, with: nil)
         }

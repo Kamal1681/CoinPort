@@ -72,8 +72,8 @@ class HomeViewController: UIViewController, UINavigationBarDelegate {
                     let exchangeRate = document.get("exchangeRate") as? String,
                     let numberOfViews = document.get("numberOfViews") as? Int,
                     let offerLocation = document.get("offerLocation") as? GeoPoint,
-                    let offerRequestRawValue = document.get("offerRequest") as? String,
-                    let offerStatusRawValue = document.get("offerStatus") as? String,
+                    let offerRequestRawvalue = document.get("offerRequest") as? String,
+                    //let offerStatusRawValue = document.get("offerStatus") as? String,
                     let realcurrency = document.get("realCurrency") as? String,
                     let user = document.get("user") as? String,
                     let userCountry = document.get("userCountry") as? String,
@@ -88,8 +88,8 @@ class HomeViewController: UIViewController, UINavigationBarDelegate {
                     offer.exchangeRate = exchangeRate
                     offer.numberOfViews = numberOfViews
                     offer.offerLocation = offerLocation
-                    offer.offerRequest = OfferRequest(rawValue: offerRequestRawValue)
-                    offer.offerStatus = OfferStatus(rawValue: offerStatusRawValue)
+                    offer.offerRequest = OfferRequest(rawValue: offerRequestRawvalue)
+                    //offer.offerStatus = OfferStatus(rawValue: offerStatusRawValue)
                     offer.realCurrency = realcurrency
                     offer.user = user
                     offer.userCountry = userCountry
@@ -108,7 +108,9 @@ class HomeViewController: UIViewController, UINavigationBarDelegate {
         for countryCode in countryCodes {
 
             let identifier = NSLocale(localeIdentifier: countryCode)
+
             if let country = identifier.displayName(forKey: NSLocale.Key.countryCode, value: countryCode) {
+                if !country.isContiguousUTF8 { continue }
                 countryCodesDictionary[country] = countryCode
             }
         }
@@ -284,6 +286,12 @@ extension HomeViewController: OfferTableCellDelegate {
                 completion(photo)
             }
         }.resume()
+    }
+    
+    func getCountryCode(userCountry: String) -> String {
+        guard let countryCode = countryCodesDictionary[userCountry] else
+        { return "" }
+        return countryCode
     }
 
 }

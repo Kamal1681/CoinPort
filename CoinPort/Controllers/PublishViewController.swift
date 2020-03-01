@@ -7,7 +7,8 @@
 //
 
 import UIKit
-import FirebaseFirestore
+import Firebase
+import GoogleMaps
 
 class PublishViewController: UIViewController, UINavigationBarDelegate, UITextViewDelegate {
     
@@ -15,6 +16,9 @@ class PublishViewController: UIViewController, UINavigationBarDelegate, UITextVi
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var publishButton: UIButton!
     @IBOutlet weak var closeButton: UIButton!
+    
+    let db = Firestore.firestore()
+    let settings = FirestoreSettings()
     
     var offer = Offer()
 
@@ -26,6 +30,33 @@ class PublishViewController: UIViewController, UINavigationBarDelegate, UITextVi
         configureNavigationBar()
         
         additionalNotes.delegate = self
+        
+        getUserDetails()
+        
+    }
+    
+    func getUserDetails() {
+        if let user = Auth.auth().currentUser {
+            offer.user = user.displayName!
+            offer.userID = user.uid
+            offer.profilePictureURL = user.photoURL
+        }
+        getUserCountry()
+    }
+    
+    func getUserCountry() {
+        guard let location = offer.offerLocation else { return }
+        let offerCoordinate = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
+        let geoDecoder = GMSGeocoder()
+        
+        geoDecoder.reverseGeocodeCoordinate(offerCoordinate) { (results, error) in
+            if error != nil {
+                print(error)
+            }
+            if results != nil {
+                self.offer.userCountry = results?.firstResult()?.country ?? ""
+            }
+        }
     }
     
     //MARK:- Configuration Functions
@@ -117,7 +148,26 @@ class PublishViewController: UIViewController, UINavigationBarDelegate, UITextVi
     }
     
     @IBAction func publishButtonPressed(_ sender: Any) {
-        
+        db.collection("Offers").addDocument(data: [
+            "digitalCurrency" : offer.digitalCurrency,
+            "exchangeAmount" : offer.exchangeAmount,
+            "exchangeRate" : offer.exchangeRate,
+            "numberOfViews" : offer.numberOfViews,
+            "offerAddress" : offer.offerAddress,
+            "offerLocation" : offer.offerLocation,
+            "offerRequest" : offer.offerRequest?.rawValue,
+            "realCurrency" : offer.realCurrency,
+            "profilePictureURL" : offer.profilePictureURL?.absoluteString,
+            "user" : offer.user,
+            "userCountry" : offer.userCountry,
+            "userID" : offer.userID
+        ]) { (error) in
+            if error != nil {
+                print(error)
+            } else {
+                print("Successfully added")
+            }
+        }
     }
     
     @IBAction func closeButtonPressed(_ sender: Any) {

@@ -32,6 +32,7 @@ class Offer {
     var offerAddress: String = ""
     var user: String = ""
     var userCountry: String = ""
+    var userID: String = ""
     var distance: String = ""
     var numberOfViews = 0
     var profilePictureURL: URL?

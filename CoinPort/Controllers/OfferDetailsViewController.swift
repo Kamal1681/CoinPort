@@ -350,7 +350,7 @@ extension OfferDetailsViewController: UITextFieldDelegate {
             textField.resignFirstResponder()
         case 1:
             if let textFieldText = textField.text {
-                offer.exchangeRate = "\(currencyPicker.selectedRow(inComponent: 0)) = \(textFieldText) \(String(describing: rateCurrencyLabel.text))"
+                offer.exchangeRate = "\(currencyPicker.selectedRow(inComponent: 0)) = \(textFieldText) \(String(describing: rateCurrencyLabel.text!))"
             }
             textField.resignFirstResponder()
         case 2:
