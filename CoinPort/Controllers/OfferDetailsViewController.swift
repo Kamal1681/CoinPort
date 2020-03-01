@@ -37,6 +37,7 @@ class OfferDetailsViewController: UIViewController, UINavigationBarDelegate, Cur
     @IBOutlet weak var closeButton: UIButton!
     
     let currencyPickerArray = ["USD", "Euro"]
+    var currencyPickerValue: String?
     
     var offer = Offer()
     
@@ -350,7 +351,7 @@ extension OfferDetailsViewController: UITextFieldDelegate {
             textField.resignFirstResponder()
         case 1:
             if let textFieldText = textField.text {
-                offer.exchangeRate = "\(currencyPicker.selectedRow(inComponent: 0)) = \(textFieldText) \(String(describing: rateCurrencyLabel.text!))"
+                offer.exchangeRate = "\(currencyPickerValue ?? "") = \(textFieldText) \(String(describing: rateCurrencyLabel.text!))"
             }
             textField.resignFirstResponder()
         case 2:
@@ -400,6 +401,10 @@ extension OfferDetailsViewController: UIPickerViewDelegate, UIPickerViewDataSour
             pickerLabel?.textColor = .lightGray
         }
         return pickerLabel!
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        currencyPickerValue = currencyPickerArray[row]
     }
     
 }
