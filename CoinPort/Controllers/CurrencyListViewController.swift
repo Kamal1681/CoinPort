@@ -12,6 +12,9 @@ import FlagKit
 class CurrencyListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
     let codeToCountry = [
+    "EUR" : "European Union",
+    "USD" : "United States",
+    "GBP" : "United Kingdom",
     "AED" : "United Arab Emirates",
     "AFN" : "Afghanistan",
     "ARS" : "Argentina",
@@ -38,8 +41,6 @@ class CurrencyListViewController: UIViewController, UITableViewDelegate, UITable
     "DZD" : "Algeria",
     "EGP" : "Egypt",
     "ETB" : "Ethiopia",
-    "EUR" : "European Union",
-    "GBP" : "United Kingdom",
     "GEL" : "Georgia",
     "GHS" : "Ghana",
     "GMD" : "Gambia",
@@ -106,18 +107,17 @@ class CurrencyListViewController: UIViewController, UITableViewDelegate, UITable
     "TZS" : "Tanzania",
     "UAH" : "Ukraine",
     "UGX" : "Uganda",
-    "USD" : "United States",
     "UYU" : "Uruguay",
     "VEB" : "Venezuela",
     "VND" : "Vietnam",
     "YER" : "Yemen",
     "ZAR" : "South Africa"]
     
-    let currencyCodes = ["AED", "AFN", "ARS", "AUD", "BBD", "BDT", "BGN", "BHD", "BMD", "BND", "BOB", "BRL", "BTN", "BZD", "CAD", "CHF", "CLP", "CNY", "COP", "CRC", "CZK", "DKK", "DOP", "DZD", "EGP", "ETB", "EUR", "GBP", "GEL", "GHS", "GMD", "GYD", "HKD", "HRK", "HUF", "IDR", "INR", "IQD", "IRR", "ISK", "JMD", "JOD", "JPY", "KES", "KPW", "KRW", "KWD", "KYD", "KZT", "LAK", "LBP", "LKR", "LRD", "LTL", "LYD", "MAD", "MDL", "MKD", "MNT", "MUR", "MWK", "MXN", "MYR", "MZN", "NAD", "NGN", "NIO", "NOK", "NPR", "NZD", "OMR", "PEN", "PGK", "PHP", "PKR", "PLN", "PYG", "QAR", "RON", "RSD", "RUB", "SAR", "SDG", "SEK", "SGD", "SOS", "SYP", "THB", "TND", "TRY", "TWD", "TZS", "UAH", "UGX", "USD", "UYU", "VEB", "VND", "YER", "ZAR"]
+    let currencyCodes = ["EUR", "USD", "GBP", "AED", "AFN", "ARS", "AUD", "BBD", "BDT", "BGN", "BHD", "BMD", "BND", "BOB", "BRL", "BTN", "BZD", "CAD", "CHF", "CLP", "CNY", "COP", "CRC", "CZK", "DKK", "DOP", "DZD", "EGP", "ETB", "GEL", "GHS", "GMD", "GYD", "HKD", "HRK", "HUF", "IDR", "INR", "IQD", "IRR", "ISK", "JMD", "JOD", "JPY", "KES", "KPW", "KRW", "KWD", "KYD", "KZT", "LAK", "LBP", "LKR", "LRD", "LTL", "LYD", "MAD", "MDL", "MKD", "MNT", "MUR", "MWK", "MXN", "MYR", "MZN", "NAD", "NGN", "NIO", "NOK", "NPR", "NZD", "OMR", "PEN", "PGK", "PHP", "PKR", "PLN", "PYG", "QAR", "RON", "RSD", "RUB", "SAR", "SDG", "SEK", "SGD", "SOS", "SYP", "THB", "TND", "TRY", "TWD", "TZS", "UAH", "UGX", "UYU", "VEB", "VND", "YER", "ZAR"]
     
-    let countryCodes = ["AE", "AF", "AR", "AU", "BB", "BD", "BG", "BH", "BM", "BN", "BO", "BR", "BT", "BZ", "CA", "CH", "CL", "CN", "CO", "CR", "CZ", "DK", "DO", "DZ", "EG", "ET", "EU", "GB", "GE", "GH", "GM", "GY", "HK", "HR", "HU", "ID", "IN", "IQ", "IR", "IS", "JM", "JO", "JP", "KE", "KP", "KR", "KW", "KY", "KZ", "LA", "LB", "LK", "LR", "LT", "LY", "MA", "MD", "MK", "MN", "MU", "MW", "MX", "MY", "MZ", "NA", "NG", "NI", "NO", "NP", "NZ", "OM", "PE", "PG", "PH", "PK", "PL", "PY", "QA", "RO", "RS", "RU", "SA", "SD", "SE", "SG", "SO", "SY", "TH", "TN", "TR", "TW", "TZ", "UA", "UG", "US", "UY", "VE", "VN", "YE", "ZA"]
+    let countryCodes = ["EU", "US", "GB", "AE", "AF", "AR", "AU", "BB", "BD", "BG", "BH", "BM", "BN", "BO", "BR", "BT", "BZ", "CA", "CH", "CL", "CN", "CO", "CR", "CZ", "DK", "DO", "DZ", "EG", "ET", "GE", "GH", "GM", "GY", "HK", "HR", "HU", "ID", "IN", "IQ", "IR", "IS", "JM", "JO", "JP", "KE", "KP", "KR", "KW", "KY", "KZ", "LA", "LB", "LK", "LR", "LT", "LY", "MA", "MD", "MK", "MN", "MU", "MW", "MX", "MY", "MZ", "NA", "NG", "NI", "NO", "NP", "NZ", "OM", "PE", "PG", "PH", "PK", "PL", "PY", "QA", "RO", "RS", "RU", "SA", "SD", "SE", "SG", "SO", "SY", "TH", "TN", "TR", "TW", "TZ", "UA", "UG", "UY", "VE", "VN", "YE", "ZA"]
     
-    let countries = ["United Arab Emirates", "Afghanistan", "Argentina", "Australia", "Barbados", "Bangladesh", "Bulgaria", "Bahrain", "Bermuda", "Brunei", "Bolivia", "Brazil", "Bhutan", "Belize", "Canada", "Switzerland", "Chile", "China Mainland", "Colombia", "Costa Rica", "Czech Republic", "Denmark", "Dominican Republic", "Algeria", "Egypt", "Ethiopia", "European Union", "United Kingdom", "Georgia", "Ghana", "Gambia", "Guyana", "Hong Kong", "Croatia", "Hungary", "Indonesia", "India", "Iraq", "Iran", "Iceland", "Jamaica", "Jordan", "Japan", "Kenya", "North Korea", "South Korea", "Kuwait", "Cayman Islands", "Kazakhstan", "Laos", "Lebanon", "Sri Lanka", "Liberia", "Lithuania", "Libya", "Morocco", "Moldova", "Macedonia", "Mongolia", "Mauritius", "Malawi", "Mexico", "Malaysia", "Mozambique", "Namibia", "Nigeria", "Nicaragua", "Norway", "Nepal", "New Zealand", "Oman", "Peru", "Papua New Guinea", "Philippines", "Pakistan", "Poland", "Paraguay", "Qatar", "Romania", "Serbia", "Russia", "Saudi Arabia", "Sudan", "Sweden", "Singapore", "Somalia", "Syria", "Thailand", "Tunisia", "Turkey", "Taiwan", "Tanzania", "Ukraine", "Uganda", "United States", "Uruguay", "Venezuela", "Vietnam", "Yemen", "South Africa"]
+    let countries = ["European Union", "United States", "United Kingdom", "United Arab Emirates", "Afghanistan", "Argentina", "Australia", "Barbados", "Bangladesh", "Bulgaria", "Bahrain", "Bermuda", "Brunei", "Bolivia", "Brazil", "Bhutan", "Belize", "Canada", "Switzerland", "Chile", "China Mainland", "Colombia", "Costa Rica", "Czech Republic", "Denmark", "Dominican Republic", "Algeria", "Egypt", "Ethiopia", "Georgia", "Ghana", "Gambia", "Guyana", "Hong Kong", "Croatia", "Hungary", "Indonesia", "India", "Iraq", "Iran", "Iceland", "Jamaica", "Jordan", "Japan", "Kenya", "North Korea", "South Korea", "Kuwait", "Cayman Islands", "Kazakhstan", "Laos", "Lebanon", "Sri Lanka", "Liberia", "Lithuania", "Libya", "Morocco", "Moldova", "Macedonia", "Mongolia", "Mauritius", "Malawi", "Mexico", "Malaysia", "Mozambique", "Namibia", "Nigeria", "Nicaragua", "Norway", "Nepal", "New Zealand", "Oman", "Peru", "Papua New Guinea", "Philippines", "Pakistan", "Poland", "Paraguay", "Qatar", "Romania", "Serbia", "Russia", "Saudi Arabia", "Sudan", "Sweden", "Singapore", "Somalia", "Syria", "Thailand", "Tunisia", "Turkey", "Taiwan", "Tanzania", "Ukraine", "Uganda", "Uruguay", "Venezuela", "Vietnam", "Yemen", "South Africa"]
     
     var currencies = [String]()
     var flags = [UIImage]()
