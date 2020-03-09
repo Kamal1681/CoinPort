@@ -25,6 +25,7 @@ class OfferTableCell: UITableViewCell {
     
     @IBOutlet weak var profilePicture: UIImageView!
     
+    @IBOutlet weak var optionsButton: UIButton!
     
     @IBOutlet weak var offerStatusLabel: UILabel!
     
@@ -56,8 +57,8 @@ class OfferTableCell: UITableViewCell {
         offerStatusLabel.text = offer.offerStatus.map { $0.rawValue }
         offerRequestLabel.text = offer.offerRequest.map { $0.rawValue }
         
-        if let offerLocation = offer.offerLocation {
-            delegate?.getDistance(offerLocation: offerLocation, completion: { (distance) in
+        if let offerLocation = offer.offerLocation, let countryCode = countryCode {
+            delegate?.getDistance(offerLocation: offerLocation, countryCode: countryCode, completion: { (distance) in
                 offer.distance = distance
                 self.distanceLabel.text = offer.distance
             })
@@ -82,6 +83,9 @@ class OfferTableCell: UITableViewCell {
     
     @IBAction func mapButtonPressed(_ sender: Any) {
         print("map")
+    }
+    
+    @IBAction func optionsButtonPressed(_ sender: Any) {
     }
     
 }

@@ -11,11 +11,119 @@ import FlagKit
 
 class CurrencyListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
+    let codeToCountry = [
+    "AED" : "United Arab Emirates",
+    "AFN" : "Afghanistan",
+    "ARS" : "Argentina",
+    "AUD" : "Australia",
+    "BBD" : "Barbados",
+    "BDT" : "Bangladesh",
+    "BGN" : "Bulgaria",
+    "BHD" : "Bahrain",
+    "BMD" : "Bermuda",
+    "BND" : "Brunei",
+    "BOB" : "Bolivia",
+    "BRL" : "Brazil",
+    "BTN" : "Bhutan",
+    "BZD" : "Belize",
+    "CAD" : "Canada",
+    "CHF" : "Switzerland",
+    "CLP" : "Chile",
+    "CNY" : "Mainland China",
+    "COP" : "Colombia",
+    "CRC" : "Costa Rica",
+    "CZK" : "Czech Republic",
+    "DKK" : "Denmark",
+    "DOP" : "Dominican Republic",
+    "DZD" : "Algeria",
+    "EGP" : "Egypt",
+    "ETB" : "Ethiopia",
+    "EUR" : "European Union",
+    "GBP" : "United Kingdom",
+    "GEL" : "Georgia",
+    "GHS" : "Ghana",
+    "GMD" : "Gambia",
+    "GYD" : "Guyana",
+    "HKD" : "Hong Kong",
+    "HRK" : "Croatia",
+    "HUF" : "Hungary",
+    "IDR" : "Indonesia",
+    "INR" : "India",
+    "IQD" : "Iraq",
+    "IRR" : "Iran",
+    "ISK" : "Iceland",
+    "JMD" : "Jamaica",
+    "JOD" : "Jordan",
+    "JPY" : "Japan",
+    "KES" : "Kenya",
+    "KPW" : "North Korea",
+    "KRW" : "South Korea",
+    "KWD" : "Kuwait",
+    "KYD" : "Cayman Islands",
+    "KZT" : "Kazakhstan",
+    "LAK" : "Laos",
+    "LBP" : "Lebanon",
+    "LKR" : "Sri Lanka",
+    "LRD" : "Liberia",
+    "LTL" : "Lithuania",
+    "LYD" : "Libya",
+    "MAD" : "Morocco",
+    "MDL" : "Moldova",
+    "MKD" : "Macedonia",
+    "MNT" : "Mongolia",
+    "MUR" : "Mauritius",
+    "MWK" : "Malawi",
+    "MXN" : "Mexico",
+    "MYR" : "Malaysia",
+    "MZN" : "Mozambique",
+    "NAD" : "Namibia",
+    "NGN" : "Nigeria",
+    "NIO" : "Nicaragua",
+    "NOK" : "Norway",
+    "NPR" : "Nepal",
+    "NZD" : "New Zealand",
+    "OMR" : "Oman",
+    "PEN" : "Peru",
+    "PGK" : "Papua New Guinea",
+    "PHP" : "Philippines",
+    "PKR" : "Pakistan",
+    "PLN" : "Poland",
+    "PYG" : "Paraguay",
+    "QAR" : "Qatar",
+    "RON" : "Romania",
+    "RSD" : "Serbia",
+    "RUB" : "Russia",
+    "SAR" : "Saudi Arabia",
+    "SDG" : "Sudan",
+    "SEK" : "Sweden",
+    "SGD" : "Singapore",
+    "SOS" : "Somalia",
+    "SYP" : "Syria",
+    "THB" : "Thailand",
+    "TND" : "Tunisia",
+    "TRY" : "Turkey",
+    "TWD" : "Taiwan",
+    "TZS" : "Tanzania",
+    "UAH" : "Ukraine",
+    "UGX" : "Uganda",
+    "USD" : "United States",
+    "UYU" : "Uruguay",
+    "VEB" : "Venezuela",
+    "VND" : "Vietnam",
+    "YER" : "Yemen",
+    "ZAR" : "South Africa"]
+    
+    let currencyCodes = ["AED", "AFN", "ARS", "AUD", "BBD", "BDT", "BGN", "BHD", "BMD", "BND", "BOB", "BRL", "BTN", "BZD", "CAD", "CHF", "CLP", "CNY", "COP", "CRC", "CZK", "DKK", "DOP", "DZD", "EGP", "ETB", "EUR", "GBP", "GEL", "GHS", "GMD", "GYD", "HKD", "HRK", "HUF", "IDR", "INR", "IQD", "IRR", "ISK", "JMD", "JOD", "JPY", "KES", "KPW", "KRW", "KWD", "KYD", "KZT", "LAK", "LBP", "LKR", "LRD", "LTL", "LYD", "MAD", "MDL", "MKD", "MNT", "MUR", "MWK", "MXN", "MYR", "MZN", "NAD", "NGN", "NIO", "NOK", "NPR", "NZD", "OMR", "PEN", "PGK", "PHP", "PKR", "PLN", "PYG", "QAR", "RON", "RSD", "RUB", "SAR", "SDG", "SEK", "SGD", "SOS", "SYP", "THB", "TND", "TRY", "TWD", "TZS", "UAH", "UGX", "USD", "UYU", "VEB", "VND", "YER", "ZAR"]
+    
+    let countryCodes = ["AE", "AF", "AR", "AU", "BB", "BD", "BG", "BH", "BM", "BN", "BO", "BR", "BT", "BZ", "CA", "CH", "CL", "CN", "CO", "CR", "CZ", "DK", "DO", "DZ", "EG", "ET", "EU", "GB", "GE", "GH", "GM", "GY", "HK", "HR", "HU", "ID", "IN", "IQ", "IR", "IS", "JM", "JO", "JP", "KE", "KP", "KR", "KW", "KY", "KZ", "LA", "LB", "LK", "LR", "LT", "LY", "MA", "MD", "MK", "MN", "MU", "MW", "MX", "MY", "MZ", "NA", "NG", "NI", "NO", "NP", "NZ", "OM", "PE", "PG", "PH", "PK", "PL", "PY", "QA", "RO", "RS", "RU", "SA", "SD", "SE", "SG", "SO", "SY", "TH", "TN", "TR", "TW", "TZ", "UA", "UG", "US", "UY", "VE", "VN", "YE", "ZA"]
+    
+    let countries = ["United Arab Emirates", "Afghanistan", "Argentina", "Australia", "Barbados", "Bangladesh", "Bulgaria", "Bahrain", "Bermuda", "Brunei", "Bolivia", "Brazil", "Bhutan", "Belize", "Canada", "Switzerland", "Chile", "China Mainland", "Colombia", "Costa Rica", "Czech Republic", "Denmark", "Dominican Republic", "Algeria", "Egypt", "Ethiopia", "European Union", "United Kingdom", "Georgia", "Ghana", "Gambia", "Guyana", "Hong Kong", "Croatia", "Hungary", "Indonesia", "India", "Iraq", "Iran", "Iceland", "Jamaica", "Jordan", "Japan", "Kenya", "North Korea", "South Korea", "Kuwait", "Cayman Islands", "Kazakhstan", "Laos", "Lebanon", "Sri Lanka", "Liberia", "Lithuania", "Libya", "Morocco", "Moldova", "Macedonia", "Mongolia", "Mauritius", "Malawi", "Mexico", "Malaysia", "Mozambique", "Namibia", "Nigeria", "Nicaragua", "Norway", "Nepal", "New Zealand", "Oman", "Peru", "Papua New Guinea", "Philippines", "Pakistan", "Poland", "Paraguay", "Qatar", "Romania", "Serbia", "Russia", "Saudi Arabia", "Sudan", "Sweden", "Singapore", "Somalia", "Syria", "Thailand", "Tunisia", "Turkey", "Taiwan", "Tanzania", "Ukraine", "Uganda", "United States", "Uruguay", "Venezuela", "Vietnam", "Yemen", "South Africa"]
+    
     var currencies = [String]()
     var flags = [UIImage]()
     var tempCurrencies = [String]()
     var tempFlags = [UIImage]()
-    var getCountryDictionary = [String: String]()
+    var countryDictionary = [String: String]()
     var currencyCodesDictionary = [String: String]()
     
     var delegate: CurrencyListViewControllerDelegate?
@@ -31,7 +139,7 @@ class CurrencyListViewController: UIViewController, UITableViewDelegate, UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         listCountriesAndCurrencies()
         
         currencyTableView.dataSource = self
@@ -56,7 +164,7 @@ class CurrencyListViewController: UIViewController, UITableViewDelegate, UITable
                     let range = currency.lowercased().range(of: searchText, options: .caseInsensitive, range: nil, locale: nil)
                     if range != nil {
                         currencies.append(currency)
-                        let country = getCountryDictionary[currency]!
+                        let country = countryDictionary[currency]!
                         flags.append(UIImage(named: country, in: FlagKit.assetBundle, with: nil) ?? UIImage())
                         
                     }
@@ -71,7 +179,7 @@ class CurrencyListViewController: UIViewController, UITableViewDelegate, UITable
         } else {
             for currency in tempCurrencies {
                 currencies.append(currency)
-                let country = getCountryDictionary[currency]!
+                let country = countryDictionary[currency]!
                 flags.append(UIImage(named: country, in: FlagKit.assetBundle, with: nil) ?? UIImage())
             }
         }
@@ -79,38 +187,26 @@ class CurrencyListViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func listCountriesAndCurrencies() {
-        
-        let localeIds = Locale.availableIdentifiers
-        var countryCurrency = [String: String]()
-        
-        for localeId in localeIds {
-            let locale = Locale(identifier: localeId)
-            if let country = locale.regionCode, country.count == 2 {
-                if let currency = locale.currencyCode {
-                    
-                    let countryText = locale.localizedString(forRegionCode: country)
-                    if !countryText!.isContiguousUTF8 {
-                        continue
-                    }
-                    
-                    let currencyText = locale.localizedString(forCurrencyCode: currency)
-                    if !currencyText!.isContiguousUTF8 {
-                        continue
-                    }
-                    countryCurrency[countryText!] = currencyText
-                    getCountryDictionary[currencyText!] = country
-                    
-                    currencies.append(currencyText!)
-                    currencyCodesDictionary[currencyText!] = currency
-                    tempCurrencies.append(currencyText!)
-                    
-                    flags.append(UIImage(named: country, in: FlagKit.assetBundle, with: nil) ?? UIImage())
-                    tempFlags.append(UIImage(named: country, in: FlagKit.assetBundle, with: nil) ?? UIImage())
-                    
-                    currencyTableView.reloadData()
-                }
-            }
-          }
+
+        for code in currencyCodes {
+            let locale = Locale(identifier: code)
+            guard let currencyText = locale.localizedString(forCurrencyCode: code) else { continue }
+            currencies.append(currencyText)
+        }
+
+        for i in 0..<currencyCodes.count {
+            let country = countries[i]
+            let currency = currencies[i]
+            let countryCode = countryCodes[i]
+            
+            countryDictionary[currency] = countryCode
+            currencyCodesDictionary[currency] = currencyCodes[i]
+            
+            tempCurrencies.append(currency)
+            flags.append(UIImage(named: countryCode, in: FlagKit.assetBundle, with: nil) ?? UIImage())
+            tempFlags.append(UIImage(named: countryCode, in: FlagKit.assetBundle, with: nil) ?? UIImage())
+        }
+         currencyTableView.reloadData()
       }
     
     @objc func closeCurrencyTableView() {
@@ -141,9 +237,11 @@ class CurrencyListViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    
-        delegate?.setRealCurrencyAndFlag(realCurrency: currencies[indexPath.row], flag: flags[indexPath.row], currencyCode: currencyCodesDictionary[currencies[indexPath.row]]!)
-        self.dismiss(animated: true, completion: nil)
+        if let currencyCode = currencyCodesDictionary[currencies[indexPath.row]] {
+            delegate?.setRealCurrencyAndFlag(realCurrency: currencies[indexPath.row], flag: flags[indexPath.row], currencyCode: currencyCode)
+            self.dismiss(animated: true, completion: nil)
+        }
+
     }
     
 }

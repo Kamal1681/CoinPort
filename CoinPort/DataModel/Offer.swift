@@ -17,6 +17,7 @@ enum OfferRequest: String {
 
 enum OfferStatus: String {
     case Expired
+    case SoldOut
     case Active
 }
 

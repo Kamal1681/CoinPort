@@ -56,73 +56,6 @@ class HomeViewController: UIViewController, UINavigationBarDelegate {
        
     }
     
-    //MARK:- Getter functions
-    
-    func getOffers() {
-         let FBQuery = db.collection("Offers")
-        FBQuery.getDocuments { (snapshot, error) in
-            if let error = error {
-                print("Error getting documents: \(error)")
-            } else {
-                
-                for document in snapshot!.documents {
-                   guard
-                    let digtalCurrency = document.get("digitalCurrency") as? String,
-                    let exchangeAmount = document.get("exchangeAmount") as? Double,
-                    let exchangeRate = document.get("exchangeRate") as? String,
-                    let numberOfViews = document.get("numberOfViews") as? Int,
-                    let offerLocation = document.get("offerLocation") as? GeoPoint,
-                    let offerRequestRawvalue = document.get("offerRequest") as? String,
-                    let realcurrency = document.get("realCurrency") as? String,
-                    let user = document.get("user") as? String,
-                    let userCountry = document.get("userCountry") as? String,
-                    let profilePictureURL = document.get("profilePictureURL") as? String
-                    else {
-                        print("Error geting data from Firebase")
-                        return
-                    }
-                    let offer = Offer()
-                    offer.digitalCurrency = digtalCurrency
-                    offer.exchangeAmount = exchangeAmount
-                    offer.exchangeRate = exchangeRate
-                    offer.numberOfViews = numberOfViews
-                    offer.offerLocation = offerLocation
-                    offer.offerRequest = OfferRequest(rawValue: offerRequestRawvalue)
-                    offer.realCurrency = realcurrency
-                    offer.user = user
-                    offer.userCountry = userCountry
-                    offer.profilePictureURL = URL(string: profilePictureURL)
-                    self.offersArray.append(offer)
-                }
-                self.offersTableView.reloadData()
-            }
-        }
-        
-    }
-    
-    func getCountryCodes() {
-        let countryCodes: [String] = NSLocale.isoCountryCodes
-        
-        for countryCode in countryCodes {
-
-            let identifier = NSLocale(localeIdentifier: countryCode)
-
-            if let country = identifier.displayName(forKey: NSLocale.Key.countryCode, value: countryCode) {
-                if !country.isContiguousUTF8 { continue }
-                countryCodesDictionary[country] = countryCode
-            }
-        }
-    }
-    
-    func getUserLocation() {
-        
-        locationManager.requestWhenInUseAuthorization()
-        
-        if CLLocationManager.locationServicesEnabled() {
-            currentLocation = locationManager.location
-        }
-    }
-    
     //MARK:- Configuration Functions
     
     func configureNavigationBar() {
@@ -152,8 +85,6 @@ class HomeViewController: UIViewController, UINavigationBarDelegate {
         navigationBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         
         navigationBar.items = [item]
-        
-        
     }
     
     func configureButton() {
@@ -181,9 +112,6 @@ class HomeViewController: UIViewController, UINavigationBarDelegate {
 
     }
     
-
-    
-    
     //MARK:- Button Actions
     
     @objc func handleMenuToggle() {
@@ -197,10 +125,8 @@ class HomeViewController: UIViewController, UINavigationBarDelegate {
     @objc func openMapViewController() {
         print("openmapviewcontroller")
     }
-
-
-    
 }
+
     //MARK:- TableView Delegate and DataSource
 
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
@@ -227,15 +153,15 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
 
 extension HomeViewController: OfferTableCellDelegate {
     
-    func getDistance(offerLocation: GeoPoint, completion: @escaping (String) -> Void) {
+    func getDistance(offerLocation: GeoPoint, countryCode: String, completion: @escaping (String) -> Void) {
         
         guard let currentLocation = currentLocation else { return }
         let startPoint = currentLocation.coordinate
         let endPoint = offerLocation
         var distance: String?
 
-        let url = URL(string: "https://maps.googleapis.com/maps/api/directions/json?origin=\(startPoint.latitude),\(startPoint.longitude)&destination=\(endPoint.latitude),\(endPoint.longitude)&key=\(googleApiKey)")
-       
+        let url = URL(string: "https://maps.googleapis.com/maps/api/directions/json?origin=\(startPoint.latitude),\(startPoint.longitude)&destination=\(endPoint.latitude),\(endPoint.longitude)&components=Country:\(countryCode)&key=\(googleApiKey)")
+
         URLSession.shared.dataTask(with: url! as URL) { (data, response, error) in
             if let error = error {
                 print(error)
@@ -247,6 +173,13 @@ extension HomeViewController: OfferTableCellDelegate {
                     let dict = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as! [String : Any]
     
                     let routes = dict["routes"] as! [Dictionary<String, Any>]
+                    if routes.first == nil {
+                        DispatchQueue.main.async {
+                            distance = "Could not calculate distance"
+                            completion(distance!)
+                        }
+                        return                        
+                    }
                     let legsDict = routes[0]
                     let legs = legsDict["legs"] as! [Dictionary<String, Any>]
                     let distDict = legs[0]
@@ -291,5 +224,69 @@ extension HomeViewController: OfferTableCellDelegate {
         { return "" }
         return countryCode
     }
+    
+    //MARK:- Getter functions
+     
+     func getOffers() {
+          let FBQuery = db.collection("Offers")
+         FBQuery.getDocuments { (snapshot, error) in
+             if let error = error {
+                 print("Error getting documents: \(error)")
+             } else {
+                 
+                 for document in snapshot!.documents {
+                    guard
+                     let digtalCurrency = document.get("digitalCurrency") as? String,
+                     let exchangeAmount = document.get("exchangeAmount") as? Double,
+                     let exchangeRate = document.get("exchangeRate") as? String,
+                     let numberOfViews = document.get("numberOfViews") as? Int,
+                     let offerLocation = document.get("offerLocation") as? GeoPoint,
+                     let offerRequestRawvalue = document.get("offerRequest") as? String,
+                     let realcurrency = document.get("realCurrency") as? String,
+                     let user = document.get("user") as? String,
+                     let userCountry = document.get("userCountry") as? String,
+                     let profilePictureURL = document.get("profilePictureURL") as? String
+                     else {
+                         print("Error geting data from Firebase")
+                         return
+                     }
+                     let offer = Offer()
+                     offer.digitalCurrency = digtalCurrency
+                     offer.exchangeAmount = exchangeAmount
+                     offer.exchangeRate = exchangeRate
+                     offer.numberOfViews = numberOfViews
+                     offer.offerLocation = offerLocation
+                     offer.offerRequest = OfferRequest(rawValue: offerRequestRawvalue)
+                     offer.realCurrency = realcurrency
+                     offer.user = user
+                     offer.userCountry = userCountry
+                     offer.profilePictureURL = URL(string: profilePictureURL)
+                     self.offersArray.append(offer)
+                 }
+                 self.offersTableView.reloadData()
+             }
+         }
+         
+     }
+     
+     func getCountryCodes() {
+        let countryCodes: [String] = Locale.isoRegionCodes
+         for countryCode in countryCodes {
 
+             let identifier = Locale(identifier: countryCode)
+            if let country = identifier.localizedString(forRegionCode: countryCode) {
+                 if !country.isContiguousUTF8 { continue }
+                 countryCodesDictionary[country] = countryCode
+             }
+         }
+     }
+     
+     func getUserLocation() {
+         
+         locationManager.requestWhenInUseAuthorization()
+         
+         if CLLocationManager.locationServicesEnabled() {
+             currentLocation = locationManager.location
+         }
+     }
 }

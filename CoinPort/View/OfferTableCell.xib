@@ -159,11 +159,21 @@
                                     <constraint firstAttribute="width" constant="20" id="kWR-VZ-szI"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HBV-PB-Q8i">
+                                <rect key="frame" x="317.5" y="0.0" width="21" height="22"/>
+                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <state key="normal" image="list.dash" catalog="system"/>
+                                <connections>
+                                    <action selector="optionsButtonPressed:" destination="dqt-j2-K8P" eventType="touchUpInside" id="v8Q-g5-pVh"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="Rc1-1b-EYN" firstAttribute="centerX" secondItem="HBV-PB-Q8i" secondAttribute="centerX" id="1Gc-4a-ueC"/>
                             <constraint firstAttribute="trailing" secondItem="Nrt-KR-1uf" secondAttribute="trailing" constant="3" id="2G3-9P-XmD"/>
                             <constraint firstItem="xJZ-9v-uuP" firstAttribute="leading" secondItem="RYN-IY-k6q" secondAttribute="leading" constant="8" id="Bl7-rk-0eR"/>
+                            <constraint firstItem="Rc1-1b-EYN" firstAttribute="top" secondItem="HBV-PB-Q8i" secondAttribute="bottom" id="Flp-cC-Imc"/>
                             <constraint firstItem="9SH-29-9Mm" firstAttribute="centerY" secondItem="xJZ-9v-uuP" secondAttribute="centerY" id="KAa-cJ-Ohj"/>
                             <constraint firstAttribute="trailing" secondItem="Rc1-1b-EYN" secondAttribute="trailing" constant="10" id="Nup-n7-wQq"/>
                             <constraint firstItem="xJZ-9v-uuP" firstAttribute="top" secondItem="RYN-IY-k6q" secondAttribute="top" constant="10" id="QFb-iX-ZvU"/>
@@ -195,6 +205,7 @@
                 <outlet property="numberOfViewsLabel" destination="AVp-Ag-BIx" id="ok7-ds-Bcf"/>
                 <outlet property="offerRequestLabel" destination="5Y6-MR-vdT" id="Pt7-1u-zHh"/>
                 <outlet property="offerStatusLabel" destination="rgQ-uk-Ely" id="WwU-J4-4os"/>
+                <outlet property="optionsButton" destination="HBV-PB-Q8i" id="8UL-BJ-CyW"/>
                 <outlet property="profilePicture" destination="xJZ-9v-uuP" id="23U-R6-y0a"/>
                 <outlet property="userFlag" destination="Rc1-1b-EYN" id="G0k-Tv-eXK"/>
                 <outlet property="userLabel" destination="9SH-29-9Mm" id="erp-vT-0Pm"/>
@@ -204,6 +215,7 @@
     </objects>
     <resources>
         <image name="eye" catalog="system" width="64" height="40"/>
+        <image name="list.dash" catalog="system" width="64" height="42"/>
         <image name="location" catalog="system" width="64" height="56"/>
         <image name="marker" width="50" height="50"/>
         <image name="star" catalog="system" width="64" height="58"/>
