@@ -34,6 +34,7 @@
 		C6ACA5D923BFF8C000D487E2 /* CurrencyListTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ACA5D823BFF8C000D487E2 /* CurrencyListTableCell.swift */; };
 		C6ADDD9823C2F59D00F4BEEE /* OfferTableCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ADDD9723C2F59D00F4BEEE /* OfferTableCellDelegate.swift */; };
 		C6ADDD9A23C75E6A00F4BEEE /* DigitalCurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6ADDD9923C75E6A00F4BEEE /* DigitalCurrencyViewController.swift */; };
+		C6DB157F2419C3BA00665363 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DB157E2419C3B900665363 /* FilterViewController.swift */; };
 		C6DDCCAE23A1BE2C00E25DA5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C6DDCCAD23A1BE2C00E25DA5 /* GoogleService-Info.plist */; };
 		C6DDCCB023A1C98500E25DA5 /* ContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DDCCAF23A1C98500E25DA5 /* ContainerController.swift */; };
 		C6EA3CBC23BE8FBB0084DD0E /* CurrencyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EA3CBB23BE8FBA0084DD0E /* CurrencyListViewController.swift */; };
@@ -71,6 +72,7 @@
 		C6ACA5D823BFF8C000D487E2 /* CurrencyListTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListTableCell.swift; sourceTree = "<group>"; };
 		C6ADDD9723C2F59D00F4BEEE /* OfferTableCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferTableCellDelegate.swift; sourceTree = "<group>"; };
 		C6ADDD9923C75E6A00F4BEEE /* DigitalCurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalCurrencyViewController.swift; sourceTree = "<group>"; };
+		C6DB157E2419C3B900665363 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		C6DDCCAD23A1BE2C00E25DA5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C6DDCCAF23A1C98500E25DA5 /* ContainerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerController.swift; sourceTree = "<group>"; };
 		C6EA3CBB23BE8FBA0084DD0E /* CurrencyListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListViewController.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				C6DDCCAF23A1C98500E25DA5 /* ContainerController.swift */,
 				C6477D7323B404E10043C29D /* MenuViewController.swift */,
 				C6477D7523B405100043C29D /* HomeViewController.swift */,
+				C6DB157E2419C3B900665363 /* FilterViewController.swift */,
 				C63FA53623AECCB500735EE0 /* SignInViewController.swift */,
 				C6477D7E23B990DF0043C29D /* ProfileViewController.swift */,
 				C6EA3CBB23BE8FBA0084DD0E /* CurrencyListViewController.swift */,
@@ -346,6 +349,7 @@
 				C6EA3CBC23BE8FBB0084DD0E /* CurrencyListViewController.swift in Sources */,
 				C6477D7B23B95C7E0043C29D /* MenuTableCell.swift in Sources */,
 				C6477D7F23B990DF0043C29D /* ProfileViewController.swift in Sources */,
+				C6DB157F2419C3BA00665363 /* FilterViewController.swift in Sources */,
 				C6A356BE23A1BA0900C064C8 /* SceneDelegate.swift in Sources */,
 				C600B7FA240AC14A00D6DBC4 /* PublishViewController.swift in Sources */,
 				C6ADDD9A23C75E6A00F4BEEE /* DigitalCurrencyViewController.swift in Sources */,

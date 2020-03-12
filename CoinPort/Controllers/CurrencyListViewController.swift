@@ -113,11 +113,11 @@ class CurrencyListViewController: UIViewController, UITableViewDelegate, UITable
     "YER" : "Yemen",
     "ZAR" : "South Africa"]
     
-    let currencyCodes = ["EUR", "USD", "GBP", "AED", "AFN", "ARS", "AUD", "BBD", "BDT", "BGN", "BHD", "BMD", "BND", "BOB", "BRL", "BTN", "BZD", "CAD", "CHF", "CLP", "CNY", "COP", "CRC", "CZK", "DKK", "DOP", "DZD", "EGP", "ETB", "GEL", "GHS", "GMD", "GYD", "HKD", "HRK", "HUF", "IDR", "INR", "IQD", "IRR", "ISK", "JMD", "JOD", "JPY", "KES", "KPW", "KRW", "KWD", "KYD", "KZT", "LAK", "LBP", "LKR", "LRD", "LTL", "LYD", "MAD", "MDL", "MKD", "MNT", "MUR", "MWK", "MXN", "MYR", "MZN", "NAD", "NGN", "NIO", "NOK", "NPR", "NZD", "OMR", "PEN", "PGK", "PHP", "PKR", "PLN", "PYG", "QAR", "RON", "RSD", "RUB", "SAR", "SDG", "SEK", "SGD", "SOS", "SYP", "THB", "TND", "TRY", "TWD", "TZS", "UAH", "UGX", "UYU", "VEB", "VND", "YER", "ZAR"]
+    static let currencyCodes = ["EUR", "USD", "GBP", "AED", "AFN", "ARS", "AUD", "BBD", "BDT", "BGN", "BHD", "BMD", "BND", "BOB", "BRL", "BTN", "BZD", "CAD", "CHF", "CLP", "CNY", "COP", "CRC", "CZK", "DKK", "DOP", "DZD", "EGP", "ETB", "GEL", "GHS", "GMD", "GYD", "HKD", "HRK", "HUF", "IDR", "INR", "IQD", "IRR", "ISK", "JMD", "JOD", "JPY", "KES", "KPW", "KRW", "KWD", "KYD", "KZT", "LAK", "LBP", "LKR", "LRD", "LTL", "LYD", "MAD", "MDL", "MKD", "MNT", "MUR", "MWK", "MXN", "MYR", "MZN", "NAD", "NGN", "NIO", "NOK", "NPR", "NZD", "OMR", "PEN", "PGK", "PHP", "PKR", "PLN", "PYG", "QAR", "RON", "RSD", "RUB", "SAR", "SDG", "SEK", "SGD", "SOS", "SYP", "THB", "TND", "TRY", "TWD", "TZS", "UAH", "UGX", "UYU", "VEB", "VND", "YER", "ZAR"]
     
-    let countryCodes = ["EU", "US", "GB", "AE", "AF", "AR", "AU", "BB", "BD", "BG", "BH", "BM", "BN", "BO", "BR", "BT", "BZ", "CA", "CH", "CL", "CN", "CO", "CR", "CZ", "DK", "DO", "DZ", "EG", "ET", "GE", "GH", "GM", "GY", "HK", "HR", "HU", "ID", "IN", "IQ", "IR", "IS", "JM", "JO", "JP", "KE", "KP", "KR", "KW", "KY", "KZ", "LA", "LB", "LK", "LR", "LT", "LY", "MA", "MD", "MK", "MN", "MU", "MW", "MX", "MY", "MZ", "NA", "NG", "NI", "NO", "NP", "NZ", "OM", "PE", "PG", "PH", "PK", "PL", "PY", "QA", "RO", "RS", "RU", "SA", "SD", "SE", "SG", "SO", "SY", "TH", "TN", "TR", "TW", "TZ", "UA", "UG", "UY", "VE", "VN", "YE", "ZA"]
+    static let countryCodes = ["EU", "US", "GB", "AE", "AF", "AR", "AU", "BB", "BD", "BG", "BH", "BM", "BN", "BO", "BR", "BT", "BZ", "CA", "CH", "CL", "CN", "CO", "CR", "CZ", "DK", "DO", "DZ", "EG", "ET", "GE", "GH", "GM", "GY", "HK", "HR", "HU", "ID", "IN", "IQ", "IR", "IS", "JM", "JO", "JP", "KE", "KP", "KR", "KW", "KY", "KZ", "LA", "LB", "LK", "LR", "LT", "LY", "MA", "MD", "MK", "MN", "MU", "MW", "MX", "MY", "MZ", "NA", "NG", "NI", "NO", "NP", "NZ", "OM", "PE", "PG", "PH", "PK", "PL", "PY", "QA", "RO", "RS", "RU", "SA", "SD", "SE", "SG", "SO", "SY", "TH", "TN", "TR", "TW", "TZ", "UA", "UG", "UY", "VE", "VN", "YE", "ZA"]
     
-    let countries = ["European Union", "United States", "United Kingdom", "United Arab Emirates", "Afghanistan", "Argentina", "Australia", "Barbados", "Bangladesh", "Bulgaria", "Bahrain", "Bermuda", "Brunei", "Bolivia", "Brazil", "Bhutan", "Belize", "Canada", "Switzerland", "Chile", "China Mainland", "Colombia", "Costa Rica", "Czech Republic", "Denmark", "Dominican Republic", "Algeria", "Egypt", "Ethiopia", "Georgia", "Ghana", "Gambia", "Guyana", "Hong Kong", "Croatia", "Hungary", "Indonesia", "India", "Iraq", "Iran", "Iceland", "Jamaica", "Jordan", "Japan", "Kenya", "North Korea", "South Korea", "Kuwait", "Cayman Islands", "Kazakhstan", "Laos", "Lebanon", "Sri Lanka", "Liberia", "Lithuania", "Libya", "Morocco", "Moldova", "Macedonia", "Mongolia", "Mauritius", "Malawi", "Mexico", "Malaysia", "Mozambique", "Namibia", "Nigeria", "Nicaragua", "Norway", "Nepal", "New Zealand", "Oman", "Peru", "Papua New Guinea", "Philippines", "Pakistan", "Poland", "Paraguay", "Qatar", "Romania", "Serbia", "Russia", "Saudi Arabia", "Sudan", "Sweden", "Singapore", "Somalia", "Syria", "Thailand", "Tunisia", "Turkey", "Taiwan", "Tanzania", "Ukraine", "Uganda", "Uruguay", "Venezuela", "Vietnam", "Yemen", "South Africa"]
+    static let countries = ["European Union", "United States", "United Kingdom", "United Arab Emirates", "Afghanistan", "Argentina", "Australia", "Barbados", "Bangladesh", "Bulgaria", "Bahrain", "Bermuda", "Brunei", "Bolivia", "Brazil", "Bhutan", "Belize", "Canada", "Switzerland", "Chile", "China Mainland", "Colombia", "Costa Rica", "Czech Republic", "Denmark", "Dominican Republic", "Algeria", "Egypt", "Ethiopia", "Georgia", "Ghana", "Gambia", "Guyana", "Hong Kong", "Croatia", "Hungary", "Indonesia", "India", "Iraq", "Iran", "Iceland", "Jamaica", "Jordan", "Japan", "Kenya", "North Korea", "South Korea", "Kuwait", "Cayman Islands", "Kazakhstan", "Laos", "Lebanon", "Sri Lanka", "Liberia", "Lithuania", "Libya", "Morocco", "Moldova", "Macedonia", "Mongolia", "Mauritius", "Malawi", "Mexico", "Malaysia", "Mozambique", "Namibia", "Nigeria", "Nicaragua", "Norway", "Nepal", "New Zealand", "Oman", "Peru", "Papua New Guinea", "Philippines", "Pakistan", "Poland", "Paraguay", "Qatar", "Romania", "Serbia", "Russia", "Saudi Arabia", "Sudan", "Sweden", "Singapore", "Somalia", "Syria", "Thailand", "Tunisia", "Turkey", "Taiwan", "Tanzania", "Ukraine", "Uganda", "Uruguay", "Venezuela", "Vietnam", "Yemen", "South Africa"]
     
     var currencies = [String]()
     var flags = [UIImage]()
@@ -188,19 +188,19 @@ class CurrencyListViewController: UIViewController, UITableViewDelegate, UITable
     
     func listCountriesAndCurrencies() {
 
-        for code in currencyCodes {
+        for code in CurrencyListViewController.currencyCodes {
             let locale = Locale(identifier: code)
             guard let currencyText = locale.localizedString(forCurrencyCode: code) else { continue }
             currencies.append(currencyText)
         }
 
-        for i in 0..<currencyCodes.count {
-            let country = countries[i]
+        for i in 0..<CurrencyListViewController.currencyCodes.count {
+
             let currency = currencies[i]
-            let countryCode = countryCodes[i]
+            let countryCode = CurrencyListViewController.countryCodes[i]
             
             countryDictionary[currency] = countryCode
-            currencyCodesDictionary[currency] = currencyCodes[i]
+            currencyCodesDictionary[currency] = CurrencyListViewController.currencyCodes[i]
             
             tempCurrencies.append(currency)
             flags.append(UIImage(named: countryCode, in: FlagKit.assetBundle, with: nil) ?? UIImage())

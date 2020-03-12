@@ -119,7 +119,8 @@ class HomeViewController: UIViewController, UINavigationBarDelegate {
     }
     
     @objc func openFilterViewController() {
-        print("openfilterviewController")
+        let filterViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FilterViewController") as! FilterViewController
+        present(UINavigationController(rootViewController: filterViewController), animated: true, completion: nil)
     }
     
     @objc func openMapViewController() {
@@ -270,14 +271,10 @@ extension HomeViewController: OfferTableCellDelegate {
      }
      
      func getCountryCodes() {
-        let countryCodes: [String] = Locale.isoRegionCodes
-         for countryCode in countryCodes {
-
-             let identifier = Locale(identifier: countryCode)
-            if let country = identifier.localizedString(forRegionCode: countryCode) {
-                 if !country.isContiguousUTF8 { continue }
-                 countryCodesDictionary[country] = countryCode
-             }
+        let countryCodes: [String] = CurrencyListViewController.countryCodes
+        for i in 0..<CurrencyListViewController.countryCodes.count {
+            let country = CurrencyListViewController.countries[i]
+            countryCodesDictionary[country] = CurrencyListViewController.countryCodes[i]
          }
      }
      

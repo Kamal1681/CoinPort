@@ -52,7 +52,7 @@ class OfferTableCell: UITableViewCell {
         }
         digitalCurrencyLabel.text = offer.digitalCurrency
         exchangeRateLabel.text = offer.exchangeRate
-        exchangeAmountLabel.text = String(offer.exchangeAmount)
+        exchangeAmountLabel.text = String(offer.exchangeAmount) +  " \(offer.realCurrency)"
         numberOfViewsLabel.text = String(offer.numberOfViews)
         offerStatusLabel.text = offer.offerStatus.map { $0.rawValue }
         offerRequestLabel.text = offer.offerRequest.map { $0.rawValue }
