@@ -27,11 +27,14 @@ class FilterViewController: UIViewController, UINavigationBarDelegate {
     
     @IBOutlet weak var offerStatusSwitch: UISwitch!
     
+    @IBOutlet weak var topConstraint: NSLayoutConstraint!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigationBar()
         configureButtons()
-        // Do any additional setup after loading the view.
+        
+        //topConstraint.constant = (navigationController?.navigationBar.frame.size.height)!
     }
     
     func configureNavigationBar() {
@@ -75,7 +78,13 @@ class FilterViewController: UIViewController, UINavigationBarDelegate {
     //MARK:- Actions
     
     @objc func dismissProfileController() {
-        self.dismiss(animated: true, completion: nil)
+        //self.dismiss(animated: true, completion: nil)
+        let container = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ContainerController") as! ContainerController
+        UIView.animate(withDuration: 0.1, delay: 0, options: .curveEaseInOut, animations: {
+                self.view.addSubview(container.view)
+                self.addChild(container)
+                container.didMove(toParent: self)
+        }, completion: nil)
     }
     
     @IBAction func sortBySegmentedControlTapped(_ sender: Any) {

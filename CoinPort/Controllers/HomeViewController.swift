@@ -120,7 +120,8 @@ class HomeViewController: UIViewController, UINavigationBarDelegate {
     
     @objc func openFilterViewController() {
         let filterViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FilterViewController") as! FilterViewController
-        present(UINavigationController(rootViewController: filterViewController), animated: true, completion: nil)
+
+        show(filterViewController, sender: self)
     }
     
     @objc func openMapViewController() {
