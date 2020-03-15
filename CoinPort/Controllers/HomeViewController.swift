@@ -37,7 +37,7 @@ class HomeViewController: UIViewController, UINavigationBarDelegate {
         configureButton()
         configureImageView()
         
-        Firestore.firestore().settings = settings
+        db.settings = settings
         
         viewTopConstraint.constant = (navigationController?.navigationBar.frame.size.height)!
 
@@ -237,6 +237,9 @@ extension HomeViewController: OfferTableCellDelegate {
              } else {
                  
                  for document in snapshot!.documents {
+                    let timeStamp = document.get("postedDate") as! Timestamp
+                    let postedDate = timeStamp.dateValue()
+                    
                     guard
                      let digtalCurrency = document.get("digitalCurrency") as? String,
                      let exchangeAmount = document.get("exchangeAmount") as? Double,
@@ -248,6 +251,8 @@ extension HomeViewController: OfferTableCellDelegate {
                      let user = document.get("user") as? String,
                      let userCountry = document.get("userCountry") as? String,
                      let profilePictureURL = document.get("profilePictureURL") as? String
+                        
+
                      else {
                          print("Error geting data from Firebase")
                          return
@@ -263,6 +268,7 @@ extension HomeViewController: OfferTableCellDelegate {
                      offer.user = user
                      offer.userCountry = userCountry
                      offer.profilePictureURL = URL(string: profilePictureURL)
+                    offer.postedDate = postedDate
                      self.offersArray.append(offer)
                  }
                  self.offersTableView.reloadData()

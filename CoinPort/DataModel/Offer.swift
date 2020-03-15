@@ -39,5 +39,5 @@ class Offer {
     var profilePictureURL: URL?
     var review: Review?
     var notes: String = ""
-    
+    var postedDate: Date?
 }

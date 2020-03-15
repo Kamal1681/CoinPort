@@ -1092,8 +1092,12 @@
                                                 <rect key="frame" x="0.0" y="41.5" width="375" height="62.5"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D3e-P9-F9S">
-                                                        <rect key="frame" x="8" y="16" width="30" height="30"/>
+                                                        <rect key="frame" x="8" y="13.5" width="35" height="35"/>
                                                         <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="35" id="MCP-Jq-TtO"/>
+                                                            <constraint firstAttribute="width" secondItem="D3e-P9-F9S" secondAttribute="height" multiplier="1:1" id="jqB-T2-gMf"/>
+                                                        </constraints>
                                                         <state key="normal" title="BTC">
                                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         </state>
@@ -1102,8 +1106,12 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nID-ua-eag">
-                                                        <rect key="frame" x="46" y="16" width="30" height="30"/>
+                                                        <rect key="frame" x="51" y="13.5" width="35" height="35"/>
                                                         <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="35" id="FeA-3s-Xd0"/>
+                                                            <constraint firstAttribute="width" secondItem="nID-ua-eag" secondAttribute="height" multiplier="1:1" id="tJm-WO-qxz"/>
+                                                        </constraints>
                                                         <state key="normal" title="XPR">
                                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         </state>
@@ -1112,8 +1120,12 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tEd-K4-4x2">
-                                                        <rect key="frame" x="84" y="16" width="30" height="30"/>
+                                                        <rect key="frame" x="94" y="13.5" width="35" height="35"/>
                                                         <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="35" id="USc-fV-z8C"/>
+                                                            <constraint firstAttribute="width" secondItem="tEd-K4-4x2" secondAttribute="height" multiplier="1:1" id="k2y-Xu-UEi"/>
+                                                        </constraints>
                                                         <state key="normal" title="ETH">
                                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         </state>
@@ -1122,8 +1134,13 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2B6-gW-xAp">
-                                                        <rect key="frame" x="122" y="16" width="32" height="30"/>
+                                                        <rect key="frame" x="137" y="13.5" width="35" height="35"/>
                                                         <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="2B6-gW-xAp" secondAttribute="height" multiplier="1:1" id="LWM-mg-Yea"/>
+                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="PaG-kV-4sU"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                         <state key="normal" title="BCH">
                                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         </state>
@@ -1132,8 +1149,13 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YxQ-7b-KWN">
-                                                        <rect key="frame" x="162" y="16" width="40" height="30"/>
+                                                        <rect key="frame" x="180" y="13.5" width="35" height="35"/>
                                                         <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="35" id="XCB-QO-fsb"/>
+                                                            <constraint firstAttribute="width" secondItem="YxQ-7b-KWN" secondAttribute="height" multiplier="1:1" id="rMB-BM-7wV"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                         <state key="normal" title="USDT">
                                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         </state>
@@ -1142,8 +1164,12 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DN5-Eu-FK7">
-                                                        <rect key="frame" x="210" y="16" width="30" height="30"/>
+                                                        <rect key="frame" x="223" y="13.5" width="35" height="35"/>
                                                         <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="DN5-Eu-FK7" secondAttribute="height" multiplier="1:1" id="HAg-gc-cik"/>
+                                                            <constraint firstAttribute="height" constant="35" id="sch-Uo-Xi0"/>
+                                                        </constraints>
                                                         <state key="normal" title="ALL">
                                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         </state>

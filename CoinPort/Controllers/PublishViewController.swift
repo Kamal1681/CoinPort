@@ -148,6 +148,7 @@ class PublishViewController: UIViewController, UINavigationBarDelegate, UITextVi
     }
     
     @IBAction func publishButtonPressed(_ sender: Any) {
+
         db.collection("Offers").addDocument(data: [
             "digitalCurrency" : offer.digitalCurrency,
             "exchangeAmount" : offer.exchangeAmount,
@@ -160,7 +161,8 @@ class PublishViewController: UIViewController, UINavigationBarDelegate, UITextVi
             "profilePictureURL" : offer.profilePictureURL?.absoluteString,
             "user" : offer.user,
             "userCountry" : offer.userCountry,
-            "userID" : offer.userID
+            "userID" : offer.userID,
+            "postedDate" : FieldValue.serverTimestamp()
         ]) { (error) in
             if error != nil {
                 print(error)

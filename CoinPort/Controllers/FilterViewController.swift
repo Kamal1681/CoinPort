@@ -67,12 +67,12 @@ class FilterViewController: UIViewController, UINavigationBarDelegate {
     }
     
     func configureButtons() {
-        bTCButton.layer.cornerRadius = bTCButton.frame.size.width/4
-        xPRButton.layer.cornerRadius = bTCButton.frame.size.width/4
-        eTHButton.layer.cornerRadius = eTHButton.frame.size.width/4
-        bCHButton.layer.cornerRadius = bCHButton.frame.size.width/4
-        uSDTButton.layer.cornerRadius = uSDTButton.frame.size.width/4
-        allButton.layer.cornerRadius = allButton.frame.size.width/4
+        bTCButton.layer.cornerRadius = bTCButton.frame.size.width/2.3
+        xPRButton.layer.cornerRadius = bTCButton.frame.size.width/2.3
+        eTHButton.layer.cornerRadius = eTHButton.frame.size.width/2.3
+        bCHButton.layer.cornerRadius = bCHButton.frame.size.width/2.3
+        uSDTButton.layer.cornerRadius = uSDTButton.frame.size.width/2.3
+        allButton.layer.cornerRadius = allButton.frame.size.width/2.3
     }
     
     //MARK:- Actions

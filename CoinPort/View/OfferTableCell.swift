@@ -57,6 +57,10 @@ class OfferTableCell: UITableViewCell {
         offerStatusLabel.text = offer.offerStatus.map { $0.rawValue }
         offerRequestLabel.text = offer.offerRequest.map { $0.rawValue }
         
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        offerStatusLabel.text = dateFormatter.string(from: offer.postedDate!)
+        
         if let offerLocation = offer.offerLocation, let countryCode = countryCode {
             delegate?.getDistance(offerLocation: offerLocation, countryCode: countryCode, completion: { (distance) in
                 offer.distance = distance
